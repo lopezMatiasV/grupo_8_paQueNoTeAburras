@@ -1,184 +1,167 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <!--
-    ETIQUETAS META PARA CONFIGURAR
-  -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pa' que no te aburras</title>
-  <!-- ETIQUETAS LINK PARA VINCULAR CON FONTAWESOME Y BOOTSTRAP-->
-  <script src="https://kit.fontawesome.com/3f21023fe6.js" crossorigin="anonymous"></script>
-  <!--<link rel="stylesheet" href="https://kit.fontawesome.com/cedf9d4572.js" crossorigin="anonymous">
-  -->  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  
-</head>
+
+  <%- include('partials/head') %>
+
 <body>
-  <main>
     
-    <div class="container">
-      <div id="otrapruebacolor" class="row row-cols-2">
-        <div class="col">Arriba chicos</div>
-        <div class="col">que llegamos!!!</div>
-        <div class="col">A no aflojar</div>
-        <div class="col">A pasitos</div>
-      </div>
-    </div>
-  </main> 
-  <!--FOOTER: PIE DE PAGINA-->
-  <footer class="container-fluid">
-    <!--caja con el contenido principal de footer-->
-    <!--Contenido de la fila superior en lg-->
-    
-    <div id="fnewsleter" class="row footer">
-      <!--Newsleter-->
-      <section class="col-12 col-lg-4">
-        <div >
-          <div class="contenido1">
-            <article>
-              
-              <h4>Suscribite a nuestro Newsletter</h4>
-              <i class="fab fa-optin-monster"></i>
-              <div class="input-group">
-                <input type="text" class="form-control border border-success" id="txtSuscribe" name="67041" placeholder="Dirección de Email" autocorrect= "off" autocapitalize="off">
-                <div class="input-group-append">
-                  <input type="submit" class="btn btn-primary btn-block border border-primary" value="Suscribite">
+  <!--HEADER-->
+  <%- include('partials/header') %>
+
+   <!--BANNER-->
+
+  <div class="banner">
+    <section id="banner-container" class="position-relative text-light">
+      <div id="banner-background"></div>
+      <div id="banner-content" class="container h-100">
+        <div class="row no-gutters h-100 d-flex">
+          <div id="banner-text" class="col-md-6 align-self-center">
+            <h1 class="display-1 font-weight-bold mb-4">Mira nuestras ofertas</h1>
+            <p class="lead mb-5">El lugar donde vas a encontrar la mayor variedad de juguetes para divertir a niños de 4 a 99 años.
+            </p>
+            <a href="#" class="btn btn-primary">Ofertas</a>
+          </div>
+          <div class="col-md-6 img-container align-self-center h-100">
+            <!--carrousel-->
+            <section>
+              <div id="banner-img" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/images/rayoMc.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/mrPapa2.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/babyCry3.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/logo.png" class="d-block w-100" alt="...">
+                  </div>
                 </div>
               </div>
-              <p> Suscribiéndote ahora, obtené un -15% en tu primer compra.
-              </p>
-            </article>
+            </section>
+            <!--  <img src="/images/logo.png" id="hero-img" class="position-absolute">  --> 
+            <img src="/images/lines.svg" id="lines" class="spin position-absolute">
           </div>
         </div>
-      </section>
-      
-      <!--contiene datos de local-->
-      
-      <div class="col-12 col-lg-4">
-        <section>
-          <div class="contenido2">
-            <article class="adressFooter">
-              <h4>Nuestra tienda cerca tuyo</h4>
-              <div class="container">
-                <div class="row row-cols-2">
-                  <div class="col"><i class="fas fa-map-marker-alt"></i></div>
-                  <div class="col"><i class="fas fa-clock"></i></div>
-                  <div class="col"><i class="fas fa-phone-square-alt"></i></div>
-                  <div class="col"><i class="fas fa-envelope-square"></i></div>
-                </div>
-              </div>
-              <ul >
-                <li>
-                  <!--<p>Av. Pte Perón 536 - San Miguel</p>-->
-                </li>
-                <li>
-                  <!--<p>Lunes a sábado de 11 a 16:30 hs</p>-->
-                </li>
-                <li>
-                  <!--<p>54 11 6431 - 1698</p>-->
-                </li>
-                <li>
-                  <!--<p>info@paquenoteaburrasweb.com.ar</p>-->
-                </li>
-              </ul>
-              <p>Juguetes para Imaginar Construir Explorar Aprender Crear</p>
-            </article>
-            
-          </div>
-        </section>
       </div>
+    </section>
+  </div>
+
+   <!--OFERTAS-->
+
+  <div class="conteiner cuerpo">
+    <h2>Algunas de nuestras ofertas</h2>
+    <div class="row productos">
       
-      
-      <!--contiene Voucher de Regalo-->
-      
-      
-      <div class="col-12 col-lg-4">
-        <section>
-          <div class="contenido3">
-            <article>
-              <h4>Sorprendé con un Voucher de Regalo desde $ 1.999</h4>
-              <br>
-              <i class="fas fa-gift "></i>
-              <br>
-              <p>Por estar registrado tenés un beneficio de Pa'QNTA Puntos.
-              </p>
-            </article>
-          </div>
-        </section>
+      <div class="producto col-sm-12 col-md-6 col-lg-3">
+        <a href=""><img src="/images/bebeUni.png" alt=""></a>    
+        <h3>Cry Baby</h3>
+        <span>$5000</span>
+        <p>Llora con lágrimas!!</p>
+        <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
       </div>
-      
+      <div class="producto col-sm-12 col-md-6 col-lg-3">
+        <a href=""><img src="/images/mrPapa2.png" alt=""></a>    
+        <h3>Mr Papa</h3>
+        <span>$450</span>
+        <p>Mr papa desarmable 13 piezas</p>
+        <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
+      </div>
+      <div class="producto col-sm-12 col-md-6 col-lg-3">
+        <a href=""><img src="/images/autoCarreras.png" alt=""></a>    
+        <h3>Auto F1</h3>
+        <span>$300</span>
+        <p>Desarmable 20cm</p>
+        <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
+      </div>
+      <div class="producto col-sm-12 col-md-6 col-lg-3">
+        <a href=""><img src="/images/pasapalabra.png" alt=""></a>    
+        <h3>Pasapalabra</h3>
+        <span>$550</span>
+        <p>El famoso juego de tv</p>
+        <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
+      </div>
     </div>
-    <!--finaliza la fila superior del lg-->
-    
-    <!--Contenido de la fila inferior en lg-->
-    <div id="fredes" class="row footer">
-      
-      <!--contiene contacto en redes-->
-      <div class="col-12 col-lg-4">
-        <div class="contenido4">
-          <article> 
-            <h4>Seguinos</h4>
-            <div class="redes col-12">
-              <i id="socialmedia" class="fas fa-camera-retro"></i>
-              <i id="socialmedia"class="fab fa-twitter-square"></i>
-              <i id="socialmedia"class="fab fa-facebook"></i>
-              <i id="socialmedia"class="fab fa-whatsapp-square"></i>
-            </div>
-            
-            <p> Hacéte Fan: oportunidades, novedades y más.
-            </p>
-          </article>
+    <!--SEPARADOR-->
+    <div class="separador">
+      <section class="cards-banner-one">
+        <div class="content">
+          <h2>Tenemos mas ofertas para vos</h2>
+          <p>Descubrilas cliqueando en el siguiente link</p>
+          <a href="#" class="btn">Mas Ofertas<i class="fas fa-chevron-right"></i></a>
         </div>
-      </div>
-      
-      <!--Contiene sección de envios-->
-      <div class="col-12 col-lg-4">
-        <div class="contenido5">
-          <article>
-            <h4>Recibilo en Casa</h4>  
-            <div class="truck col-12">   
-              <i id="truck" class="fas fa-truck"></i>
-              <i id="truck"class="fas fa-shipping-fast"></i>
-              <i id="truck" class="fab fa-shopify"></i>
-            </div>
-            <p> Click & Collect y Delivery, entregas normalizadas.
-            </p>
-          </article>
-        </div>
-      </div>
-      
-      <!--contiene pago con tarjeta-->
-      <div class="col-12 col-lg-4">
-        <article>
-          <h4> Tarjeta o efectivo</h4>
-          <div class="pagos col-12">
-            <i id="money" class="fab fa-cc-visa"></i>
-            <i id="money"class="fab fa-cc-mastercard"></i>
-            <i id="money"class="far fa-money-bill-alt"></i>
-            
-          </div>
-          <p> Tenés hasta 6 cuotas sin interés con tarjeta.
-          </p>
-        </article>
       </section>
+    </div>
+    <!--MAS COMPRADOS-->
+    <h2>Los mas comprados</h2>
+    <div class="row productos">
+      
+      <div class="producto col-sm-12 col-md-6 col-lg-3">
+        <a href=""><img src="/images/rayoMc.png" alt="rayo"></a>    
+        <h3>Cars, Rayo Mc Queen</h3>
+        <span>$1500</span>
+        <p>Auto de Cars, 20cm</p>
+        <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
+      </div>
+      <div class="producto col-sm-12 col-md-6 col-lg-3">
+        <a href=""><img src="/images/lolRosa.png" alt=""></a>    
+        <h3>LOL Sparkle Series</h3>
+        <span>$2000</span>
+        <p>Bola lol con muñeca y accesorios</p>
+        <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
+      </div>
+      <div class="producto col-sm-12 col-md-6 col-lg-3">
+        <a href=""><img src="/images/monopoly2.png" alt=""></a>    
+        <h3>Monopoly</h3>
+        <span>$2400</span>
+        <p>Tene en tu mesa el famoso juego!</p>
+        <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
+      </div>
+      <div class="producto col-sm-12 col-md-6 col-lg-3">
+        <a href=""><img src="/images/yenga.png" alt=""></a>    
+        <h3>Yenga</h3>
+        <span>$800</span>
+        <p>Yenga de 36 piezas para jugar en familia.</p>
+        <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
+      </div>
     </div>
   </div>
+
+  <!--FOOTER-->
+  <%- include('partials/footer') %>
+  <!--FINALIZA FOOTER-->
   
-    <!--contiene copyright y link a GitHub-->
-  <div class="col-12">
-    <span class="copyright desarrolladores">© 2020 Pa' que no te aburras.<a href="https://github.com/sebastos23/grupo_8_paQueNoTeAburras">| Programadores Web Full Stack |</a></span>
-      </div>
-</div>
-<!--finaliza div.row-->
-</footer>
-<!--FINALIZA FOOTER: PIE DE PAGINA-->
-</div>
+
 <!--scripts de bootstrap-->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+<!--scroll reveal-->
+<script src="https://unpkg.com/scrollreveal"></script>
+
 </body>
+<script>
+  window.onload = function () {
+    setTimeout(function () {
+      document.getElementById('banner-background').style.width = '100%';
+    }, 1500);
+    setTimeout(function () {
+      document.getElementById('banner-text').style.opacity = '1';
+    }, 2500);
+    setTimeout(function () {
+      document.getElementById('banner-img').style.opacity = '1';
+    }, 3500);
+    setTimeout(function () {
+      document.getElementById('lines').style.opacity = '1';
+    },4500);
+  };
+  ScrollReveal().reveal('.cuerpo');
+  ScrollReveal().reveal('.conteiner-productos',{delay: 500});
+  ScrollReveal().reveal('.cards-banner-one',{delay: 500});
+  ScrollReveal().reveal('.cards-banner-one',{delay: 500});
+  
+</script>
+
 </html>
