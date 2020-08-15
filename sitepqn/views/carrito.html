@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pa' que no te aburras</title>
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+  <!-- Ionic icons -->
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!--Estilos Propios-->
+  <link rel='stylesheet' href='../public/stylesheets/carrito.css' />
+  
+</head>
+
+<body>
+  <!--PARA FIJAR EL HEADER AGREGAR fixed-top ENTRE LOS NAVBAR-->
+  <!--HEADER: CABECERA Y MENÚ DE NAVEGACIÓN-->
+  <header id="cabecera" class="container-fluid">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg header">
+      
+        <a class="navbar-brand text-light font-weight-bold" href="http://www.paquenoteaburras.com/"><img class="logo" src="../public/images/logoLetrasVerdes.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="icon ion-md-menu lead text-light"></i>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="#">Muñecas</a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="#">Autos</a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="#">Para armar</a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="#">De mesa</a>
+          </li>
+          <li class="nav-item mr-2">
+            <a class="nav-link text-light" href="#">Contactenos</a>
+          </li>              
+          <li class="nav-item">
+            <a class="nav-link text-light btn btn-primary py-1" href="#">Inicia sesión</a>
+          </li>
+        </ul>
+      </div>
+      
+      <!--caja de redes sociales-->
+      <div class="redes">
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i> </a>|
+        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a>|
+        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+      </div>
+      
+      </nav>
+      <!--carrito--> 
+      <div class="carrito">
+        <a href="#"><i class="fas fa-shopping-basket"></i></i></a>
+      </div>
+      <!--buscador-->
+      <div class="buscador col-10">
+      <form action=" ">
+        <input type="text " placeholder="Buscar productos">
+        <button><i class="fas fa-search "></i></button>
+      </form>            
+      </div>
+    </div>   
+  </header>
+  <!--CUERPO PAG CARRITO-->
+  <div class="conteiner-fluid cuerpo">
+    <div class="row cuerpo">
+      <!--METODOS-->    
+      <div class="metodos col-sm-12 col-md-6 col-lg-6">
+        <h3>Elegi el metodo de pago</h3>
+        <div class="botones">
+          <ul>
+            <li>Crédito <input type="radio" name="pago" value="credito"></li>
+            <li>Débito <input type="radio" name="pago" value="debito"></li>
+            <li>Mercado Pago <input type="radio" name="pago" value="mercado"></li>
+          </ul>
+        </div>
+        <div class="direccion">
+          <h3>Direccion de envio</h3>
+          <ul class="dir">
+            <li>Usar dirección guardada<input type="radio" name="direccion" value="direccionGuardada" checked></li>
+            <li>Nueva dirección<input type="radio" name="direccion" value="direccionNueva"></li>
+          </ul>
+          <h5>Datos personales</h5>
+        </div>
+        <div class="datos">
+          <form action="carrito.html" method="POST">
+            <p><label for="nombre">Nombre/s:</label></p>
+            <input type="text" id="nombre" name="nombre"><br>
+
+            <p><label for="apellido">Apellido/s:</label></p>
+            <input type="text" name="apellido" id="apellido"><br>
+
+            <p><label for="telefono">Teléfono:</label></p>
+            <input type="number" name="telefono" id="telefono"><br>
+            
+            <p><label for="direccion">Dirección:</label></p>
+            <input type="text" name="direccion" id="direccion"><br>
+            
+            <p><label for="ciudad">Ciudad:</label></p>
+            <input type="text" name="ciudad" id="ciudad"><br>
+
+            <p><label for="codPostal">Codigo postal:</label></p>
+            <input type="number" name="codPostal" id="codPostal"><br>
+
+            <p><label for="provincia">Provincia:</label></p>
+            <p><input type="text" name="provincia" id="provincia"></p>
+            
+            <p>
+              <button class="btn btn-primary" type="submit">Guardar</button>
+              <button class="btn btn-primary" type="reset">Cancelar</button>
+            </p>
+          </form>
+          </p>
+        </div>
+      </div>
+      <!--carrito-->
+      <div class="carrito col-sm-12 col-md-6 col-lg-6">
+        <h3>Carrito</h3>
+        
+        <div class="seleccion">
+          <div class="prod">
+            <a href=""><img src="../public/images/babyCry.png" alt=""></a>
+            <p class="detalle"> <strong> Baby Cry</strong><br> 50cm llora con sonido y lagrimas reales!</p>
+            <select name="cantidad" id="cantidad"></select>
+            <p class="precio">$5000</p>
+            
+          </div>        
+          <div class="prod">
+            <a href=""><img src="../public/images/lolRosa.png" alt=""></a>
+            <h5></h5>
+            <p class="detalle">Pelota LOL sparkle<br>con muñeca y accesorios sorpresa</p>
+            <select name="cantidad" id="cantidad"></select>
+            <p class="precio">$2000</p>
+            
+          </div>        
+          <div class="prod">
+            <a href=""><img src="../public/images/babyCry3.png" alt=""></a>
+            <p class="detalle">Cry Baby<br> 50cm llora con sonido y lagrimas reales!</p>
+            <select name="cantidad" id="cantidad"></select>
+            <p class="precio">$5000</p>
+            
+          </div>        
+          <div class="prod">
+            <a href=""><img src="../public/images/pasapalabra.png" alt=""></a>
+            <p class="detalle">Pasapalabra!<br>juga como si estuvieras en la tele</p>
+            <select name="cantidad" id="cantidad"></select>
+            <p class="precio">$1800</p>            
+          </div>
+          <div class="subtotal col-12">
+            <div class="cuentas col-6">
+              <p>Subtotal</p>
+              <p>Costo de envio</p>
+              <p>Total</p>
+            </div>
+            <div class="totales col-6">
+              <p>$123.00</p>
+              <p>$456.00</p>
+              <p>$152.12</p>
+            </div>
+          </div>        
+        </div>
+      </div>
+      <!--PAGO CON TARJETA-->
+      <div class="tarjeta col-12">
+        <div class="elegir">
+          <h3>Pago con tarjeta</h3>
+          <ul>
+            <li><i class="fab fa-cc-visa"></i><input type="radio" name="tipoTarjeta" value="visa"></li>
+            <li><i class="fab fa-cc-amex"></i><input type="radio" name="tipoTarjeta" value="american"></li>
+            <li><i class="fab fa-cc-mastercard"></i><input type="radio" name="tipoTarjeta" value="master"></li>
+          </ul>
+        </div>
+        <div class="datos">
+          <form class="carga row" action="" method="POST">
+            <span class="col-sm-12 col-md-6 col-lg-6">
+              <label for="numero">Número de tarjeta</label><br>
+              <input type="number" name="numero" id="numero"><br>
+            </span>
+            <span class="col-sm-12 col-md-6 col-lg-6">
+              <label for="nombre">Nombre del titular</label><br>
+              <input type="text" name="nombre" id="nombre"><br>
+            </span>
+            <span class="col-sm-12 col-md-6 col-lg-6">
+              <label for="vencimiento">Fecha de vencimiento</label><br>
+              <input type="number" name="vencimiento" id="vencimiento"><br>
+            </span>
+            <span class="col-sm-12 col-md-6 col-lg-6">
+              <label for="codigo">Código de seguridad</label><br>
+              <input type="password" name="codigo" id="codigo"><i class="far fa-credit-card"></i><br>
+            </span>
+            <button class="btn btn-primary" id="confirmar" type="submit">Confirmar</button>
+          </form>          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--FOOTER: PIE DE PAGINA-->
+<footer class="container-fluid">
+  <!--caja con el contenido principal de footer-->
+  <!--Contenido de la fila superior en lg-->
+  
+  <div id="fnewsleter" class="row footer">
+    <!--Newsleter-->
+    <section class="col-12 col-lg-4">
+      <div >
+        <div class="contenido1">
+          <article>
+            
+            <h4>Suscribite a nuestro Newsletter</h4>
+            <i class="fab fa-optin-monster"></i>
+            <div class="input-group">
+              <input type="text" class="form-control border border-success" id="txtSuscribe" name="67041" placeholder="Dirección de Email" autocorrect= "off" autocapitalize="off">
+              <div class="input-group-append">
+                <input type="submit" class="btn btn-primary btn-block border border-primary" value="Suscribite">
+              </div>
+            </div>
+            <p> Suscribiéndote ahora, obtené un -15% en tu primer compra.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+    
+    <!--contiene datos de local-->
+    
+    <div class="col-12 col-lg-4">
+      <section>
+        <div class="contenido2">
+          <article class="adressFooter">
+            <h4>Nuestra tienda cerca tuyo</h4>
+            <div class="container">
+              <div class="row row-cols-2">
+                <div class="col"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="col"><i class="fas fa-clock"></i></div>
+                <div class="col"><i class="fas fa-phone-square-alt"></i></div>
+                <div class="col"><i class="fas fa-envelope-square"></i></div>
+              </div>
+            </div>
+         <!--   <ul >
+              <li>
+                <p>Av. Pte Perón 536 - San Miguel</p>
+              </li>
+              <li>
+                <p>Lunes a sábado de 11 a 16:30 hs</p>
+              </li>
+              <li>
+                <p>54 11 6431 - 1698</p>
+              </li>
+              <li>
+                <p>info@paquenoteaburrasweb.com.ar</p>
+              </li>
+            </ul>  -->
+            <p>Juguetes para Imaginar Construir Explorar Aprender Crear</p>
+          </article>
+          
+        </div>
+      </section>
+    </div>
+    
+    
+    <!--contiene Voucher de Regalo-->
+    
+    
+    <div class="col-12 col-lg-4">
+      <section>
+        <div class="contenido3">
+          <article>
+            <h4>Sorprendé con un Voucher de Regalo desde $ 1.999</h4>
+            <br>
+            <i class="fas fa-gift "></i>
+            <br>
+            <p>Por estar registrado tenés un beneficio de Pa'QNTA Puntos.
+            </p>
+          </article>
+        </div>
+      </section>
+    </div>
+    
+  </div>
+  <!--finaliza la fila superior del lg-->
+  
+  <!--Contenido de la fila inferior en lg-->
+  <div id="fredes" class="row footer">
+    
+    <!--contiene contacto en redes-->
+    <div class="col-12 col-lg-4">
+      <div class="contenido4">
+        <article> 
+          <h4>Seguinos</h4>
+          <div class="redes col-12">
+            <i id="socialmedia" class="fas fa-camera-retro"></i>
+            <i id="socialmedia"class="fab fa-twitter-square"></i>
+            <i id="socialmedia"class="fab fa-facebook"></i>
+            <i id="socialmedia"class="fab fa-whatsapp-square"></i>
+          </div>
+          
+          <p> Hacéte Fan: oportunidades, novedades y más.
+          </p>
+        </article>
+      </div>
+    </div>
+    
+    <!--Contiene sección de envios-->
+    <div class="col-12 col-lg-4">
+      <div class="contenido5">
+        <article>
+          <h4>Recibilo en Casa</h4>  
+          <div class="truck col-12">   
+            <i id="truck" class="fas fa-truck"></i>
+            <i id="truck"class="fas fa-shipping-fast"></i>
+            <i id="truck" class="fab fa-shopify"></i>
+          </div>
+          <p> Click & Collect y Delivery, entregas normalizadas.
+          </p>
+        </article>
+      </div>
+    </div>
+    
+    <!--contiene pago con tarjeta-->
+    <div class="col-12 col-lg-4">
+      <article>
+        <h4> Tarjeta o efectivo</h4>
+        <div class="pagos col-12">
+          <i id="money" class="fab fa-cc-visa"></i>
+          <i id="money"class="fab fa-cc-mastercard"></i>
+          <i id="money"class="far fa-money-bill-alt"></i>
+          
+        </div>
+        <p> Tenés hasta 6 cuotas sin interés con tarjeta.
+        </p>
+      </article>
+    </section>
+  </div>
+</div>
+
+<!--contiene copyright y link a GitHub-->
+<div class="col-12">
+  <span class="copyright desarrolladores">© 2020 Pa' que no te aburras.<a href="https://github.com/sebastos23/grupo_8_paQueNoTeAburras">| Programadores Web Full Stack |</a></span>
+</div>
+</div>
+<!--finaliza div.row-->
+</footer>
+<!--FINALIZA FOOTER: PIE DE PAGINA-->
+</div>
+
+
+<!--scripts de bootstrap-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>   
+</body>
+</html>
