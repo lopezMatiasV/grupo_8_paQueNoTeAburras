@@ -61,7 +61,7 @@
 
 html, body {
     height: 100%;
-    background-image: linear-gradient(to top left, var(--color-naranjaClaro), var(--color-borgoña))!important;
+    background-image: linear-gradient(to top left, var(--color-celeste), var(--color-azul))!important;
 
 }
 
@@ -81,14 +81,14 @@ html, body {
 
 /*banner*/
 .banner{
-    background-color: #55068e;
+    background-color: #282083;
 }
 #banner-container {
     height: 600px;
 }
 
 #banner-background {
-    background-color: #73c026;
+    background-color: #ab0112;
     position: absolute;
     width: 0;
     height: 600px;
@@ -160,7 +160,7 @@ h2{
   
   .productos a {
     padding: 10px 0;
-    color: var(--color-violeta);
+    color: var(--color-azul);
     text-transform: uppercase;
     display: inline-block;
     font-weight: bold;
@@ -224,7 +224,7 @@ FOOTER
 
 .footer {
     padding: 20px;
-    background-color: var(--color-verdeManzana);
+    background-color: var(--color-borgoña);
 }
 .footer article{
     display: flex;
@@ -241,7 +241,7 @@ FOOTER
 
 .footer article h4,
 .footer article p, .footer article span{
-    color: var(--color-azul);
+    color: white;
     margin: 5px 0;
 }
 /*Redes sociales*/
@@ -333,7 +333,7 @@ justify-content: space-around;
 }
 
 .desarrolladores a{
-    color: var(--color-celeste);
+    color: white;
 }
 /*
 FIN DEL FOOTER
