@@ -1,0 +1,56 @@
+[
+    {
+      "id": "1",
+      "name": "Vehículos",
+      "sub": [
+        "Autos",
+        "Motos",
+        "Vehículos especiales",
+        "Camiones",
+        "Colección",
+        "Construcción"
+
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Muñecos de acción",
+      "sub": [
+        "Muñecos",
+        "Accesorios",
+        "Vehículos de acción",
+        "Star Wars",
+        "Funko"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Juegos de Mesa",
+      "sub": [
+        "Clásicos",
+        "Infantiles",
+        "Adultos"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Juegos de Ingenio",
+      "sub": [
+        "Bloques",
+        "Ciencia",
+        "Especiales"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Muñec@s",
+      "sub": [
+        "Muñecas",
+        "Clásicas",
+        "Interactivos",
+        "Con sonido y movimientos",
+        "Peluches",
+        "Funko"
+      ]
+    }
+  ]
