@@ -1,201 +1,202 @@
 [{
-        "categoria": "Vehículos",
-        
-        "Autos": [{
-                "sku": 387958,
-                "nombre": "Camión de Tránsito Urbano Original Roma 1440",
-                "descripcion": "Camión de Tránsito Urbano Original Roma 1440¡Volá tu imaginación jugando con estos increíbles juguetes de Roma Rodados!Muchísimos modelos para escoger... ¡En este caso encuentra el el camión de tránsito urbano de Roma!Contenido:- Incluye: 1 Camión.- Dimensiones: 16cm alto x 30cm ancho.- Recomendado para edades de 3 años en adelante.- Marca: Roma- Item: 1440",
-                "precio": 2020
-                }
-            ],
-            "Camiones": [{
-                "sku": 387958,
-                "nombre": "Camión de Tránsito Urbano Original Roma 1440",
-                "descripcion": "Camión de Tránsito Urbano Original Roma 1440¡Volá tu imaginación jugando con estos increíbles juguetes de Roma Rodados!Muchísimos modelos para escoger... ¡En este caso encuentra el el camión de tránsito urbano de Roma!Contenido:- Incluye: 1 Camión.- Dimensiones: 16cm alto x 30cm ancho.- Recomendado para edades de 3 años en adelante.- Marca: Roma- Item: 1440",
-                "precio": 1160
-                }
-            ],
-            "Motos": [{
-                "sku": 387959,
-                "nombre": "Pinypon Moto Con Figura Y Accesorios Mundotoys Arg",
-                "descripcion": "Con el Coche de Pinypon podés llevar a tus muñecas / os a pasear y vivir una tarde genial!",
-                "precio": 2680
-                }
-            ],
-            "Colección": [{
-                "sku": 387960,
-                "nombre": "Auto Roadster Convertible Roma Brinquedos Amarillo",
-                "descripcion": "Auto Convertible Roadster.- Cuenta con icreíbles detalles en sus neumáticos y llantas. El techo está rebatido por lo que se puede ver el interior del auto. Diseño deportivo y realista. Recomendado para mayores de 3 años.",
-                "precio": 799
-                }
-            ],
-            "Construcción": [{
-                "sku":387961 ,
-                "nombre": "Excavadora De Construccion A Friccion Good Quality",
-                "descripcion": "Manos a la obra en tu vehiculo con luices y sonidos. Divertite con los vehículos de tu ciudad! Incluye 3 bateria tipo boton (1,5v)",
-                "precio": 1530
-                }
-            ],
-            " Vehículos especiales": [{
-                "sku": 387962,
-                "nombre": "VEHÍCULO A RADIO CONTROL FERRARI",
-                "descripcion": "Vehiculo a Radio Control Ferrari 599XX XQ - Contiene: 1 auto con control remoto - Modelo del auto Ferrari - Serie: X-Street - Frecuencia 27.145MHZ - Escala: 1:32 - Requiere pilas: vehiculo 3 AAA, control remoto 9V - Vehiculo de funcion completa - Recomendado para mayores de 8 años - Medidas: 22cm x 22cm - Item: XQRC32-2AAA - Marca: XQ",
-                "precio": 3200
-                }
-            ]         
-    },
-    {
-        "categoria": "Juegos de Mesa",
-       
-        "Clásicos":[{
-            "sku":387968,
-            "nombre": "QUORIDOR",
-            "descripcion": "El Quoridor es un juego de mesa abstracto de estrategia para dos o más personas. El objetivo del juego es simple: hay que lograr lleva el peón al otro lado. Para hacerlo, o mejor dicho, para evitar que algún rival lo logre, contamos con barreras que podremos ubicar en el camino para hacer del camino directo un intrincado laberinto. Un juego que requiere estrategia y rapidez mental.",
-            "precio": 2600
-            }
-        ],
-        "Infantiles":[{
-            "sku": 387969,
-            "nombre": "PANIC LAB",
-            "descripcion": "Panic Lab es un juego de mesa en el que tenemos que cuidar nuestro preciado laboratorio de la fuga de unas amebas. ¡Las amebas se escaparon y están moviéndose para todos lados! ¡Encontalas rápido! En este juego, todos juegan juntos y al mismo tiempo. Un juego rápido, de reglas simples para desafiar a los más atentos.",
-            "precio": 2788
-            }
-        ],
-    
-        "Adultos":[{
-            "sku": 387970,
-            "nombre": "KATAMINO",
-            "descripcion": "Katamino es un juego de construcción al estilo rompecabezas. Un juego que contiene múltiples fichas que intentaremos acomodar en el tablero con distintos niveles de dificultad. Hay más de 500 desafíos para mentes inquietas y creativas.",
-            "precio": 2800
-            }
-        ]
-},
-    {
-        "categoria": "Muñecos de acción",
-        
-        "Muñecos": [{
-            "sku": 387963,
-            "nombre": "Bumblebee Transformers Cyberverse Hasbro ",
-            "descripcion": "Transformers Cyberverse Figura Coleccionable Hasbro E1884. Convierte y ataca fácilmente con juguetes Transformers Cyberverse Action Attackers!",
-            "precio": 2750
-            }
-        ],
-        "Accesorios": [{
-            "sku": 387964,
-            "nombre": "Máscara Iron Man Marvel Avengers B9945 Hasbro",
-            "descripcion": "Máscara Iron Man Marvel Avengers B9945 Hasbro Original. Gran máscara de plástico duro.Con elástico ajustable.- Incluye 1 protector de goma para los ojos y para mayor comodidad.Marca: Hasbro",
-            "precio": 1345
-            }
-        ],
-        "Vehículos de acción": [{
-            "sku": 387965,
-            "nombre": "Fortnite Battle Karting Combate C/1 Fig Y Acc Int 63554 ",
-            "descripcion": "FORTNITE BATTLE ROYALE KARTING Fortnite, el epico videojuego mas conocido de la historia, sale de la pantalla con las figuras de sus personajes.",
-            "precio": 1734
-            }
-        ],
-        "Star Wars": [{
-            "sku": 387966,
-            "nombre": "Muñeco Star Wars Rey Skywalker Articulado Marca Hasbro ",
-            "descripcion": "ORIGINAL STAR WARS® MARCA HASBRO™",
-            "precio": 1789
-            }
-        ],
-        "Funko": [{
-            "sku": 387967,
-            "nombre": "Funko Pop First Order Snowtrooper 67 - Star Wars",
-            "descripcion": "Funko es la marca de figuras coleccionables más famosa del mundo. ¿El motivo? ¡Podés disfrutar de tus personajes favoritos!  Ideal para coleccionistas y para regalar. ¿Lo mejor de todo? Son perfectos para TODAS las edades.",
-            "precio": 1999
-            }
-        ]
-       
+    "sku": 387958,
+    "nombre": "Camión de Tránsito Urbano Original Roma 1440",
+    "descripcion": "Camión de Tránsito Urbano Original Roma 1440¡Volá tu imaginación jugando con estos increíbles juguetes de Roma Rodados!Muchísimos modelos para escoger... ¡En este caso encuentra el el camión de tránsito urbano de Roma!Contenido:- Incluye: 1 Camión.- Dimensiones: 16cm alto x 30cm ancho.- Recomendado para edades de 3 años en adelante.- Marca: Roma- Item: 1440",
+    "precio": 2020,
+    "categoría": "Vehículos",
+    "subcategoría": "Autos"
 },
 {
+    "sku": 387958,
+    "nombre": "Camión de Tránsito Urbano Original Roma 1440",
+    "descripcion": "Camión de Tránsito Urbano Original Roma 1440¡Volá tu imaginación jugando con estos increíbles juguetes de Roma Rodados!Muchísimos modelos para escoger... ¡En este caso encuentra el el camión de tránsito urbano de Roma!Contenido:- Incluye: 1 Camión.- Dimensiones: 16cm alto x 30cm ancho.- Recomendado para edades de 3 años en adelante.- Marca: Roma- Item: 1440",
+    "precio": 1160,
+    "categoría": "Vehículos",
+    "subcategoría": "Camiones",
+},
+{
+    "sku": 387959,
+    "nombre": "Pinypon Moto Con Figura Y Accesorios Mundotoys Arg",
+    "descripcion": "Con el Coche de Pinypon podés llevar a tus muñecas / os a pasear y vivir una tarde genial!",
+    "precio": 2680,
+    "categoría": "Vehículos",
+    "subcategoría":"Motos",
+},
+{
+    "sku": 387960,
+    "nombre": "Auto Roadster Convertible Roma Brinquedos Amarillo",
+    "descripcion": "Auto Convertible Roadster.- Cuenta con icreíbles detalles en sus neumáticos y llantas. El techo está rebatido por lo que se puede ver el interior del auto. Diseño deportivo y realista. Recomendado para mayores de 3 años.",
+    "precio": 799,
+    "categoría": "Vehículos",
+    "subcategoría":"Colección"
+},
+{
+    "sku":387961 ,
+    "nombre": "Excavadora De Construccion A Friccion Good Quality",
+    "descripcion": "Manos a la obra en tu vehiculo con luices y sonidos. Divertite con los vehículos de tu ciudad! Incluye 3 bateria tipo boton (1,5v)",
+    "precio": 1530,
+    "categoría": "Vehículos",
+    "subcategoría":"Construcción"
+},
+{
+    "sku": 387962,
+    "nombre": "VEHÍCULO A RADIO CONTROL FERRARI",
+    "descripcion": "Vehiculo a Radio Control Ferrari 599XX XQ - Contiene: 1 auto con control remoto - Modelo del auto Ferrari - Serie: X-Street - Frecuencia 27.145MHZ - Escala: 1:32 - Requiere pilas: vehiculo 3 AAA, control remoto 9V - Vehiculo de funcion completa - Recomendado para mayores de 8 años - Medidas: 22cm x 22cm - Item: XQRC32-2AAA - Marca: XQ",
+    "precio": 3200,
+    "categoría": "Vehículos",
+    "subcategoría":"Vehículos especiales"
+},
+{
+    "sku":387968,
+    "nombre": "QUORIDOR",
+    "descripcion": "El Quoridor es un juego de mesa abstracto de estrategia para dos o más personas. El objetivo del juego es simple: hay que lograr lleva el peón al otro lado. Para hacerlo, o mejor dicho, para evitar que algún rival lo logre, contamos con barreras que podremos ubicar en el camino para hacer del camino directo un intrincado laberinto. Un juego que requiere estrategia y rapidez mental.",
+    "precio": 2600,
+    "categoría": "Juegos de Mesa",
+    "subcategoría":"Clásicos"
+},
+
+{
+    "sku": 387969,
+    "nombre": "PANIC LAB",
+    "descripcion": "Panic Lab es un juego de mesa en el que tenemos que cuidar nuestro preciado laboratorio de la fuga de unas amebas. ¡Las amebas se escaparon y están moviéndose para todos lados! ¡Encontalas rápido! En este juego, todos juegan juntos y al mismo tiempo. Un juego rápido, de reglas simples para desafiar a los más atentos.",
+    "precio": 2788,
+    "categoría": "Juegos de Mesa",
+    "subcategoría": "Infantiles",
+},
+{
+    "sku": 387970,
+    "nombre": "KATAMINO",
+    "descripcion": "Katamino es un juego de construcción al estilo rompecabezas. Un juego que contiene múltiples fichas que intentaremos acomodar en el tablero con distintos niveles de dificultad. Hay más de 500 desafíos para mentes inquietas y creativas.",
+    "precio": 2800,
+    "categoría": "Juegos de Mesa",
+    "subcategoría": "Adultos",
+},
+{
+    "sku": 387963,
+    "nombre": "Bumblebee Transformers Cyberverse Hasbro ",
+    "descripcion": "Transformers Cyberverse Figura Coleccionable Hasbro E1884. Convierte y ataca fácilmente con juguetes Transformers Cyberverse Action Attackers!",
+    "precio": 2750,
+    "categoria": "Muñecos de acción",
+    "subcategoría": "Muñecos",
+},
+{
+    "sku": 387964,
+    "nombre": "Máscara Iron Man Marvel Avengers B9945 Hasbro",
+    "descripcion": "Máscara Iron Man Marvel Avengers B9945 Hasbro Original. Gran máscara de plástico duro.Con elástico ajustable.- Incluye 1 protector de goma para los ojos y para mayor comodidad.Marca: Hasbro",
+    "precio": 1345,
+    "categoria": "Muñecos de acción",
+    "subcategoría":"Accesorios",
+},
+{
+    "sku": 387965,
+    "nombre": "Fortnite Battle Karting Combate C/1 Fig Y Acc Int 63554 ",
+    "descripcion": "FORTNITE BATTLE ROYALE KARTING Fortnite, el epico videojuego mas conocido de la historia, sale de la pantalla con las figuras de sus personajes.",
+    "precio": 1734,
+    "categoria": "Muñecos de acción",
+    "subcategoría":"Vehículos de acción",
+},
+{
+    "sku": 387966,
+    "nombre": "Muñeco Star Wars Rey Skywalker Articulado Marca Hasbro ",
+    "descripcion": "ORIGINAL STAR WARS® MARCA HASBRO™",
+    "precio": 1789,
+    "categoria": "Muñecos de acción",
+    "subcategoría":"Star Wars",
+},
+{
+    "sku": 387967,
+    "nombre": "Funko Pop First Order Snowtrooper 67 - Star Wars",
+    "descripcion": "Funko es la marca de figuras coleccionables más famosa del mundo. ¿El motivo? ¡Podés disfrutar de tus personajes favoritos!  Ideal para coleccionistas y para regalar. ¿Lo mejor de todo? Son perfectos para TODAS las edades.",
+    "precio": 1999,
+    "categoria": "Muñecos de acción",
+    "subcategoría":"Funko"
+},
+{
+    "sku":387957, 
+    "nombre": "Lego® City - Camión De Los Helados (60253)",
+    "descripcion": "Los niños se convertirán en héroes cotidianos mientras se divierten con el fantástico juego LEGO® City Camión de los Helados (60253). ¡Hay que alegrar el día a los sofocados ",
+    "precio": 4899,
     "categoria": "Juegos de Ingenio",
-    
-    "Bloques": [{
-        "sku":387957, 
-        "nombre": "Lego® City - Camión De Los Helados (60253)",
-        "descripcion": "Los niños se convertirán en héroes cotidianos mientras se divierten con el fantástico juego LEGO® City Camión de los Helados (60253). ¡Hay que alegrar el día a los sofocados ",
-        "precio": 4899
-        }
-    ],
-    "Ciencia": [{
-        "sku": 387958,
-        "nombre": "Juego Mesa Viaje De Emociones Explora Inteligencia Emocional",
-        "descripcion": " Incluye guia para padres y tutores. Viaje de emociones es una ocasión para compartir lo que sentis, expresar lo que pensas y afianzar la unión y el vinculo con los otros jugadores. Marca: Barco de Papel",
-        "precio": 979
-        }
-    ],
-
-    "Especiales": [{
-        "sku": 387956,
-        "nombre": "Juego De Ciencias La Ciencia Del Agua Galileo Italy",
-        "descripcion": "JUEGO DE CIENCIAS – LA CIENCIA DEL AGUA. Divertido laboratorio de ciencias para niños. Realiza más de 25 experimentos divertidos. Experimentos de física y química, para aprender la importancia del agua, valorando y cuidando juntos el medio ambiente.",
-        "precio": 2750
-        }
-    ]
+    "subcategoría":"Bloques"
 },
-
 {
-"categoria": "Muñec@s",
-    
-"Muñecas": [{
+    "sku": 387958,
+    "nombre": "Juego Mesa Viaje De Emociones Explora Inteligencia Emocional",
+    "descripcion": " Incluye guia para padres y tutores. Viaje de emociones es una ocasión para compartir lo que sentis, expresar lo que pensas y afianzar la unión y el vinculo con los otros jugadores. Marca: Barco de Papel",
+    "precio": 979,
+    "categoria": "Juegos de Ingenio",
+    "subcategoría": "Ciencia",
+},
+{
+    "sku": 387956,
+    "nombre": "Juego De Ciencias La Ciencia Del Agua Galileo Italy",
+    "descripcion": "JUEGO DE CIENCIAS – LA CIENCIA DEL AGUA. Divertido laboratorio de ciencias para niños. Realiza más de 25 experimentos divertidos. Experimentos de física y química, para aprender la importancia del agua, valorando y cuidando juntos el medio ambiente.",
+    "precio": 2750,
+    "categoria": "Juegos de Ingenio",
+    "subcategoría": "Especiales",
+},
+{
     "sku": 387959, 
     "nombre": "Señor Y Señora Cara De Papa Toy Story Hasbro",
     "descripcion": "Descubre todas las posibilidades de crear y mezclar los accesorios diferentes, los niños pueden usar su imaginación para un montón de juego creativo armando su propio muñeco de papa.",
-    "precio": 2290
-    },
-    {
-        "sku": 387960, 
-        "nombre": "Piny Pon y sus amigos",
-        "descripcion": "Prepárate para un sin fin de nuevas aventuras, acompañando con el resto de tus figuras de la linea Pinypon Mix & Match Queen’s y todas tus figuras Pinypon, todos son bienvenidos en este mágico lugar.",
-        "precio": 6290
-        },
-        {
-            "sku": 387971, 
-            "nombre": "Lena Crybabies Llora Con Lagrimas Y Sonido Wabro Cry Babies",
-            "descripcion": "Crybabies llora con lagrimas y sonido WABRO - Si le quitas el chupete llorará cada vez más hasta recuperarlo.Diferentes modelos para coleccionar: CHIC, RUTHY, FANCY, PANDY, DOTTY, LADY y NALA.- ¡Lloran lagrimas de verdad!",
-            "precio": 6809
-            }
+    "precio": 2290,
+    "categoria": "Muñecas",
+    "subcategoría": "MUñecas"
+},
+{
+    "sku": 387960, 
+    "nombre": "Piny Pon y sus amigos",
+    "descripcion": "Prepárate para un sin fin de nuevas aventuras, acompañando con el resto de tus figuras de la linea Pinypon Mix & Match Queen’s y todas tus figuras Pinypon, todos son bienvenidos en este mágico lugar.",
+    "precio": 6290,
+    "categoria": "Muñecas",
+    "subcategoría": "Muñecas"
+},
+{
+    "sku": 387971, 
+    "nombre": "Lena Crybabies Llora Con Lagrimas Y Sonido Wabro Cry Babies",
+    "descripcion": "Crybabies llora con lagrimas y sonido WABRO - Si le quitas el chupete llorará cada vez más hasta recuperarlo.Diferentes modelos para coleccionar: CHIC, RUTHY, FANCY, PANDY, DOTTY, LADY y NALA.- ¡Lloran lagrimas de verdad!",
+    "precio": 6809,
+    "categoria": "Muñecas",
+    "subcategoría": "Muñecas"
+},
 
-],
-    
-"Clásicas": [{
+{
     "sku":3737373, 
     "nombre": "",
     "descripcion": "",
-    "precio": 4899
-    }
-],
-"Interactivos": [{
+    "precio": 4899,
+    "categoria": "Muñecas",
+    "subcategoría": "Clásicas"
+},
+{
     "sku": 387961, 
     "nombre": "Cry Babies Muñeca Llorona Sorpresa Magic Tears Serie 1",
     "descripcion": "Cry Babies Muñeca llorona Sorpresa Magic Tears Serie 1. Ya llegaron las nuevas Cry Babies! ¡Hay 24 para coleccionar y los modelos son sorpresa!¡Divertite jugando con ellos! nen con 6 divertidos accesorios: una botella, un lazo, un muñeco, una silla y 2 accesorios exclusivos para cada muñeca.¡Siéntala, ponle el babero, dale agua con el biberón y apriétale la barriguita para que llore lágrimas de verdad! Marca: Wabro.Código: (4914).",
-    "precio": 1980
-    }
-],
-"Con sonido y movimiento": [{
+    "precio": 1980,
+    "categoria": "Muñecas",
+    "subcategoría":"Interactivos"
+},
+{
     "sku": 387962, 
     "nombre": "Crybabies Llora Con Lagrimas Y Sonido Wabro Cry Babies",
     "descripcion": "Crybabies llora con lagrimas y sonido WABRO.  Si le quitas el chupete llorará cada vez mas hasta recuperarlo. ¿Cómo jugar? 1- quitale el chupete. 2- Crybabies empiezan a llorar con sonidos y lágrimas de verdad. 3- Ponle el chupete y dejará de llorar.Diferentes modelos para coleccionar: CHIC, RUTHY, FANCY, PANDY, DOTTY, LADY y NALA.¡Lloran lagrimas de verdad! Modelo: 99275",
-    "precio": 6900
-    }
-],
-    
-"Peluches": [{
+    "precio": 6900,
+    "Con sonido y movimiento",
+},
+{
     "sku": 387963, 
     "nombre": "PEPE LORITO Peluche Interactivo La granja de Zenon",
     "descripcion": "PEPE LORITO Peluche Interactivo La granja de Zenon Peluche lorito pepe interactivo. Camina, canta y eepite todo lo que dices. Canta todas las canciones de la granja! Canta las canciones de la Granja de Zenon. Incluye las canciones: El lorito Pepe",
-    "precio": 3922
-    }
-],
-"Funko": [{
+    "precio": 3922,
+    "categoria": "Muñecas",
+    "subcategoría":"Peluches"
+},
+{
     "sku":387964, 
     "nombre": "Funko Pop! Lifeline 541 Apex Legends Coleccionable",
     "descripcion": "Funko es la marca de figuras coleccionables más famosa del mundo. ¿El motivo? ¡Podés disfrutar de tus personajes favoritos! Desde cómics, peliculas, videojuegos hasta cantantes y shows de TV: Juego de Tronos, Star Wars, todos los protagonstas de Disney, Marvel o DC. Ideal para coleccionistas y para regalar. ",
-    "precio": 2500
-    }
+    "precio": 2500,
+    "categoria": "Muñecas",
+    "subcategoría":"Funko"
+}
 ]
-
-}]
