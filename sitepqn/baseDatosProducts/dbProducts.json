@@ -12,7 +12,7 @@
     "descripcion": "Camión de Tránsito Urbano Original Roma 1440¡Volá tu imaginación jugando con estos increíbles juguetes de Roma Rodados!Muchísimos modelos para escoger... ¡En este caso encuentra el el camión de tránsito urbano de Roma!Contenido:- Incluye: 1 Camión.- Dimensiones: 16cm alto x 30cm ancho.- Recomendado para edades de 3 años en adelante.- Marca: Roma- Item: 1440",
     "precio": 1160,
     "categoría": "Vehículos",
-    "subcategoría": "Camiones",
+    "subcategoría": "Camiones"
 },
 {
     "sku": 387959,
@@ -20,7 +20,7 @@
     "descripcion": "Con el Coche de Pinypon podés llevar a tus muñecas / os a pasear y vivir una tarde genial!",
     "precio": 2680,
     "categoría": "Vehículos",
-    "subcategoría":"Motos",
+    "subcategoría":"Motos"
 },
 {
     "sku": 387960,
@@ -61,7 +61,7 @@
     "descripcion": "Panic Lab es un juego de mesa en el que tenemos que cuidar nuestro preciado laboratorio de la fuga de unas amebas. ¡Las amebas se escaparon y están moviéndose para todos lados! ¡Encontalas rápido! En este juego, todos juegan juntos y al mismo tiempo. Un juego rápido, de reglas simples para desafiar a los más atentos.",
     "precio": 2788,
     "categoría": "Juegos de Mesa",
-    "subcategoría": "Infantiles",
+    "subcategoría": "Infantiles"
 },
 {
     "sku": 387970,
@@ -69,7 +69,7 @@
     "descripcion": "Katamino es un juego de construcción al estilo rompecabezas. Un juego que contiene múltiples fichas que intentaremos acomodar en el tablero con distintos niveles de dificultad. Hay más de 500 desafíos para mentes inquietas y creativas.",
     "precio": 2800,
     "categoría": "Juegos de Mesa",
-    "subcategoría": "Adultos",
+    "subcategoría": "Adultos"
 },
 {
     "sku": 387963,
@@ -77,7 +77,7 @@
     "descripcion": "Transformers Cyberverse Figura Coleccionable Hasbro E1884. Convierte y ataca fácilmente con juguetes Transformers Cyberverse Action Attackers!",
     "precio": 2750,
     "categoria": "Muñecos de acción",
-    "subcategoría": "Muñecos",
+    "subcategoría": "Muñecos"
 },
 {
     "sku": 387964,
@@ -85,7 +85,7 @@
     "descripcion": "Máscara Iron Man Marvel Avengers B9945 Hasbro Original. Gran máscara de plástico duro.Con elástico ajustable.- Incluye 1 protector de goma para los ojos y para mayor comodidad.Marca: Hasbro",
     "precio": 1345,
     "categoria": "Muñecos de acción",
-    "subcategoría":"Accesorios",
+    "subcategoría":"Accesorios"
 },
 {
     "sku": 387965,
@@ -93,7 +93,7 @@
     "descripcion": "FORTNITE BATTLE ROYALE KARTING Fortnite, el epico videojuego mas conocido de la historia, sale de la pantalla con las figuras de sus personajes.",
     "precio": 1734,
     "categoria": "Muñecos de acción",
-    "subcategoría":"Vehículos de acción",
+    "subcategoría":"Vehículos de acción"
 },
 {
     "sku": 387966,
@@ -101,7 +101,7 @@
     "descripcion": "ORIGINAL STAR WARS® MARCA HASBRO™",
     "precio": 1789,
     "categoria": "Muñecos de acción",
-    "subcategoría":"Star Wars",
+    "subcategoría":"Star Wars"
 },
 {
     "sku": 387967,
@@ -125,7 +125,7 @@
     "descripcion": " Incluye guia para padres y tutores. Viaje de emociones es una ocasión para compartir lo que sentis, expresar lo que pensas y afianzar la unión y el vinculo con los otros jugadores. Marca: Barco de Papel",
     "precio": 979,
     "categoria": "Juegos de Ingenio",
-    "subcategoría": "Ciencia",
+    "subcategoría": "Ciencia"
 },
 {
     "sku": 387956,
@@ -133,7 +133,7 @@
     "descripcion": "JUEGO DE CIENCIAS – LA CIENCIA DEL AGUA. Divertido laboratorio de ciencias para niños. Realiza más de 25 experimentos divertidos. Experimentos de física y química, para aprender la importancia del agua, valorando y cuidando juntos el medio ambiente.",
     "precio": 2750,
     "categoria": "Juegos de Ingenio",
-    "subcategoría": "Especiales",
+    "subcategoría": "Especiales"
 },
 {
     "sku": 387959, 
@@ -181,7 +181,8 @@
     "nombre": "Crybabies Llora Con Lagrimas Y Sonido Wabro Cry Babies",
     "descripcion": "Crybabies llora con lagrimas y sonido WABRO.  Si le quitas el chupete llorará cada vez mas hasta recuperarlo. ¿Cómo jugar? 1- quitale el chupete. 2- Crybabies empiezan a llorar con sonidos y lágrimas de verdad. 3- Ponle el chupete y dejará de llorar.Diferentes modelos para coleccionar: CHIC, RUTHY, FANCY, PANDY, DOTTY, LADY y NALA.¡Lloran lagrimas de verdad! Modelo: 99275",
     "precio": 6900,
-    "Con sonido y movimiento",
+    "categoria": "Muñecas",
+    "subcategoría":"Con sonido y movimiento"
 },
 {
     "sku": 387963, 
