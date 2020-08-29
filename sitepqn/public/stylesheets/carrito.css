@@ -64,7 +64,7 @@ html, body {
 }
 
 #cabecera {
-    background-image: url(../images/Arreglo\ y\ creació\ musical.png) !important;
+    background-image: url(../images/fondos/Arreglo\ y\ creació\ musical.png) !important;
 }
 
 .navbar {
@@ -80,7 +80,7 @@ html, body {
     margin:0;
     font-family: 'Roboto', sans-serif;
     font-style: italic;
-    background-image: url(../images/fondoPaisaje.jpg);
+    background-image: url(../images/fondos/fondoPaisaje.jpg);
     background-size: 100%;
 }
 .cuerpo h3{
