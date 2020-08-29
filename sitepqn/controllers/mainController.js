@@ -8,11 +8,16 @@ module.exports = {
       let visitadas = dbProducts.filter(producto=>{
         return producto.seccion == 'visitadas'        
       })
+      let campaña = dbProducts.filter(producto=>{
+        return producto.seccion == 'campaña'        
+      })
+
       
     res.render('index', {
       title: 'Pa q no te aburras',
       ofertas: ofertas,
-      visitadas: visitadas
+      visitadas: visitadas,
+      campaña: campaña
     });
   }
 }

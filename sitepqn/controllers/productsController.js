@@ -7,9 +7,16 @@ module.exports = {
     listar:(req, res)=>{
         res.send(dbProducts)
     },
-    detalle: (req, res)=>{
+    detalle: function(req, res){
+        let idProduct = req.params.id; //ruta parametrizada en lenguaje express
+         let producto = dbProducts.filter(producto=>{
+            return producto.id == idProduct 
+            })
+
         res.render('productos',{
-            title:"Detalle del producto"
+            title:"Detalle del producto",
+            producto:producto[0] //le colocamos así para que envíe a la vista un sólo elemento//
         })
     }
 }
+

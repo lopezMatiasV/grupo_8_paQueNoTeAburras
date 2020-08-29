@@ -4,7 +4,8 @@
 <link rel="stylesheet" href="/stylesheets/styleDetalleProducto.css">
  
 <body>
- 
+ <!--PARA FIJAR EL HEADER AGREGAR fixed-top ENTRE LOS NAVBAR-->
+  <!--HEADER: CABECERA Y MENÚ DE NAVEGACIÓN-->
   <%- include('partials/header') %>
    
    <!--CUERPO DE LA PAGINA DE PRODUCTOS-->
@@ -19,17 +20,15 @@
     <!--Comienza la tarjeta de productos PiniPoyDelivery-->
     <!--Acá hay que modificar el h1; pero cuidado que afecta el estilo y modifica la escritura del producto-->
     <div id="h1" class="column">
-      <h2 style="text-align:center"> <%= producto.categoría %>  </h2>
+      <h2 style="text-align:center">Muñecos</h2>
       
       <div class="card">
-      
-        <img src="/images/products/<%- producto.img %> " alt="" style="width:100%">
-    
+        <img src="/images/PiniPoyDelivery.png" alt="PiniPoyDelivery" style="width:100%">
        <!--modifico el encabezado de la carta para que traiga el producto
       -->
-        <h1> <%= producto.nombre %> </h1>
-        <p class="price"> $ <%- producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); %> </p>
-        <p> <%= producto.descripcion %> </p>
+        <h1>PinyPon Delivery</h1>
+        <p class="price">$919.99</p>
+        <p> Soy un detalle, descripción del producto .... Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum perspiciatis et nisi? Sapiente?</p>
         <p><button class="Add to Cart">Agregar al Carrito</button></p>
         <p><button class="comprarAhora">Comprar ahora</button></p>
       </div>
@@ -42,7 +41,7 @@
   <div  id="h2" class="column">
     
     <div class="w3-container">
-      <h3><%= producto.nombre %></h3>
+      <h3> PinyPon Delivery.</h3>
       <p>Tocá la imagen para ver el detalle</p>
     </div>
     
@@ -50,17 +49,17 @@
       
       <div class="w3-col s3 w3-container">
         <a href="javascript:void(0)" class="w3-hover-opacity" onclick="openImg('PinyPon');">
-          <img src="/images/products/<%- producto.img2 %> " alt="" style="width:100%">
+          <img src="/images/PiniPoyDelivery.png" alt="PiniPoyDelivery.png" style="width:100%">
         </a>
       </div>
       <div class="w3-col s3 w3-container">
         <a href="javascript:void(0)" class="w3-hover-opacity" onclick="openImg('PinyPon2');">
-          <img  src="/images/products/<%- producto.img3 %> "alt="" style="width:100%">
+          <img src="/images/PiniPoyDelivery2.png"alt="PiniPoyDelivery2" style="width:100%">
         </a>
       </div>
       <div class="w3-col s3 w3-container">
         <a href="javascript:void(0)" class="w3-hover-opacity" onclick="openImg('PinyPonCaja');">
-          <img  src="/images/products/<%- producto.img4 %> " alt="" style="width:100%">
+          <img src="/images/PinyPonDEliveryCaja.png" alt="PinyPonDEliveryCaja" style="width:100%">
         </a>
       </div>
       
@@ -109,24 +108,24 @@
     <!--Imagenes que se expanden-->
     <div class="imgsalen">
       <div id="PinyPon" class="picture w3-display-container" style="display:none">
-        <img src="/images/products/<%- producto.img2 %> " alt="" style="width:100%">
+        <img src="/images/PiniPoyDelivery.png" alt="PinyPon" style="width:100%">
         <span onclick="this.parentElement.style.display='none'" 
         class="w3-display-topright w3-button w3-transparent w3-text-white">&times;</span>
-        <div class="w3-display-bottomleft w3-container w3-padding w3-text-white"><%- producto.nombre %> </div>
+        <div class="w3-display-bottomleft w3-container w3-padding w3-text-white">PinyPon Delivery</div>
       </div>
       
       <div id="PinyPon2" class="picture w3-display-container" style="display:none">
-        <img  src="/images/products/<%- producto.img3 %> " alt="" style="width:100%">
+        <img src="/images/PiniPoyDelivery2.png" alt="PinyPon2" style="width:100%">
         <span onclick="this.parentElement.style.display='none'" 
         class="w3-display-topright w3-button w3-transparent w3-text-white">&times;</span>
-        <div class="w3-display-bottomleft w3-container w3-padding w3-text-white"> <%- producto.nombre %> </div>
+        <div class="w3-display-bottomleft w3-container w3-padding w3-text-white">PinyPon Delivery</div>
       </div>
       
       <div id="PinyPonCaja" class="picture w3-display-container" style="display:none">
-        <img  src="/images/products/<%- producto.img4 %> " alt="" style="width:100%">
+        <img src="/images/PinyPonDEliveryCaja.png" alt="PinyPonDEliveryCaja" style="width:100%">
         <span onclick="this.parentElement.style.display='none'" 
         class="w3-display-topright w3-button w3-transparent w3-text-white">&times;</span>
-        <div class="w3-display-bottomleft w3-container w3-padding w3-text-white"><%- producto.nombre %> </div>
+        <div class="w3-display-bottomleft w3-container w3-padding w3-text-white">PinyPon Delivery</div>
       </div>
     </div>
     <!--Fin de imagenes que se expanden-->
@@ -186,9 +185,17 @@
       
       <button class="collapsible"><h6><strong>Descripción</strong></h6><p><span></span></p></button>
       <div class="content">
-        <p><span style="font-size: medium;"> <strong> <%= producto.nombre %> </strong>
+        <p><span style="font-size: medium;"> <strong> Juguete -Pinypon Moto Delivery de Pizzas.</strong>
           
-          <%- producto.descripcion %> 
+          ¡Llevá los pedidos a domicilio de la Pizzería Pinypon!
+          
+          Tiene un compartimento trasero para llevar las pizzas a los clientes y que lleguen bien calentitas.
+          
+          Incluye moto, la figura de Dana, una de las protagonistas de la linea teen, 3 pizzas, 3 cajas, accesorios y adhesivas.
+          Las mini muñecas/os son ideales para niñas y niños por ser intercambiables; se puede intercambiar la ropa, su pelo y sus complementos.
+          Edad recomendada a partir de 4 años.
+          
+          Famosa
         </span></p>
       </div>
     </div>
