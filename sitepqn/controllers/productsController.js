@@ -4,8 +4,11 @@ const fs = require ('fs')
 const path = require('path')*/
 
 module.exports = {
-    listar:(req, res)=>{
-        res.send(dbProducts)
+    listar: function(req, res) {
+        res.render('listar', {
+            title: "todos los productos",
+            producto: dbProducts
+        })
     },
     detalle: function(req, res){
         let idProduct = req.params.id; //ruta parametrizada en lenguaje express
