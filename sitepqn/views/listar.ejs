@@ -18,7 +18,7 @@
                         <!--recorro los productos basados en la ultima visita con un forEach-->
                         <% producto.forEach(producto => { %>
                             <div class="producto col-sm-12 col-md-6 col-lg-3">
-                              <a href=""><img src="images/products/<%- producto.img %> " alt=""></a>    
+                              <a href="./products/<%= producto.id %> "><img src="images/products/<%- producto.img %> " alt=""></a>    
                               <h3><%- producto.nombre %></h3>
                               <span>$ <%- producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); %></span>
                               <p><%- producto.descripcion %></p>
