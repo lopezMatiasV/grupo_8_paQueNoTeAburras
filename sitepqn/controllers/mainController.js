@@ -21,10 +21,14 @@ module.exports = {
     });
   },
     registro:(req, res)=>{
-        res.render('registro')
+        res.render('registro',{
+          title:"Pa Que | Registro"
+        })
     },
     carrito:(req, res)=>{
-        res.render('carrito')
+        res.render('carrito',{
+          title:"Pa Que | Carrito"
+        })
     }
   
 }

@@ -8,7 +8,8 @@ const controller = require('../controllers/productsController')
 
 //utilizo los metodos del controller
 router.get('/', controller.listar)
-router.get('/:id', controller.detalle)
+router.get('/detalle/:id', controller.detalle)
+router.get('/agregar', controller.agregar)
 
 
 

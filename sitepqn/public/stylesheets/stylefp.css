@@ -1,4 +1,4 @@
-body {
+#carga .formulario {
     font-family: Arial;
     font-size: 17px;
     padding: 8px;
@@ -8,7 +8,7 @@ body {
     box-sizing: border-box;
   }
   
-  .formulario {
+  #carga .formulario {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -16,29 +16,29 @@ body {
     margin: 0 -16px;
   }
   
-  .carga {
+  #carga .formulario .carga {
     -ms-flex: 50%;
     flex: 50%;
   }
   
-  .datosProducto {
+  #carga .formulario .datosProducto {
     -ms-flex: 75%;
     flex: 75%;
   }
   
-  .carga,
+  #carga .formulario .carga,
   .datosProducto {
     padding: 0 16px;
   }
   
-  .formProd {
+  #carga .formulario .formProd {
     background-color: #f2f2f2;
     padding: 5px 20px 15px 20px;
     border: 1px solid lightgrey;
     border-radius: 3px;
   }
   
-  input[type=text] {
+  #carga .formulario input[type=text] {
     width: 100%;
     margin-bottom: 20px;
     padding: 12px;
@@ -46,12 +46,12 @@ body {
     border-radius: 3px;
   }
   
-  label {
+  #carga .formulario label {
     margin-bottom: 10px;
     display: block;
   }
   
-  .btn {
+  #carga .formulario .btn {
     background-color: #4CAF50;
     color: white;
     padding: 12px;
@@ -63,19 +63,19 @@ body {
     font-size: 17px;
   }
   
-  .btn:hover {
+  #carga .formulario .btn:hover {
     background-color: #45a049;
   }
   
-  a {
+  #carga .formulario a {
     color: #2196F3;
   }
   
-  hr {
+  #carga .formulario hr {
     border: 1px solid lightgrey;
   }
   
-  span.price {
+  #carga .formulario span.price {
     float: right;
     color: grey;
   }

@@ -6,7 +6,7 @@ const path = require('path')*/
 module.exports = {
     listar: function(req, res) {
         res.render('listar', {
-            title: "Todos los productos",
+            title: "Pa Que | Todos los productos",
             producto: dbProducts
         })
     },
@@ -17,8 +17,13 @@ module.exports = {
             })
 
         res.render('productos',{
-            title:"Detalle del producto",
+            title:"Pa Que | Detalle del producto",
             producto:producto[0] //le colocamos así para que envíe a la vista un sólo elemento//
+        })
+    },
+    agregar:(req, res)=>{
+        res.render('carga',{
+            title: "Pa Que | Agregar producto"
         })
     }
 }

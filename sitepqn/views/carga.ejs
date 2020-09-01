@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Carga</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../public/stylesheets/stylefp.css">
-</head>
+  <%- include('partials/head') %>
+<link rel="stylesheet" href="/stylesheets/stylefp.css">
 
-<body>
+<body id="carga">
+  <%- include('partials/header') %>
 
 <h2>Formulario de Carga de Productos</h2>
-<p>No olvidarse de verificar los datos a cargar!!</p>
+
 <div class="formulario">
   <div class="datosProducto">
     <div class="formProd">
@@ -68,5 +64,6 @@
   
 </div>
 
+<%- include('partials/footer') %>
 </body>
 </html>
