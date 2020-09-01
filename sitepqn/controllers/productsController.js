@@ -6,7 +6,7 @@ const path = require('path')*/
 module.exports = {
     listar: function(req, res) {
         res.render('listar', {
-            title: "todos los productos",
+            title: "Todos los productos",
             producto: dbProducts
         })
     },

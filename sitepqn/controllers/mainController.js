@@ -19,5 +19,12 @@ module.exports = {
       visitadas: visitadas,
       campaña: campaña
     });
-  }
+  },
+    registro:(req, res)=>{
+        res.render('registro')
+    },
+    carrito:(req, res)=>{
+        res.render('carrito')
+    }
+  
 }

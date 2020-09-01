@@ -6,8 +6,7 @@ var logger = require('morgan');
 //rutas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-let carritoRouter = require('./routes/carrito')//requiero el archivo
-let registroRouter = require('./routes/registro');
+
 let productsRouter =require ('./routes/products');
 var app = express();
 
@@ -23,8 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/carrito', carritoRouter);//uso el carrito
-app.use('/registro', registroRouter);//uso registro
+
 app.use('/products', productsRouter);//uso los productos
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
