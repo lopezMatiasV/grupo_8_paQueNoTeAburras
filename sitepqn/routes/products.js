@@ -20,8 +20,9 @@ const controller = require('../controllers/productsController')
 router.get('/', controller.listar)
 router.get('/detalle/:id', controller.detalle)
 router.get('/agregar', controller.agregar)
-router.post('/agregar',upload.any(), controller.publicar)
-
-
+router.post('/agregar',upload.any(), controller.publicar);
+router.get('/show/:id/:flap?',controller.show);
+router.put('/edit/:id/:flap?',upload.any(),controller.edit);
+router.delete('/delete/:id',controller.eliminar);
 
 module.exports = router;
