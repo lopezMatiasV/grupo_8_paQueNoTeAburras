@@ -20,7 +20,8 @@ const controller = require('../controllers/productsController')
 router.get('/', controller.listar)
 router.get('/detalle/:id', controller.detalle)
 router.get('/agregar', controller.agregar)
-router.post('/agregar',upload.any(), controller.publicar);
+router.post('/agregar',upload.any(), controller.publicar)
+
 
 
 module.exports = router;

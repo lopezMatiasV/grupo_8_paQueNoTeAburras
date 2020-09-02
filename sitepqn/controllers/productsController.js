@@ -21,23 +21,12 @@ module.exports = {
             producto:producto[0] //le colocamos así para que envíe a la vista un sólo elemento//
         })
     },
-    agregar:function(req,res){
-        let categoría;
-        let subcategoría;
-        if (req.query.categoría){
-            categoría = req.query.categoría;
-            subcategoría = req.query.subcategoría;
-        }
+    agregar:(req, res)=>{
         res.render('carga',{
-            title:"Agregar Producto",
-            categorias:dbProducts,
-            categoría:categoría,
-            subcategoría:subcategoría,
-          
-
+            title: "Pa Que | Agregar producto"
         })
     },
-    publicar:function(req,res,next){
+    publicar:(req, res)=>{
         let lastID = 1;
         dbProducts.forEach(producto=>{
             if(producto.id > lastID){
@@ -51,7 +40,7 @@ module.exports = {
             precio:Number(req.body.precio),
             categoría:req.body.categoría,
             subcategoría:req.body.subcategoría,
-            description:req.body.description,
+            descripcion:req.body.descripcion,
             seccion:req.body.seccion,
             discount:Number(req.body.discount),
             img:(req.files[0])?req.files[0].filename:"default-image.png"
@@ -61,6 +50,6 @@ module.exports = {
         fs.writeFileSync(path.join(__dirname,"..","data","dbProducts.json"),JSON.stringify(dbProducts),'utf-8')
 
         res.redirect('/products')
-    },
+    }
 }
 
