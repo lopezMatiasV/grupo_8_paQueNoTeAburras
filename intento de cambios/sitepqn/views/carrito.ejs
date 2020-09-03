@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="/stylesheets/carrito.css">
+
+<body>
+  <!--PARA FIJAR EL HEADER AGREGAR fixed-top ENTRE LOS NAVBAR-->
+  <!--HEADER: CABECERA Y MENÚ DE NAVEGACIÓN-->
+  <%- include('partials/header') %>
+  <!--CUERPO PAG CARRITO-->
+  <div class="conteiner-fluid cuerpo">
+    <div class="row cuerpo">
+      <!--METODOS-->    
+      <div class="metodos col-sm-12 col-md-6 col-lg-6">
+        <h3>Elegi el metodo de pago</h3>
+        <div class="botones">
+          <ul>
+            <li>Crédito <input type="radio" name="pago" value="credito"></li>
+            <li>Débito <input type="radio" name="pago" value="debito"></li>
+            <li>Mercado Pago <input type="radio" name="pago" value="mercado"></li>
+          </ul>
+        </div>
+        <div class="direccion">
+          <h3>Direccion de envio</h3>
+          <ul class="dir">
+            <li>Usar dirección guardada<input type="radio" name="direccion" value="direccionGuardada" checked></li>
+            <li>Nueva dirección<input type="radio" name="direccion" value="direccionNueva"></li>
+          </ul>
+          <h5>Datos personales</h5>
+        </div>
+        <div class="datos">
+          <form action="carrito.html" method="POST">
+            <p><label for="nombre">Nombre/s:</label></p>
+            <input type="text" id="nombre" name="nombre"><br>
+
+            <p><label for="apellido">Apellido/s:</label></p>
+            <input type="text" name="apellido" id="apellido"><br>
+
+            <p><label for="telefono">Teléfono:</label></p>
+            <input type="number" name="telefono" id="telefono"><br>
+            
+            <p><label for="direccion">Dirección:</label></p>
+            <input type="text" name="direccion" id="direccion"><br>
+            
+            <p><label for="ciudad">Ciudad:</label></p>
+            <input type="text" name="ciudad" id="ciudad"><br>
+
+            <p><label for="codPostal">Codigo postal:</label></p>
+            <input type="number" name="codPostal" id="codPostal"><br>
+
+            <p><label for="provincia">Provincia:</label></p>
+            <p><input type="text" name="provincia" id="provincia"></p>
+            
+            <p>
+              <button class="btn btn-primary" type="submit">Guardar</button>
+              <button class="btn btn-primary" type="reset">Cancelar</button>
+            </p>
+          </form>
+          </p>
+        </div>
+      </div>
+      <!--carrito-->
+      <div class="carrito col-sm-12 col-md-6 col-lg-6">
+        <h3>Carrito</h3>
+        
+        <div class="seleccion">
+          <div class="prod">
+            <a href=""><img src="/images/products/babyCry.png" alt=""></a>
+            <p class="detalle"> <strong> Baby Cry</strong><br> 50cm llora con sonido y lagrimas reales!</p>
+            <select name="cantidad" id="cantidad"></select>
+            <p class="precio">$5000</p>
+            
+          </div>        
+          <div class="prod">
+            <a href=""><img src="/images/products/lolRosa.png" alt=""></a>
+            <h5></h5>
+            <p class="detalle">Pelota LOL sparkle<br>con muñeca y accesorios sorpresa</p>
+            <select name="cantidad" id="cantidad"></select>
+            <p class="precio">$2000</p>
+            
+          </div>        
+          <div class="prod">
+            <a href=""><img src="/images/products/babyCry3.png" alt=""></a>
+            <p class="detalle">Cry Baby<br> 50cm llora con sonido y lagrimas reales!</p>
+            <select name="cantidad" id="cantidad"></select>
+            <p class="precio">$5000</p>
+            
+          </div>        
+          <div class="prod">
+            <a href=""><img src="/images/products/pasapalabra.png" alt=""></a>
+            <p class="detalle">Pasapalabra!<br>juga como si estuvieras en la tele</p>
+            <select name="cantidad" id="cantidad"></select>
+            <p class="precio">$1800</p>            
+          </div>
+          <div class="subtotal col-12">
+            <div class="cuentas col-6">
+              <p>Subtotal</p>
+              <p>Costo de envio</p>
+              <p>Total</p>
+            </div>
+            <div class="totales col-6">
+              <p>$123.00</p>
+              <p>$456.00</p>
+              <p>$152.12</p>
+            </div>
+          </div>        
+        </div>
+      </div>
+      <!--PAGO CON TARJETA-->
+      <div class="tarjeta col-12">
+        <div class="elegir">
+          <h3>Pago con tarjeta</h3>
+          <ul>
+            <li><i class="fab fa-cc-visa"></i><input type="radio" name="tipoTarjeta" value="visa"></li>
+            <li><i class="fab fa-cc-amex"></i><input type="radio" name="tipoTarjeta" value="american"></li>
+            <li><i class="fab fa-cc-mastercard"></i><input type="radio" name="tipoTarjeta" value="master"></li>
+          </ul>
+        </div>
+        <div class="datos">
+          <form class="carga row" action="" method="POST">
+            <span class="col-sm-12 col-md-6 col-lg-6">
+              <label for="numero">Número de tarjeta</label><br>
+              <input type="number" name="numero" id="numero"><br>
+            </span>
+            <span class="col-sm-12 col-md-6 col-lg-6">
+              <label for="nombre">Nombre del titular</label><br>
+              <input type="text" name="nombre" id="nombre"><br>
+            </span>
+            <span class="col-sm-12 col-md-6 col-lg-6">
+              <label for="vencimiento">Fecha de vencimiento</label><br>
+              <input type="number" name="vencimiento" id="vencimiento"><br>
+            </span>
+            <span class="col-sm-12 col-md-6 col-lg-6">
+              <label for="codigo">Código de seguridad</label><br>
+              <input type="password" name="codigo" id="codigo"><i class="far fa-credit-card"></i><br>
+            </span>
+            <button class="btn btn-primary" id="confirmar" type="submit">Confirmar</button>
+          </form>          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--FOOTER: PIE DE PAGINA-->
+<%- include('partials/footer') %>
+<!--FINALIZA FOOTER: PIE DE PAGINA-->
+</div>
+
+
+<!--scripts de bootstrap-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>   
+</body>
+</html>

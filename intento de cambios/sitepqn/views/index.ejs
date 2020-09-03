@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <%- include('partials/head') %>
+
+<body>
+    
+  <!--HEADER-->
+  <%- include('partials/header') %>
+
+   <!--BANNER-->
+
+  <div class="banner">
+    <section id="banner-container" class="position-relative text-light">
+      <div id="banner-background"></div>
+      <div id="banner-content" class="container h-100">
+        <div class="row no-gutters h-100 d-flex">
+          <div id="banner-text" class="col-md-6 align-self-center">
+            <h1 class="display-1 font-weight-bold mb-4">Mira nuestras ofertas</h1>
+            <p class="lead mb-5">El lugar donde vas a encontrar la mayor variedad de juguetes para divertir a niños de 4 a 99 años.
+            </p>
+            <a href="products" class="btn btn-primary">Nuestros productos</a>
+          </div>
+          <div class="col-md-6 img-container align-self-center h-100">
+            <!--carrousel-->
+            <section>
+              <div id="banner-img" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <a href=""><img src="/images/logos/logo.png" class="d-block w-100" alt="..."></a>                    
+                  </div>
+                  <div class="carousel-item">
+                    <a href="products/detalle/17"><img src="/images/products/mrPapa2.png" class="d-block w-100" alt="..."></a>                    
+                  </div>
+                  <div class="carousel-item">
+                    <a href="products/detalle/18"><img src="/images/products/PiniPoyDelivery.png" class="d-block w-100" alt="..."></a>
+                  </div>
+                  <div class="carousel-item">
+                    <a href="products/detalle/22"><img src="/images/products/babyCry3.png" class="d-block w-100" alt="..."></a>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!--  <img src="/images/logo.png" id="hero-img" class="position-absolute">  --> 
+            <img src="/images/lines.svg" id="lines" class="spin position-absolute">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+   <!--OFERTAS-->
+
+  <div class="conteiner cuerpo">
+    <h2>Algunas de nuestras ofertas</h2>
+
+     
+    <div class="row productos">
+     <!--producto--> 
+     
+     <% ofertas.forEach(producto => { %>
+      <div class="producto col-sm-12 col-md-6 col-lg-3">
+        <a href="./products/detalle/<%= producto.id %> "><img src="images/products/<%- producto.img %> " alt=""></a>    
+        <h3><%- producto.nombre %></h3>
+        <span>$ <%- producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); %></span>
+        <p><%- producto.descripcion %></p>
+        <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
+      </div>
+     <% }) %> 
+    </div>
+    
+
+    <!--SEPARADOR-->
+    <div class="separador">
+      <section class="cards-banner-one">
+        <div class="content">
+          <h2>Tenemos mas ofertas para vos</h2>
+          <p>Descubrilas cliqueando en el siguiente link</p>
+          <a href="products" class="btn">Mas Ofertas<i class="fas fa-chevron-right"></i></a>
+        </div>
+      </section>
+    </div>
+    <!--MAS COMPRADOS-->
+    <h2>Los mas comprados</h2>
+
+    
+
+    <div class="row productos">
+    <% visitadas.forEach(producto => { %>  
+      <!--producto-->
+      <div class="producto col-12 col-md-6 col-lg-3">
+        <a href="./products/<%= producto.id %> "><img src="images/products/<%- producto.img %>" alt="rayo"></a>    
+        <h3><%- producto.nombre %></h3>
+        <span>$ <%- producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); %></span>
+        <p><%- producto.descripcion %></p>
+        <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
+      </div>
+
+      <% }) %>
+      
+    </div>
+
+  </div>
+
+  <!--FOOTER-->
+  <%- include('partials/footer') %>
+  <!--FINALIZA FOOTER-->
+  
+
+<!--scripts de bootstrap-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+<!--scroll reveal-->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+</body>
+<script>
+  window.onload = function () {
+    setTimeout(function () {
+      document.getElementById('banner-background').style.width = '100%';
+    }, 1500);
+    setTimeout(function () {
+      document.getElementById('banner-text').style.opacity = '1';
+    }, 2500);
+    setTimeout(function () {
+      document.getElementById('banner-img').style.opacity = '1';
+    }, 3500);
+    setTimeout(function () {
+      document.getElementById('lines').style.opacity = '1';
+    },4500);
+  };
+  ScrollReveal().reveal('.cuerpo');
+  ScrollReveal().reveal('.conteiner-productos',{delay: 500});
+  ScrollReveal().reveal('.cards-banner-one',{delay: 500});
+  ScrollReveal().reveal('.cards-banner-one',{delay: 500});
+  
+</script>
+
+</html>
