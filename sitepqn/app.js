@@ -6,6 +6,8 @@ var logger = require('morgan');
 //rutas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const methodOverride = require('method-override');
+const session = require('express-session');
 
 let productsRouter =require ('./routes/products');
 var app = express();
@@ -17,9 +19,10 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(methodOverride('_method'));
+app.use(session({secret:"paqueno"}));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
@@ -41,3 +44,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
