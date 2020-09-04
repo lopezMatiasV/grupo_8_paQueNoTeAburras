@@ -84,7 +84,7 @@ module.exports = {
         })
 
         res.render('productShow',{
-            title: "Ver / Editar Producto",
+            title: "Editar Producto",
             producto:resultado[0],
             total:dbProducts.length,
             categoría:dbProducts,
@@ -102,12 +102,15 @@ module.exports = {
         dbProducts.forEach(producto => {
             if (producto.id == idProducto) {
                 producto.id = Number(req.body.id);
-                producto.nombre = req.body.nombre.trim();
+                producto.nombre = req.body.nombre;
+                producto.sku = req.body.sku;
+                producto.descripcion = req.body.descripcion;
                 producto.precio = Number(req.body.precio);
-                producto.discount = Number(req.body.discount);
-                producto.categoría = req.body.categoría.trim();
-                producto.descripcion = req.body.descripcion.trim();
+                producto.categoría = req.body.categoría;
+                producto.subcategoría = req.body.subcategoría;
+                producto.seccion = req.body.seccion;
                 producto.img = (req.files[0]) ? req.files[0].filename : producto.img
+                producto.discount = Number(req.body.discount);            
             }
         })
 

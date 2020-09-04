@@ -20,6 +20,20 @@ module.exports = {
       campaña: campaña
     });
   },
+  search:(req, res)=>{
+    let buscar = req.query.search;
+        let productos = [];
+        dbProduct.forEach(producto => {
+            if (producto.name.toLowerCase().includes(buscar)) {
+                productos.push(producto)
+            }
+        })
+        res.render('products', {
+            title: "Resultado de la búsqueda",
+            productos: productos,
+           
+        })
+  },
     registro:(req, res)=>{
         res.render('registro',{
           title:"Pa Que | Registro"
