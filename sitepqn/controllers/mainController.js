@@ -18,6 +18,7 @@ module.exports = {
       ofertas: ofertas,
       visitadas: visitadas,
       campaña: campaña
+      
     });
   },
   search:(req, res)=>{
