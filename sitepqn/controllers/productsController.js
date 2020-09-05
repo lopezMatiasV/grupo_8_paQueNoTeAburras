@@ -22,17 +22,17 @@ module.exports = {
         })
     },
     agregar:function(req,res){
-        let categoría;
-        let subcategoría;
-        if (req.query.categoría){
-            categoría = req.query.categoría;
-            subcategoría = req.query.subcategoría;
+        let categoria;
+        let subCategoria;
+        if (req.query.categoria){
+            categoria = req.query.categoria;
+            subCategoria = req.query.subCategoria;
         }
         res.render('carga',{
             title:"Agregar Producto",
             categorias:dbProducts,
-            categoría:categoría,
-            subcategoría:subcategoría,
+            categoria:categoria,
+            subCategoria:subCategoria,
           
 
         })
@@ -49,8 +49,8 @@ module.exports = {
             sku:req.body.sku,
             nombre:req.body.nombre,
             precio:Number(req.body.precio),
-            categoría:req.body.categoría,
-            subcategoría:req.body.subcategoría,
+            categoria:req.body.categoria,
+            subCategoria:req.body.subCategoria,
             descripcion:req.body.descripcion,
             seccion:req.body.seccion,
             discount:Number(req.body.discount),
@@ -87,7 +87,7 @@ module.exports = {
             title: "Editar Producto",
             producto:resultado[0],
             total:dbProducts.length,
-            categoría:dbProducts,
+            categoria:dbProducts,
             activeDetail: activeDetail,
             activeEdit: activeEdit,
             showDetail:showDetail,
@@ -106,8 +106,8 @@ module.exports = {
                 producto.sku = req.body.sku;
                 producto.descripcion = req.body.descripcion;
                 producto.precio = Number(req.body.precio);
-                producto.categoría = req.body.categoría;
-                producto.subcategoría = req.body.subcategoría;
+                producto.categoria = req.body.categoria;
+                producto.subCategoria = req.body.subCategoria;
                 producto.seccion = req.body.seccion;
                 producto.img = (req.files[0]) ? req.files[0].filename : producto.img
                 producto.discount = Number(req.body.discount);            
@@ -121,11 +121,11 @@ module.exports = {
         let idProducto = req.params.id;
         dbProducts.forEach(producto=>{
             if(producto.id == idProducto){
-                let aEliminar = dbProducts.indexOf(producto);
+                let aEliminar = dbProducts.indexOf(producto.nombre);
                 dbProducts.splice(aEliminar,1);
             }
         })
         fs.writeFileSync(path.join(__dirname, '../data/dbProducts.json'), JSON.stringify(dbProducts));
-        res.redirect('/users/profile')
+        res.redirect('/products/')
     }
 }
