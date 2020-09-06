@@ -7,7 +7,8 @@ module.exports = {
     listar: function(req, res) {
         res.render('listar', {
             title: "Pa Que | Todos los productos",
-            producto: dbProducts
+            producto: dbProducts,
+            css:"style.css",
         })
     },
     detalle: function(req, res){
@@ -18,7 +19,8 @@ module.exports = {
 
         res.render('productos',{
             title:"Pa Que | Detalle del producto",
-            producto:producto[0] //le colocamos así para que envíe a la vista un sólo elemento//
+            producto:producto[0],//le colocamos así para que envíe a la vista un sólo elemento//
+            css: "styleDetalleProducto.css"
         })
     },
     agregar:function(req,res){
@@ -33,7 +35,7 @@ module.exports = {
             categorias:dbProducts,
             categoría:categoría,
             subcategoría:subcategoría,
-          
+            css:"style.css",
 
         })
     },
@@ -91,7 +93,8 @@ module.exports = {
             activeDetail: activeDetail,
             activeEdit: activeEdit,
             showDetail:showDetail,
-            showEdit:showEdit
+            showEdit:showEdit,
+            css:"style.css",
 
 
         })

@@ -17,7 +17,8 @@ module.exports = {
       title: 'Pa q no te aburras',
       ofertas: ofertas,
       visitadas: visitadas,
-      campaña: campaña
+      campaña: campaña,
+      css:"style.css",
       
     });
   },
@@ -32,17 +33,21 @@ module.exports = {
         res.render('products', {
             title: "Resultado de la búsqueda",
             productos: productos,
-           
+            css:"style.css",
         })
   },
     registro:(req, res)=>{
         res.render('registro',{
-          title:"Pa Que | Registro"
+          title:"Pa Que | Registro",
+          css:"registro.css"
+
         })
     },
     carrito:(req, res)=>{
         res.render('carrito',{
-          title:"Pa Que | Carrito"
+          title:"Pa Que | Carrito",
+          css:"carrito.css"
+
         })
     }
   

@@ -1,48 +1,8 @@
-/* 
-- IMPORTS 
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Arvo:ital@0;1&family=Roboto&display=swap');
+@import "styleCompiler.css";
 
 /*
-IMPORTS del Compilador
+DETALLE DE PRODUCTOS
 */
-/*@import "styleCompiler.css"*/
-
-/*
-- VARIABLES
-*/
-
-:root {
-  --color-rojo: #ea0112;
-  --color-borgoña: #ab0112;
-  --color-verdeManzana: #73c026;
-  --color-naranjaOscuro: #de3f19;
-  --color-violeta: #55068e;
-  --color-celeste: #00a0ee;
-  --color-verde: #3aac5d;
-  --color-azul: #282083; 
-  --color-beige: #b49759;
-  --color-naranjaClaro: #e88102;
-  /*Agregue el listado de los puntos de quiebre*/
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-} 
-
-
-
-/*
-- GENERAL
-*/
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  
-}
 
 a {
   text-decoration: none;
@@ -107,11 +67,6 @@ body {
   text-align: left;
   background-color: #fff;
 }
-/*Inicia el Header*/
-
-
-
-/*Finaliza el Header*/
 
 .wrapper {
   display: flex;
@@ -226,12 +181,13 @@ margin-right: 1%;
   margin: 20px 0;
   clear: both;
 }
+/*
 @media only screen and (max-width: 767px)
 
 .product .data .items {
   margin: 0;
   padding: 0;
-}
+}*/
 
 /*Estilo de Compartí en Facebook y Whatssap*/
 
@@ -360,132 +316,3 @@ margin-right: 1%;
     flex-direction: column;
   }
 }
-
-/*Estilo del Footer*/
-
-/*
-FOOTER
-*/
-
-.footer {
-  padding: 20px;
-  background-color: var(--color-verdeManzana);
-}
-.footer article{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-.footer article i{
-  font-size: 35px; 
-  color: var(--color-celeste);
-  margin: 10px 0;
-}
-
-.footer article h4,
-.footer article p, .footer article span{
-  color: var(--color-azul);
-  margin: 5px 0;
-}
-/*Redes sociales*/
-.redes{
-  display: flex;
-  flex-wrap: wrap;
-justify-content: space-around;
-}
-
-#socialmedia{
-  width: 25%;
-  text-align: center;
-  background-color:#de3f19;
-  color: white;
-  border-bottom-right-radius: 15%;
-  border-top-left-radius: 20%;
-}
-/*Fin de redes sociales*/
-/*Formulario de suscripción*/
-form-control {
-  display: block;
-  width: 100%;
-  height: calc(1.5em + .75rem + 2px);
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #aaa;
-  border-radius: .25rem;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-button, input {
-  overflow: visible;
-  
-}
-input, button, select, optgroup, textarea {
-  margin: 0;
-  margin-bottom: 5px;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
-/*fin del formulario de suscripción*/
-
-
-/*Medios de Pago*/
-.pagos{
-  display: flex;
-  flex-wrap: wrap;
-justify-content: space-around;
-}
-#money{
-  width: 25%;
-}
-/*Fin medios de pago*/
-
-/*Tienda*/
-.adressFooter{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-/*Envíos*/
-.envios{
-  display: flex;
-  flex-wrap: wrap;
-justify-content: space-around;
-
-}
-
-#truck{
-  width: 25%;
-
-}
-#entregas{
-  width: 30%;
-  
-}
-/*Pie de pagina, final del foother*/
-.copyright, .desarrolladores {
- 
-  display: flex;
-  flex-wrap: wrap;
-  font-size: xx-small;
-  text-align: center;
-  align-items: center;
-  align-content: space-around;
-  background-image: linear-gradient(to top left, var(--color-celeste), var(--color-azul))!important;
-  padding: 10px 10px;
-  color: var(--color-celeste);
-  border-radius: 15px 5px 15px ;
-}
-
-.desarrolladores a{
-  color: var(--color-celeste);
-/*
-FIN DEL FOOTER
-*/

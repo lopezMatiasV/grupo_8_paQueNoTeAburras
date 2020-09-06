@@ -17,7 +17,7 @@ let upload = multer({storage:storage});
 const controller = require('../controllers/productsController')
 
 //utilizo los metodos del controller
-router.get('/', controller.listar)
+router.get('/', controller.listar) /*No funciona la modularización del CSSS */
 router.get('/detalle/:id', controller.detalle)
 router.get('/agregar', controller.agregar)
 router.post('/agregar',upload.any(), controller.publicar);

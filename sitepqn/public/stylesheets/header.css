@@ -1,0 +1,86 @@
+/*
+- VARIABLES
+*/
+:root {
+    --dark: #14171d;
+    --dark-x: #1d2027;
+    --color-rojo: #ea0112;
+    --color-borgoña: #ab0112;
+    --color-verdeManzana: #73c026;
+    --color-naranjaOscuro: #de3f19;
+    --color-violeta: #55068e;
+    --color-celeste: #00a0ee;
+    --color-naranjaClaro: #e88102;
+    --color-verde: #3aac5d;
+    --color-azul: #282083;
+    --color-beige: #b49759;
+}
+/*
+- GENERAL
+*/
+
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+    list-style: none;
+}
+/*HEADER*/
+
+#cabecera .logo{
+    height: 150px;
+}
+.redes i{
+    color: white;
+    font-size: x-large;
+    margin: 5px;
+}
+.redes a :hover{
+    color:blue;
+}
+.buscador{  
+    background-color: white;
+    border: 1px solid var(--color-verde);
+    border-radius: 5px;
+    padding: 0px 8px; 
+}
+.buscador form input {
+    background: none;
+    border: 0;
+    width: 85%;
+    margin: 5px 25px;
+    padding-right: 0px;
+    border-right: 2px solid var(--color-verde);
+  }
+ .buscador form input:focus,
+  form button:focus {
+      outline: none;
+  }
+  
+ .buscador form button {
+      background: none;
+      border: 0;
+      border: var(--color-verde);
+      color: var(--color-verde);
+      padding: 0;
+      padding-left: 0px;
+  }
+
+html, body {
+    height: 100%;
+    background-image: linear-gradient(to top left, var(--color-celeste), var(--color-azul))!important;
+
+}
+
+#cabecera {
+    
+    background-image: url(../images/fondos/Arreglo\ y\ creació\ musical.png) !important;
+}
+
+.navbar {
+    min-height: 5rem;
+}
+.carrito i{
+    color: white;
+    font-size: x-large;
+    margin: 5px;
+}

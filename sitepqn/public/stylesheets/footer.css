@@ -1,0 +1,119 @@
+/*
+FOOTER
+*/
+
+.footer {
+    padding: 20px;
+    background-color: var(--color-borgoña);
+}
+.footer article{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer article i{
+    font-size: 35px; 
+    color: var(--color-celeste);
+    margin: 10px 0;
+}
+footer article h4,
+footer article p, footer article span{
+    color: white;
+    margin: 5px 0;
+}
+/*Redes sociales*/
+ footer .redes{
+    display: flex;
+    flex-wrap: wrap;
+justify-content: space-around;
+}
+
+footer #socialmedia{
+    width: 25%;
+}
+/*Fin de redes sociales*/
+/*Formulario de suscripción*/
+form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #aaa;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+button, input {
+    overflow: visible;
+    
+}
+input, button, select, optgroup, textarea {
+    margin: 0;
+    margin-bottom: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/*fin del formulario de suscripción*/
+
+
+/*Medios de Pago*/
+.pagos{
+    display: flex;
+    flex-wrap: wrap;
+justify-content: space-around;
+}
+#money{
+    width: 25%;
+}
+/*Fin medios de pago*/
+
+/*Tienda*/
+.adressFooter{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/*Envíos*/
+.envios{
+    display: flex;
+    flex-wrap: wrap;
+justify-content: space-around;
+}
+
+#truck{
+    width: 25%;
+}
+#entregas{
+    width: 30%;
+}
+/*Pie de pagina, final del foother*/
+.copyright, .desarrolladores {
+   
+    display: flex;
+    flex-wrap: wrap;
+    font-size: xx-small;
+    text-align: center;
+    align-items: center;
+    align-content: space-around;
+    background-image: linear-gradient(to top left, var(--color-celeste), var(--color-azul))!important;
+    padding: 10px 10px;
+    color: var(--color-celeste);
+    border-radius: 15px 5px 15px ;
+}
+
+.desarrolladores a{
+    color: white;
+}
+/*
+FIN DEL FOOTER
+*/
