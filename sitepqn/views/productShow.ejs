@@ -142,17 +142,18 @@
                                                         </span>
                                                     </div>
                                                     <div class="col-12 d-flex justify-content-end">
-                                                    <form method="POST" action="/products/delete/<%= producto.id %>?_method=DELETE">
-                                                        <button type="submit" class="btn btn-primary">Borrar</button>
-                                                    </form>
+                                                    
 
                                                         <button class="btn btn-danger mr-2" type="reset">Cancelar</button>
-                                                        <button class="btn btn-info" type="submit" name="id" value="<%= producto.id %> ">Guardar</button>
+                                                        <button class="btn btn-info" type="submit" name="id" value="<%= producto.id %>">Guardar</button>
                                                     </div>
                                                 </div>
                                             </div>
 
                                         </div>
+                                    </form>
+                                    <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-primary">Borrar</button>
                                     </form>
                                 </div>
                             </div>

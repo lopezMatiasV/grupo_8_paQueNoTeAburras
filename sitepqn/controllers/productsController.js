@@ -121,14 +121,12 @@ module.exports = {
         res.redirect('/products/show/' + idProducto)
     },
     eliminar:function(req,res){
-        let idProducto = req.params.id;
-        dbProducts.forEach(producto=>{
-            if(producto.id == idProducto){
-                let aEliminar = dbProducts.indexOf(producto.nombre);
-                dbProducts.splice(aEliminar,1);
-            }
+        let idProducto = req.params.id
+        idProducto = parseInt(idProducto)
+        let filtro = dbProducts.filter(producto => {
+            return producto.id != idProducto; 
         })
-        fs.writeFileSync(path.join(__dirname, '../data/dbProducts.json'), JSON.stringify(dbProducts));
-        res.redirect('/products/')
+        fs.writeFileSync(path.join(__dirname, '../data/dbProducts.json'), JSON.stringify(filtro), 'utf-8');
+        res.redirect('/products')
     }
 }

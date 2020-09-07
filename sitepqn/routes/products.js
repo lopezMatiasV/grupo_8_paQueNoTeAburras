@@ -23,6 +23,6 @@ router.get('/agregar', controller.agregar)
 router.post('/agregar',upload.any(), controller.publicar);
 router.get('/show/:id/:flap?',controller.show);
 router.put('/edit/:id/:flap?',upload.any(),controller.edit);
-router.delete('/show/:id/:flap?',controller.eliminar);
+router.delete('/delete/:id',controller.eliminar);
 
 module.exports = router;
