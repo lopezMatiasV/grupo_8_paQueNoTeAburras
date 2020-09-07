@@ -25,6 +25,32 @@ section .continer .user{
   height: 100%;
   display: flex;
 }
+section .continer .social-media .face{
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  font-size: 1.3em;
+  border-radius: 10px;
+  font-weight: bold;
+  background: lightblue;
+}
+section .continer .social-media .face :hover{
+background: rgba(0, 0, 0, 0.308);
+}
+section .continer .social-media .google{
+padding: 10px;
+width: 100%;
+box-sizing: border-box;
+border: none;
+font-size: 1.3em;
+border-radius: 10px;
+font-weight: bold;
+background: lightblue;
+}
+section .continer .social-media .google :hover{
+background: rgba(0, 0, 0, 0.308);
+}
 section .continer .user .imgBx
 {
   position: relative;
@@ -157,12 +183,10 @@ section .continer.active .signinBx .imgBx
 }
 
 
-/*
-MODIFICAR EL ID DEL BOTÓN 
-*/
-/*.btn {
+
+#faceygog{
   padding: .75rem 2rem;
-}*/
+}
 
 
 
@@ -199,7 +223,7 @@ MODIFICAR EL ID DEL BOTÓN
 }
 
 @media (max-width: 575.98px) { 
-   .btn {
+   .faceygog {
        width: 100%;
    }
    .spin {
