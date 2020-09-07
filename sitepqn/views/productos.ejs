@@ -29,6 +29,10 @@
       -->
         <h1> <%= producto.nombre %> </h1>
         <p class="price"> $ <%- producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); %> </p>
+        <% if (producto.discount != 0) { %>
+          <span><%- producto.discount %>% OFF</span>
+          <% } %>
+
         <p> <%= producto.descripcion %> </p>
         <a href="/carrito"> <p><button  class="Add to Cart">Agregar al Carrito</button></p></a>
         <p><button class="comprarAhora">Comprar ahora</button></p>
