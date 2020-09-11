@@ -316,3 +316,28 @@ margin-right: 1%;
     flex-direction: column;
   }
 }
+@media (max-width: 1024px) {
+  .buscador form input{
+   margin: 5px 30px;
+   }
+  
+}
+
+@media (max-width: 768px) {
+   .buscador form input{
+       margin: 5px 25px;
+   }
+   
+}
+
+@media (max-width: 575.98px) { 
+   .buscador form input{
+       margin: 5px 5px;
+   }
+}
+@media (min-width: 1024px){
+.buscador form input{
+   margin: 5px 20px;
+   width: 92%;
+}
+}

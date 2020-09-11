@@ -78,7 +78,7 @@ module.exports = {
             productos:dbProductos.filter(producto=>{
                 return producto.categoria != "visitadas" && producto.categoria != "ofertas"
             }),
-            css:"profile.css",
+            css:"style.css",
             usuario:req.session.usuario
 
         })

@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg header">
     
       <a class="navbar-brand text-light font-weight-bold" href="/"><img class="logo" src="/images/logos/logoLetrasVerdes.png" alt=""></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="icon ion-md-menu lead text-light"></i>
     </button>
@@ -17,23 +17,41 @@
           <a class="nav-link text-light" href="#">Vehículos</a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link text-light" href="#">Juegos de Ingenio</a>
+          <a class="nav-link text-light" href="#">De Ingenio</a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link text-light" href="#">Muñecos de acción</a>
+          <a class="nav-link text-light" href="#">De Acción</a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link text-light" href="#">Juegos de mesa</a>
+          <a class="nav-link text-light" href="#">De Mesa</a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link text-light" href="#">Contáctanos</a>
+          <a class="nav-link text-light" href="#">Ayuda</a>
         </li>              
         <li class="nav-item">
           <a class="nav-link text-light btn btn-primary py-1" href="/registro">Iniciá sesión</a>
         </li>
       </ul>
     </div>
+    <!--usuario -->
+    <div>
+      <% if (typeof usuario == "undefined") { %>
+      
+        <a href=""><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
+  
+        <% } else{ %>
+      
+        
+        <a href="/users/profile"><img src="/images/users/<%= usuario.avatar %>" alt="" width="50px" height="50px"
+            class="rounded-circle avatar"></a>
+        <% } %>
+      </div>
+   
     
+    
+    
+    
+    </nav>  
     <!--caja de redes sociales-->
     <div class="redes">
       <a href="https://www.facebook.com/Pa-que-no-te-aburras-110244777466800/?modal=admin_todo_tour"><i class="fab fa-facebook-f"></i> </a>|
@@ -41,17 +59,21 @@
       <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
     </div>
     
-    </nav>
-    <!--carrito--> 
-    <div class="carrito">
-      <a href="/carrito"><i class="fas fa-shopping-basket"></i></i></a>
-    </div>
     <!--buscador-->
     <div class="buscador col-10">
     <form action="/search" method="GET" class="search-form">
       <input type="text " name="search" placeholder="Buscar productos" class="search-form_input">
       <button type="submit" class="search-form_button"><i class="fas fa-search "></i></button>
-    </form>            
+    </form>
+                
     </div>
+    <!--carrito--> 
+    
+    <div class="carrito">
+      
+      <a href="/carrito"><i class="fas fa-shopping-basket"></i></i></a>
+      
+    </div>
+    
   </div>   
 </header>

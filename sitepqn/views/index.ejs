@@ -93,7 +93,7 @@
     <% visitadas.forEach(producto => { %>  
       <!--producto-->
       <div class="producto col-12 col-md-6 col-lg-3">
-        <a href="./products/<%= producto.id %> "><img src="images/products/<%- producto.img %>" alt="rayo"></a>    
+        <a href="./products/detalle/<%= producto.id %> "><img src="images/products/<%- producto.img %>" alt="rayo"></a>    
         <h3><%- producto.nombre %></h3>
         <span>$ <%- producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); %></span>
         <p><%- producto.descripcion %></p>

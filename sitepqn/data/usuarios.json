@@ -5,7 +5,7 @@
         "apellido": "Gillanders",
         "email": "mgillanders0@nydailynews.com",
         "contrasenia": "Y4qJOO50f0V",
-        "imagen": "user_1.jpg"
+        "avatar": "user_1.jpg"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "apellido": "Lyddiatt",
         "email": "llyddiatt1@reuters.com",
         "contrasenia": "kQkMZtbykfRY",
-        "imagen": "user_2.jpg"
+        "avatar": "user_2.jpg"
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "apellido": "Hanniger",
         "email": "ahanniger2@cbsnews.com",
         "contrasenia": "9ajldAzknF8",
-        "imagen": "user_3.jpg"
+        "avatar": "user_3.jpg"
     },
     {
         "id": 4,
@@ -29,7 +29,7 @@
         "apellido": "Annesley",
         "email": "gannesley3@t-online.de",
         "contrasenia": "rGmCeS6i",
-        "imagen": "user_4.jpg"
+        "avatar": "user_4.jpg"
     },
     {
         "id": 5,
@@ -37,7 +37,7 @@
         "apellido": "Rollinson",
         "email": "mrollinson4@comsenz.com",
         "contrasenia": "cp6kHLt",
-        "imagen": "user_5.jpg"
+        "avatar": "user_5.jpg"
     },
     {
         "id": 6,
@@ -45,7 +45,7 @@
         "apellido": "Fadden",
         "email": "vfadden5@cocolog-nifty.com",
         "contrasenia": "ScxgjuNr",
-        "imagen": "user_6.jpg"
+        "avatar": "user_6.jpg"
     },
     {
         "id": 7,
@@ -53,7 +53,7 @@
         "apellido": "Challener",
         "email": "kchallener6@discuz.net",
         "contrasenia": "PPwWoiNBRnV",
-        "imagen": "user_7.jpg"
+        "avatar": "user_7.jpg"
     },
     {
         "id": 8,
@@ -61,7 +61,7 @@
         "apellido": "Astill",
         "email": "iastill7@booking.com",
         "contrasenia": "iLuCjPi",
-        "imagen": "user_8.jpg"
+        "avatar": "user_8.jpg"
     },
     {
         "id": 9,
@@ -69,7 +69,7 @@
         "apellido": "Melwall",
         "email": "rmelwall8@163.com",
         "contrasenia": "rsYqRE",
-        "imagen": "user_9.jpg"
+        "avatar": "user_9.jpg"
     },
     {
         "id": 10,
@@ -77,7 +77,7 @@
         "apellido": "Fisby",
         "email": "afisby9@cdbaby.com",
         "contrasenia": "sO1aVn",
-        "imagen": "user_10.jpg"
+        "avatar": "user_10.jpg"
     },
     {
         "id": 11,
@@ -85,7 +85,7 @@
         "apellido": "Vassano",
         "email": "nvassanoa@xinhuanet.com",
         "contrasenia": "uJCQwTCXc",
-        "imagen": "user_11.jpg"
+        "avatar": "user_11.jpg"
     },
     {
         "id": 12,
@@ -93,7 +93,7 @@
         "apellido": "Gabbotts",
         "email": "lgabbottsb@marriott.com",
         "contrasenia": "Hd4cDd05yo0j",
-        "imagen": "user_12.jpg"
+        "avatar": "user_12.jpg"
     },
     {
         "id": 13,
@@ -101,7 +101,7 @@
         "apellido": "Veque",
         "email": "nvequec@linkedin.com",
         "contrasenia": "xhmFYX",
-        "imagen": "user_13.jpg"
+        "avatar": "user_13.jpg"
     },
     {
         "id": 14,
@@ -109,7 +109,7 @@
         "apellido": "Blackadder",
         "email": "rblackadderd@cbc.ca",
         "contrasenia": "PdLM3Gjmcz",
-        "imagen": "user_14.jpg"
+        "avatar": "user_14.jpg"
     },
     {
         "id": 15,
@@ -117,7 +117,7 @@
         "apellido": "Phil",
         "email": "cphile@example.com",
         "contrasenia": "Yv7GlAC6",
-        "imagen": "user_15.jpg"
+        "avatar": "user_15.jpg"
     },
     {
         "id": 16,
@@ -125,7 +125,7 @@
         "apellido": "Port",
         "email": "rportf@cocolog-nifty.com",
         "contrasenia": "ZlPDzPDuM",
-        "imagen": "user_16.jpg"
+        "avatar": "user_16.jpg"
     },
     {
         "id": 17,
@@ -133,7 +133,7 @@
         "apellido": "Hannaby",
         "email": "mhannabyg@wufoo.com",
         "contrasenia": "cjZHGc9MF",
-        "imagen": "user_17.jpg"
+        "avatar": "user_17.jpg"
     },
     {
         "id": 18,
@@ -141,7 +141,7 @@
         "apellido": "Cathie",
         "email": "qcathieh@weebly.com",
         "contrasenia": "zT1IoX6wgs2",
-        "imagen": "user_18.jpg"
+        "avatar": "user_18.jpg"
     },
     {
         "id": 19,
@@ -149,14 +149,14 @@
         "apellido": "Steggals",
         "email": "tsteggalsi@webmd.com",
         "contrasenia": "2p1IppTR2mVr",
-        "imagen": "user_19.jpg"
+        "avatar": "user_19.jpg"
     },
     {
         "id": 20,
-        "nombre": "Milli",
-        "apellido": "Djorvic",
-        "email": "mdjorvicj@statcounter.com",
-        "contrasenia": "KReFdUOyv",
-        "imagen": "user_20.jpg"
+        "nombre": "caro",
+        "apellido": "barila",
+        "email": "caro@barila.com",
+        "contrasenia": "123456",
+        "avatar": "user_20.jpg"
     }
 ]

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('partials/head') %>
+<body class="profile">
+    <%- include('partials/header') %>
+
+   <div class="conteiner-fluid">
+       <h4 class="form-group col-12">Perfil del Usuario</h4>
+        <div class="row col-12">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <form action="">
+                    <div class="col-10">
+                        <figure >
+                            <img src="/images/users/default.png" alt="" class="img-fluid">
+                        </figure>                
+                    </div>
+                </form>
+           </div>
+           <div class="col-sm-12 col-md-8 col-lg-8">
+                <form action="" method="get">
+                    <div class="col-sm-12 col-md-8 col-lg-8">
+                        <input class="form-control" type="text" value="nombre" name="nombre">
+                        <input class="form-control" type="text" value="apellido" name="apellido">
+                        <input class="form-control" type="email" value="email" name="email">
+                        <input class="form-control" type="direccion" value="direccion" name="direccion">
+                        <input class="form-control" type="telefono" value="telefono" name="telefono">
+                    </div>  
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <button class="btn btn-danger mr-2" type="reset">Cancelar</button>
+                        <button class="btn btn-info" type="submit" name="id" value="">Editar</button>
+                    </div>                                            
+                </form>
+           </div>
+                
+        </div>
+   </div>
+    
+    <%- include('partials/footer') %>
+</body>
+</html>

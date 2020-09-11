@@ -164,18 +164,18 @@
 }
 
 @media (max-width: 768px) {
-    #banner-content {
+    .index #banner-content {
         padding-top: 5rem;
         padding-bottom: 5rem;
         text-align: center;
     }
-    #banner-container {
+    .index #banner-container {
         height: unset;
     }
-    #banner-background {
+    .index #banner-background {
         height: 100%;
     }
-    .separador{
+    .index .separador{
         display: none;
     }
     .buscador form input{
@@ -188,7 +188,7 @@
     .btn {
         width: 100%;
     }
-    .spin {
+    .index .spin {
         max-width: 260px;
     }
     .buscador form input{

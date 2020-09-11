@@ -16,7 +16,7 @@ router.post('/registro',upImageAvatar.any(),registerValidator, usersControllers.
 router.get('/registro',usersControllers.login);
 router.post('/registro',loginValidator,usersControllers.processLogin);
 
-router.get('/profile',sessionUserCheck, usersControllers.profile);
+router.get('/profile',usersControllers.profile);//agregar sessionUserCheck,
 
 router.get('/logout',usersControllers.logout);
 
