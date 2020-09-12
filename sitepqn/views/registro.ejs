@@ -14,28 +14,73 @@
       <div class="user signinBx">
         <div class="imgBx"><img src="/images/logos/logoVerde.png"></div>
         <div class="formBx">
-          <form>
+          <form action="/registro/login" method="POST" >
             <h2>Logueate</h2>
             <div id= "faceygog"  class="social-media">
              <button class="face" ><a href="#"><i class="facebook"></i>Facebook</a></button>
              <button class="google"><a href="#"><i class="google"></i>Google</a></button>
             </div>
-            <input type="text" name="" placeholder="Nombre de Usuario">
-            <input type="password" name="" placeholder="Contraseña">
-            <input type="submit" name="" value="Ingresar">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" placeholder="email" name="email">
+            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="contraseña" name="pass">
+            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %> </small>
+            <div>
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordar">
+            <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+            </div>
+            <button type="submit">
+            Ingresar
+            </button>
             <p class="signup">¿No tienes una cuenta?<a href="#" onclick="toggleForm();" >Crear Cuenta</a></p>
           </form>
         </div>
       </div>
+    
       <div class="user signupBx">
         <div class="formBx">
-          <form>
+          <form action="/registro" method="POST" enctype="multipart/form-data">
             <h2>Crea una Cuenta</h2>
-            <input type="text" name="" placeholder="Nombre de Usuario">
-            <input type="email" name="" placeholder="Email">
-            <input type="password" name="" placeholder="Crear Contraseña">
-            <input type="password" name="" placeholder="Confirmar Contraseña">
-            <input type="submit" name="" value="Confirmar">
+            
+            <input type="text" 
+            class="form-control <%= (typeof old != 'undefined' && old.nombre)?"is-valid":(typeof errors != 'undefined' && errors.nombre)?"is-invalid": ""  %>" 
+            id="nombre"  name="nombre"  value="<%= (typeof old != 'undefined' && old.nombre)?old.nombre:'' %>" placeholder="nombre"/>
+            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
+            
+            <input type="text" 
+            class="form-control <%= (typeof old != 'undefined' && old.apellido)?"is-valid":(typeof errors != 'undefined' && errors.apellido)?"is-invalid": ""  %>"  
+            id="apellido" value="<%= (typeof old != 'undefined' && old.apellido)?old.apellido:'' %>" placeholder="apellido" name="apellido"/>
+            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "" %> </small>
+            
+            <input type="email" 
+            class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>" 
+            id="email" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" placeholder="email" name="email"/>
+            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
+            
+            <input type="password" 
+            class="form-control <%= (typeof errors != 'undefined' && errors.pass)?"is-invalid": ""  %>" 
+            id="pass" placeholder="contraseña" name="pass"/>
+            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %> </small>
+            
+            <input type="password"
+            class="form-control <%= (typeof errors != 'undefined' && errors.pass2)?"is-invalid": ""  %>" 
+            id="pass2" placeholder="reingresar contraseña" name="pass2"/>
+            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.pass2)?errors.pass2.msg: "" %> </small>
+            <div class="custom-file mt-4">
+              <input type="file" class="custom-file-input " id="customFileLang" lang="es" name="avatar" multiple>
+              <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+              <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1" name="acepta" >
+              <label class="custom-control-label" for="customCheck1">acepto las bases y condiciones</label><br>
+              <a href="" class="text-info">ver bases y condiciones</a>
+            </div> 
+            <div>
+            <button type="submit">
+              Confirmar
+            </button>
+            <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
+          </div>
             <p class="sign in">¿Ya tienes una cuenta?<a href="#" onclick="toggleForm();">Ingresar</a></p>
           </form>
         </div>

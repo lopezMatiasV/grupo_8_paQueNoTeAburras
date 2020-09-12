@@ -4,7 +4,7 @@
         "nombre": "Minna",
         "apellido": "Gillanders",
         "email": "mgillanders0@nydailynews.com",
-        "contrasenia": "Y4qJOO50f0V",
+        "pass": "Y4qJOO50f0V",
         "avatar": "user_1.jpg"
     },
     {
@@ -12,7 +12,7 @@
         "nombre": "Lola",
         "apellido": "Lyddiatt",
         "email": "llyddiatt1@reuters.com",
-        "contrasenia": "kQkMZtbykfRY",
+        "pass": "kQkMZtbykfRY",
         "avatar": "user_2.jpg"
     },
     {
@@ -20,7 +20,7 @@
         "nombre": "Anatole",
         "apellido": "Hanniger",
         "email": "ahanniger2@cbsnews.com",
-        "contrasenia": "9ajldAzknF8",
+        "pass": "9ajldAzknF8",
         "avatar": "user_3.jpg"
     },
     {
@@ -28,7 +28,7 @@
         "nombre": "Giffard",
         "apellido": "Annesley",
         "email": "gannesley3@t-online.de",
-        "contrasenia": "rGmCeS6i",
+        "pass": "rGmCeS6i",
         "avatar": "user_4.jpg"
     },
     {
@@ -36,7 +36,7 @@
         "nombre": "Maggee",
         "apellido": "Rollinson",
         "email": "mrollinson4@comsenz.com",
-        "contrasenia": "cp6kHLt",
+        "pass": "cp6kHLt",
         "avatar": "user_5.jpg"
     },
     {
@@ -44,7 +44,7 @@
         "nombre": "Verene",
         "apellido": "Fadden",
         "email": "vfadden5@cocolog-nifty.com",
-        "contrasenia": "ScxgjuNr",
+        "pass": "ScxgjuNr",
         "avatar": "user_6.jpg"
     },
     {
@@ -52,7 +52,7 @@
         "nombre": "Kelly",
         "apellido": "Challener",
         "email": "kchallener6@discuz.net",
-        "contrasenia": "PPwWoiNBRnV",
+        "pass": "PPwWoiNBRnV",
         "avatar": "user_7.jpg"
     },
     {
@@ -60,7 +60,7 @@
         "nombre": "Imogene",
         "apellido": "Astill",
         "email": "iastill7@booking.com",
-        "contrasenia": "iLuCjPi",
+        "pass": "iLuCjPi",
         "avatar": "user_8.jpg"
     },
     {
@@ -68,7 +68,7 @@
         "nombre": "Rhetta",
         "apellido": "Melwall",
         "email": "rmelwall8@163.com",
-        "contrasenia": "rsYqRE",
+        "pass": "rsYqRE",
         "avatar": "user_9.jpg"
     },
     {
@@ -76,7 +76,7 @@
         "nombre": "Adaline",
         "apellido": "Fisby",
         "email": "afisby9@cdbaby.com",
-        "contrasenia": "sO1aVn",
+        "pass": "sO1aVn",
         "avatar": "user_10.jpg"
     },
     {
@@ -84,7 +84,7 @@
         "nombre": "Nelli",
         "apellido": "Vassano",
         "email": "nvassanoa@xinhuanet.com",
-        "contrasenia": "uJCQwTCXc",
+        "pass": "uJCQwTCXc",
         "avatar": "user_11.jpg"
     },
     {
@@ -92,7 +92,7 @@
         "nombre": "Leonidas",
         "apellido": "Gabbotts",
         "email": "lgabbottsb@marriott.com",
-        "contrasenia": "Hd4cDd05yo0j",
+        "pass": "Hd4cDd05yo0j",
         "avatar": "user_12.jpg"
     },
     {
@@ -100,7 +100,7 @@
         "nombre": "North",
         "apellido": "Veque",
         "email": "nvequec@linkedin.com",
-        "contrasenia": "xhmFYX",
+        "pass": "xhmFYX",
         "avatar": "user_13.jpg"
     },
     {
@@ -108,7 +108,7 @@
         "nombre": "Roby",
         "apellido": "Blackadder",
         "email": "rblackadderd@cbc.ca",
-        "contrasenia": "PdLM3Gjmcz",
+        "pass": "PdLM3Gjmcz",
         "avatar": "user_14.jpg"
     },
     {
@@ -116,7 +116,7 @@
         "nombre": "Corabel",
         "apellido": "Phil",
         "email": "cphile@example.com",
-        "contrasenia": "Yv7GlAC6",
+        "pass": "Yv7GlAC6",
         "avatar": "user_15.jpg"
     },
     {
@@ -124,7 +124,7 @@
         "nombre": "Reg",
         "apellido": "Port",
         "email": "rportf@cocolog-nifty.com",
-        "contrasenia": "ZlPDzPDuM",
+        "pass": "ZlPDzPDuM",
         "avatar": "user_16.jpg"
     },
     {
@@ -132,7 +132,7 @@
         "nombre": "Marylin",
         "apellido": "Hannaby",
         "email": "mhannabyg@wufoo.com",
-        "contrasenia": "cjZHGc9MF",
+        "pass": "cjZHGc9MF",
         "avatar": "user_17.jpg"
     },
     {
@@ -140,7 +140,7 @@
         "nombre": "Quent",
         "apellido": "Cathie",
         "email": "qcathieh@weebly.com",
-        "contrasenia": "zT1IoX6wgs2",
+        "pass": "zT1IoX6wgs2",
         "avatar": "user_18.jpg"
     },
     {
@@ -148,15 +148,7 @@
         "nombre": "Tammara",
         "apellido": "Steggals",
         "email": "tsteggalsi@webmd.com",
-        "contrasenia": "2p1IppTR2mVr",
+        "pass": "2p1IppTR2mVr",
         "avatar": "user_19.jpg"
-    },
-    {
-        "id": 20,
-        "nombre": "caro",
-        "apellido": "barila",
-        "email": "caro@barila.com",
-        "contrasenia": "123456",
-        "avatar": "user_20.jpg"
     }
 ]

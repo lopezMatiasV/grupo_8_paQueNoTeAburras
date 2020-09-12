@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 //rutas
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var registroRouter = require('./routes/registro');
 const methodOverride = require('method-override');
 const session = require('express-session');
 
@@ -26,7 +26,7 @@ app.use(methodOverride('_method'));
 app.use(session({secret:"paqueno"}));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/registro', registroRouter);
 
 app.use('/products', productsRouter);//uso los productos
 // catch 404 and forward to error handler
@@ -46,4 +46,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-

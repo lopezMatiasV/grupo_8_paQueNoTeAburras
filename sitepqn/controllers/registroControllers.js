@@ -1,5 +1,5 @@
-let dbProductos = require('../data/dataBase');
-let dbUsuarios = require('../data/dbUsuarios');
+const dbProductos = require('../data/dataBase');
+const dbUsuarios = require('../data/usuarios');
 
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcrypt');
@@ -7,10 +7,11 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-    register:function(req,res){
-        res.render('userRegister',{
-            title:"Registro de Usuario",
-            css: "registro.css"
+    registro:(req, res)=>{
+        res.render('registro',{
+          title:"Pa Que | Registro",
+          css:"registro.css"
+
         })
     },
     processRegister:function(req,res){
@@ -22,16 +23,16 @@ module.exports = {
                nombre: req.body.nombre,
                apellido: req.body.apellido,
                email: req.body.email,
-               avatar: req.files[0].filename,
+               //avatar: req.files[0].filename,
                pass:bcrypt.hashSync(req.body.pass,10),
                rol:"user"
            };
            dbUsuarios.push(nuevoUsuario);
-           fs.writeFileSync(path.join(__dirname,'..','data','dbUsuarios.json'),JSON.stringify(dbUsuarios),'utf-8');
-           return res.redirect('/users/login');
+           fs.writeFileSync(path.join(__dirname,'..','data','usuarios.json'),JSON.stringify(dbUsuarios),'utf-8');
+           return res.redirect('/registro');
        }else{
-           res.render('userRegister',{
-            title:"Registro de Usuario",
+           res.render('registro',{
+            title:"Pa Que | Registro",
             css: "registro.css",
             errors:errors.mapped(),
             old:req.body
@@ -39,8 +40,8 @@ module.exports = {
        }
     },
     login:function(req,res){
-        res.render('userLogin',{
-            title:"Ingresá a tu cuenta",
+        res.render('registro',{
+            title:"Pa Que | login",
             css: "registro.css",
             usuario:req.session.usuario
         })
@@ -54,7 +55,7 @@ module.exports = {
                         id:usuario.id,
                         nick:usuario.nombre + " " + usuario.apellido,
                         email:usuario.email,
-                        avatar:usuario.avatar
+                        //avatar:usuario.avatar
                     }
                 }
             });
@@ -63,8 +64,8 @@ module.exports = {
             }
             res.redirect('/')
         }else{
-            res.render('userLogin',{
-                title:"Ingresá a tu cuenta",
+            res.render('registro',{
+                title:"Pa Que | login",
                 css: "registro.css",
                 errors:errors.mapped(),
                 old:req.body,
@@ -73,12 +74,12 @@ module.exports = {
         }
     },
     profile:function(req,res){
-        res.render('userProfile',{
+        res.render('profile',{
             title: "Perfil de usuario",
             productos:dbProductos.filter(producto=>{
                 return producto.categoria != "visitadas" && producto.categoria != "ofertas"
             }),
-            css:"style.css",
+            css:"profile.css",
             usuario:req.session.usuario
 
         })
