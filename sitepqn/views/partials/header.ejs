@@ -29,7 +29,12 @@
           <a class="nav-link text-light" href="#">Ayuda</a>
         </li>              
         <li class="nav-item">
-          <a class="nav-link text-light btn btn-primary py-1" href="/registro">Iniciá sesión</a>
+            <% if (typeof usuario == "undefined") { %>
+                <a class="nav-link text-light btn btn-primary py-1" href="/registro">Iniciá sesión</a>
+              <% } else{ %>
+                <a class="nav-link text-light btn btn-primary py-1" href="/registro/logout">Cerrar Sesión</a>
+            <% } %>       
+          
         </li>
       </ul>
     </div>
@@ -37,12 +42,12 @@
     <div>
       <% if (typeof usuario == "undefined") { %>
       
-        <a href=""><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
+        <a href="/registro"><img src="/images/users/default.png" alt="" width="50px" height="50px"></a>
   
         <% } else{ %>
       
         
-        <a href="/users/profile"><img src="/images/users/<%= usuario.avatar %>" alt="" width="50px" height="50px"
+        <a href="/registro/profile"><img src="/images/users/<%= usuario.avatar %>" alt="" width="50px" height="50px"
             class="rounded-circle avatar"></a>
         <% } %>
       </div>

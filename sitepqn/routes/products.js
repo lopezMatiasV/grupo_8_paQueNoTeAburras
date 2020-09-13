@@ -1,6 +1,7 @@
 const router = require('express').Router(); //en una misma línea requiere express, y ejecuta el metodo Router de express.
 const multer =require ('multer');
 const path = require ('path');
+const sessionUserCheck = require('../middlewares/middlewareSessionUserCheck');
 
 let storage = multer.diskStorage({
     destination:(req,file,callback)=>{
@@ -17,11 +18,11 @@ let upload = multer({storage:storage});
 const controller = require('../controllers/productsController')
 
 //utilizo los metodos del controller
-router.get('/', controller.listar) /*No funciona la modularización del CSSS */
+router.get('/', controller.listar) 
 router.get('/detalle/:id', controller.detalle)
-router.get('/agregar', controller.agregar)
+router.get('/agregar', sessionUserCheck,controller.agregar)
 router.post('/agregar',upload.any(), controller.publicar);
-router.get('/show/:id/:flap?',controller.show);
+router.get('/show/:id/:flap?',sessionUserCheck,controller.show);
 router.put('/edit/:id/:flap?',upload.any(),controller.edit);
 router.delete('/delete/:id',controller.eliminar);
 

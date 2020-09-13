@@ -23,7 +23,7 @@ module.exports = {
                nombre: req.body.nombre,
                apellido: req.body.apellido,
                email: req.body.email,
-               //avatar: req.files[0].filename,
+               avatar: req.files[0].filename,
                pass:bcrypt.hashSync(req.body.pass,10),
                rol:"user"
            };
@@ -53,9 +53,12 @@ module.exports = {
                 if(usuario.email == req.body.email){
                     req.session.usuario = {
                         id:usuario.id,
-                        nick:usuario.nombre + " " + usuario.apellido,
+                        nombre:usuario.nombre,
+                        apellido: usuario.apellido,
+                        direccion:usuario.direccion,
+                        telefono: usuario.telefono,
                         email:usuario.email,
-                        //avatar:usuario.avatar
+                        avatar:usuario.avatar
                     }
                 }
             });
@@ -74,16 +77,40 @@ module.exports = {
         }
     },
     profile:function(req,res){
-        res.render('profile',{
+        res.render('userProfile',{
             title: "Perfil de usuario",
-            productos:dbProductos.filter(producto=>{
-                return producto.categoria != "visitadas" && producto.categoria != "ofertas"
-            }),
-            css:"profile.css",
+            css:"style.css",
             usuario:req.session.usuario
 
         })
     },
+   /* edit:function(req,res){
+        let idUsuario = req.params.usuario.id;
+
+        dbUsuario.forEach(usuario => {
+            if (usuario.id == idUsuario) {
+                usuario.id = Number(req.body.id);
+                usuario.nombre = req.body.nombre;
+                usuario.apellido = req.body.apellido;
+                usuario.email = req.body.email;                
+                usuario.domicilio = req.body.domicilio;
+                usuario.telefono = Number(req.body.telefono);
+                usuario.avatar = (req.files[0]) ? req.files[0].filename : usuario.avatar          
+            }
+        })
+
+        fs.writeFileSync(path.join(__dirname, '../data/dbUsuarios.json'), JSON.stringify(dbUsuarios))
+        res.redirect('/register/profile')
+    },
+    eliminar:function(req,res){
+        let idUsuario = req.params.id
+        idUsuario = parseInt(idUsuario)
+        let filtro = dbUsuario.filter(usuario => {
+            return usuario.id != idUsuario; 
+        })
+        fs.writeFileSync(path.join(__dirname, '../data/dbUsuarios.json'), JSON.stringify(filtro), 'utf-8');
+        res.redirect('/')
+    },*/
     logout:function(req,res){
         req.session.destroy();
         if(req.cookies.userPQNTA){

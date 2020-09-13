@@ -19,6 +19,8 @@ module.exports = {
       visitadas: visitadas,
       campaña: campaña,
       css:"style.css",
+      usuario:req.session.usuario
+
       
     });
   },
@@ -34,19 +36,23 @@ module.exports = {
             title: "Resultado de la búsqueda",
             productos: productos,
             css:"style.css",
+            usuario:req.session.usuario
+
         })
   },
     registro:(req, res)=>{
         res.render('registro',{
           title:"Pa Que | Registro",
-          css:"registro.css"
+          css:"registro.css",
+          usuario:req.session.usuario
 
         })
     },
     carrito:(req, res)=>{
         res.render('carrito',{
           title:"Pa Que | Carrito",
-          css:"carrito.css"
+          css:"carrito.css",
+          usuario:req.session.usuario
 
         })
     }

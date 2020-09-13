@@ -23,14 +23,15 @@
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" placeholder="email" name="email">
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="contraseña" name="pass">
-            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %> </small>
-            <div>
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordar">
-            <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+            <small class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %> </small>      
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordar">
+                <label class="form-check-label" for="exampleCheck1">Recordarme</label><br>
             </div>
-            <button type="submit">
+            <input type="submit" name="" value="Ingresar">
+        <!--   <button type="submit">
             Ingresar
-            </button>
+            </button>--> 
             <p class="signup">¿No tienes una cuenta?<a href="#" onclick="toggleForm();" >Crear Cuenta</a></p>
           </form>
         </div>
@@ -76,9 +77,10 @@
               <a href="" class="text-info">ver bases y condiciones</a>
             </div> 
             <div>
-            <button type="submit">
+              <input type="submit" name="" value="Confirmar">
+       <!--     <button type="submit">
               Confirmar
-            </button>
+            </button>-->
             <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
           </div>
             <p class="sign in">¿Ya tienes una cuenta?<a href="#" onclick="toggleForm();">Ingresar</a></p>

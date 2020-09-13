@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-//const controller = require('../controllers/registroController');
 const sessionUserCheck = require('../middlewares/middlewareSessionUserCheck');
 
 const upImageAvatar = require('../middlewares/middelwareUpImageAvatar');
@@ -17,7 +16,8 @@ router.get('/login',usersControllers.login);
 router.post('/login',loginValidator,usersControllers.processLogin);
 
 router.get('/profile',sessionUserCheck, usersControllers.profile);
-
+//router.put('/edit/:id',upload.any(),usersControllers.edit);
+//router.delete('/delete/:id',usersControllers.eliminar);
 router.get('/logout',usersControllers.logout);
 
 

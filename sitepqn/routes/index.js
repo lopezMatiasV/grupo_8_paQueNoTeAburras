@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 //requiero el controller
 let controller = require('../controllers/mainController')
+const cookieCheck = require('../middlewares/middlewareCookieCheck')
 
 /* GET home page. */
-router.get('/', controller.index);
+router.get('/', cookieCheck, controller.index);
 router.get('/buscar', controller.search)
-router.get('/registro', controller.registro)//llamo al metodo q necesito
+//router.get('/registro', controller.registro)
 router.get('/carrito', controller.carrito)
 module.exports = router;
