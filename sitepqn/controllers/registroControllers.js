@@ -85,11 +85,11 @@ module.exports = {
         })
     },
     edit:function(req,res){
-        let idUsuario = req.params.email;
+        let idUsuario = req.params.nombre;
 
         dbUsuarios.forEach(usuario => {
-            if (usuario.email == idUsuario) {
-                usuario.id = Number(req.body.id);
+            if (usuario.nombre == idUsuario) {
+                //usuario.id = Number(req.body.id);
                 usuario.nombre = req.body.nombre;
                 usuario.apellido = req.body.apellido;
                 usuario.email = req.body.email;

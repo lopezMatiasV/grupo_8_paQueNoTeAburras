@@ -26,7 +26,7 @@ router.get('/login',usersControllers.login);
 router.post('/login',loginValidator,usersControllers.processLogin);
 
 router.get('/profile',sessionUserCheck, usersControllers.profile);
-router.put('/edit/:id',upload.any(),usersControllers.edit);
+router.put('/edit/:nombre',upload.any(),usersControllers.edit);
 //router.delete('/delete/:id',usersControllers.eliminar);
 router.get('/logout',usersControllers.logout);
 
