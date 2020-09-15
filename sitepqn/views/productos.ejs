@@ -28,7 +28,7 @@
        <!--modifico el encabezado de la carta para que traiga el producto
       -->
         <h1> <%= producto.nombre %> </h1>
-        <p class="price"> $ <%- producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); %> </p>
+        <p class="price"> $ <%- (producto.precio - producto.precio * producto.discount / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></p>
         <% if (producto.discount != 0) { %>
           <span><%- producto.discount %>% OFF</span>
           <% } %>

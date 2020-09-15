@@ -20,7 +20,7 @@
                             <div class="producto col-sm-12 col-md-6 col-lg-3">
                               <a href="./products/detalle/<%= producto.id %> "><img src="images/products/<%- producto.img %> " alt=""></a>    
                               <h3><%- producto.nombre %></h3>
-                              <span>$ <%- producto.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); %></span><br>
+                              <span>$ <%- (producto.precio - producto.precio * producto.discount / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span><br>
                               <% if (producto.discount != 0) { %>
                                 <span><%- producto.discount %>% OFF</span>
                                 <% } %>

@@ -152,13 +152,14 @@
         "avatar": "user_19.jpg"
     },
     {
-        "id": 20,
-        "nombre": "matias",
-        "apellido": "lopez",
+        "id": 0,
+        "nombre": "Matias",
+        "apellido": "Lopez",
         "email": "matias@gmail.com",
         "avatar": "avatar-1600007991485.jpg",
         "pass": "$2b$10$HuQdvDPmRur.HggBCLTt3egFQP8DYgl0Om/XTKcT6sc.I3QgIEWTO",
-        "rol": "user"
+        "rol": "user",
+        "telefono": 0
     },
     {
         "id": 21,
