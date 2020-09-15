@@ -85,10 +85,10 @@ module.exports = {
         })
     },
     edit:function(req,res){
-        let idUsuario = req.params.nombre;
+        let idUsuario = req.params.id;
 
         dbUsuarios.forEach(usuario => {
-            if (usuario.nombre == idUsuario) {
+            if (usuario.id == idUsuario) {
                 //usuario.id = Number(req.body.id);
                 usuario.nombre = req.body.nombre;
                 usuario.apellido = req.body.apellido;
@@ -100,7 +100,7 @@ module.exports = {
         })
 
         fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(dbUsuarios))
-        res.redirect('/registro/profile')
+        res.redirect('/')
     },
     /*eliminar:function(req,res){
         let idUsuario = req.params.id
