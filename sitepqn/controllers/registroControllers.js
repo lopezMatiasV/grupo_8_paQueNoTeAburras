@@ -84,31 +84,31 @@ module.exports = {
 
         })
     },
-   /* edit:function(req,res){
-        let idUsuario = req.params.usuario.id;
+    edit:function(req,res){
+        let idUsuario = req.params.email;
 
-        dbUsuario.forEach(usuario => {
-            if (usuario.id == idUsuario) {
+        dbUsuarios.forEach(usuario => {
+            if (usuario.email == idUsuario) {
                 usuario.id = Number(req.body.id);
                 usuario.nombre = req.body.nombre;
                 usuario.apellido = req.body.apellido;
-                usuario.email = req.body.email;                
-                usuario.domicilio = req.body.domicilio;
+                usuario.email = req.body.email;
+                usuario.direccion = req.body.direccion;
                 usuario.telefono = Number(req.body.telefono);
                 usuario.avatar = (req.files[0]) ? req.files[0].filename : usuario.avatar          
             }
         })
 
-        fs.writeFileSync(path.join(__dirname, '../data/dbUsuarios.json'), JSON.stringify(dbUsuarios))
-        res.redirect('/register/profile')
+        fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(dbUsuarios))
+        res.redirect('/registro/profile')
     },
-    eliminar:function(req,res){
+    /*eliminar:function(req,res){
         let idUsuario = req.params.id
         idUsuario = parseInt(idUsuario)
-        let filtro = dbUsuario.filter(usuario => {
+        let filtro = dbUsuarios.filter(usuario => {
             return usuario.id != idUsuario; 
         })
-        fs.writeFileSync(path.join(__dirname, '../data/dbUsuarios.json'), JSON.stringify(filtro), 'utf-8');
+        fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(filtro), 'utf-8');
         res.redirect('/')
     },*/
     logout:function(req,res){
