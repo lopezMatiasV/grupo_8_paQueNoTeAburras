@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+const path = require ('path');
 const sessionUserCheck = require('../middlewares/middlewareSessionUserCheck');
 const multer =require ('multer');
 const upImageAvatar = require('../middlewares/middelwareUpImageAvatar');
@@ -10,7 +10,7 @@ const loginValidator = require('../validations/loginValidator');
 const usersControllers = require('../controllers/registroControllers');
 let storage = multer.diskStorage({
     destination:(req,file,callback)=>{
-        callback(null,'public/images/products')
+        callback(null,'public/images/users')
     },
     filename:(req,file,callback)=>{
         callback(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname))
