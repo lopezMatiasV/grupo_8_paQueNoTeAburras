@@ -1,4 +1,3 @@
-const dbProductos = require('../data/dataBase');
 const dbUsuarios = require('../data/usuarios');
 
 const {validationResult} = require('express-validator');
@@ -85,11 +84,10 @@ module.exports = {
         })
     },
     edit:function(req,res){
-        let idUsuario = req.params.id;
+        let idUsuario = req.session.usuario.id;
 
         dbUsuarios.forEach(usuario => {
             if (usuario.id == idUsuario) {
-                //usuario.id = Number(req.body.id);
                 usuario.nombre = req.body.nombre;
                 usuario.apellido = req.body.apellido;
                 usuario.email = req.body.email;

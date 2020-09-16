@@ -7,6 +7,5 @@ const cookieCheck = require('../middlewares/middlewareCookieCheck')
 /* GET home page. */
 router.get('/', cookieCheck, controller.index);
 router.get('/buscar', controller.search)
-//router.get('/registro', controller.registro)
 router.get('/carrito', controller.carrito)
 module.exports = router;

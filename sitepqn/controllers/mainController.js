@@ -40,14 +40,6 @@ module.exports = {
 
         })
   },
-    registro:(req, res)=>{
-        res.render('registro',{
-          title:"Pa Que | Registro",
-          css:"registro.css",
-          usuario:req.session.usuario
-
-        })
-    },
     carrito:(req, res)=>{
         res.render('carrito',{
           title:"Pa Que | Carrito",
