@@ -100,7 +100,7 @@ module.exports = {
         fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(dbUsuarios))
         res.redirect('/')
     },
-    /*eliminar:function(req,res){
+    eliminar:function(req,res){
         let idUsuario = req.params.id
         idUsuario = parseInt(idUsuario)
         let filtro = dbUsuarios.filter(usuario => {
@@ -108,7 +108,7 @@ module.exports = {
         })
         fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(filtro), 'utf-8');
         res.redirect('/')
-    },*/
+    },
     logout:function(req,res){
         req.session.destroy();
         if(req.cookies.userPQNTA){
