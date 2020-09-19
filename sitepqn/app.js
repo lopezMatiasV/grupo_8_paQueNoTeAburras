@@ -9,12 +9,18 @@ var registroRouter = require('./routes/registro');
 const methodOverride = require('method-override');
 const session = require('express-session');
 
+//Rutas navegadas por el usuario
+/*var logMiddleware = require ('./middlewares/logMiddleware');*/
+
 let productsRouter =require ('./routes/products');
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+/*app.use(logMiddleware);*/
+
 
 app.use(logger('dev'));
 app.use(express.json());

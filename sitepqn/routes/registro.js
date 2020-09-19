@@ -8,6 +8,8 @@ const upImageAvatar = require('../middlewares/middelwareUpImageAvatar');
 const registroValidator = require('../validations/registroValidator');
 const loginValidator = require('../validations/loginValidator');
 const usersControllers = require('../controllers/registroControllers');
+//let logDBMiddleware = require('../')
+
 let storage = multer.diskStorage({
     destination:(req,file,callback)=>{
         callback(null,'public/images/users')
