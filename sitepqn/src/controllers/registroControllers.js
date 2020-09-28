@@ -1,4 +1,4 @@
-const dbUsuarios = require('../data/usuarios');
+const dbUsuarios = require('../src/data/usuarios');
 
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcrypt');
@@ -96,9 +96,11 @@ module.exports = {
                 usuario.avatar = (req.files[0]) ? req.files[0].filename : usuario.avatar          
             }
         })
-
-        fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(dbUsuarios))
+       fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(dbUsuarios))
+       /* .then(result=>{
         res.redirect('/')
+    })*/
+    
     },
     eliminar:function(req,res){
         let idUsuario = req.params.id

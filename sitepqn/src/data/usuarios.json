@@ -179,5 +179,16 @@
         "avatar": "avatar-1600222215358.jpg",
         "pass": "$2b$10$DKJsu9dGxzJHH/8RjIwoDu1GwtS7XNUf5fwoslxrHEfBS6L7OnP.C",
         "rol": "user"
+    },
+    {
+        "id": 23,
+        "nombre": "Carito",
+        "apellido": "Barila",
+        "email": "carito@hotmail.com",
+        "avatar": "avatar-1600784353619.jpg",
+        "pass": "$2b$10$tGrVIgWA0zql6ug1fOsG3erJ7EFsMZSEzBGk55bGZ.tZgGicrpLSy",
+        "rol": "user",
+        "direccion": "San Miguel",
+        "telefono": 34446577
     }
 ]

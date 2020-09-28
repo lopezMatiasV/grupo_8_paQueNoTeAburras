@@ -143,8 +143,8 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `pqnotaburras_db`.`subcategories` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
-  `id_categoria` INT(11) NOT NULL,
-  `id_subcategoria` INT(11) NOT NULL,
+  `id_categoria` VARCHAR(45) NOT NULL,
+  `id_subcategoria` INT(11) NOT NULL, /*ACA VER*/
   PRIMARY KEY (`id`),
   INDEX `id_subcategoria_idx` (`id_subcategoria` ASC),
   CONSTRAINT `id_subcategoria`
