@@ -1,4 +1,4 @@
-const dbUsuarios = require('../src/data/usuarios');
+const dbUsuarios = require('../data/usuarios.json');
 
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcrypt');

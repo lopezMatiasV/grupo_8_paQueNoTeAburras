@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 //rutas
-var indexRouter = require('../routes/index');
+var indexRouter = require('./routes/index');
 var registroRouter = require('./routes/registro');
 const methodOverride = require('method-override');
 const session = require('express-session');
@@ -12,7 +12,7 @@ const session = require('express-session');
 //Rutas navegadas por el usuario
 /*var logMiddleware = require ('./middlewares/logMiddleware');*/
 
-let productsRouter =require ('../routes/products');
+let productsRouter =require ('./routes/products');
 var app = express();
 
 // view engine setup
@@ -26,7 +26,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(methodOverride('_method'));
 app.use(session({secret:"paqueno"}));
