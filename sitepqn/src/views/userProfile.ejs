@@ -24,24 +24,31 @@
                         
                             <div class="col-sm-12 col-md-8 col-lg-8">
                                 
-                                <input class="form-control" type="text" value="<%=usuario.nombre%>" name="nombre">
-                                <input class="form-control" type="text" value="<%=usuario.apellido%>" name="apellido">
-                                <input class="form-control" type="email" value="<%=usuario.email%>" name="email">
-                                <input class="form-control" type="text" value="<%=usuario.direccion%>" name="direccion">
-                                <input class="form-control" type="text" value="<%=usuario.telefono%>" name="telefono">
+                                <input class="form-control" type="text" value="<%=usuario.nombre%>" name="nombre" placeholder="nombre">
+                                <input class="form-control" type="text" value="<%=usuario.apellido%>" name="apellido" placeholder="apellido">
+                                <input class="form-control" type="number" value="<%=usuario.dni%>" name="dni" placeholder="DNI">
+                                <input class="form-control" type="email" value="<%=usuario.email%>" name="email" placeholder="email">
+                                <input class="form-control" type="text" value="<%=usuario.direccion%>" name="direccion" placeholder="dirección">
+                                <input class="form-control" type="text" value="<%=usuario.ciudad%>" name="ciudad" placeholder="ciudad">
+                                <input class="form-control" type="text" value="<%=usuario.provincia%>" name="provincia" placeholder="provincia">
+                                <input class="form-control" type="number" value="<%=usuario.telefono%>" name="telefono" placeholder="telefono">
                             
-                                <button class="btn btn-danger mr-2" type="reset">Cancelar</button>
-                                <button class="btn btn-info" type="submit" name="id" value="">Editar</button>
+                                <button class="btn btn-warning mr-2" type="reset">Cancelar</button>
+                                <button class="btn btn-success" type="submit" name="id" value="">Editar</button>
                                 <p class="text-light">Para que los cambios surjan efecto, reinicie la session</p>
                             </div>                                            
                         
                     </div>
                         
                 </div>
+            <div style="text-align: right;">
             </form>
             <form action="/registro/delete/<%= usuario.id %>?_method=DELETE" method="POST">
-               <button class="btn btn-info" type="submit" name="id" value=""><i class="fas fa-trash"></i></button>
+                
+
+               <button class="btn btn-danger" type="submit" name="id" value="">Eliminarme <i class="fas fa-trash"></i></button>
             </form>
+            </div>
    </div>
     
     <%- include('partials/footer') %>

@@ -54,7 +54,10 @@ module.exports = {
                         id:usuario.id,
                         nombre:usuario.nombre,
                         apellido: usuario.apellido,
+                        dni: usuario.dni,
                         direccion:usuario.direccion,
+                        ciudad: usuario.ciudad,
+                        provincia: usuario.provincia,
                         telefono: usuario.telefono,
                         email:usuario.email,
                         avatar:usuario.avatar
@@ -90,16 +93,18 @@ module.exports = {
             if (usuario.id == idUsuario) {
                 usuario.nombre = req.body.nombre;
                 usuario.apellido = req.body.apellido;
+                usuario.dni = req.body.dni;
                 usuario.email = req.body.email;
                 usuario.direccion = req.body.direccion;
+                usuario.ciudad = req.body.ciudad;
+                usuario.provincia = req.body.provincia;
                 usuario.telefono = Number(req.body.telefono);
                 usuario.avatar = (req.files[0]) ? req.files[0].filename : usuario.avatar          
             }
         })
        fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(dbUsuarios))
-       /* .then(result=>{
+       
         res.redirect('/')
-    })*/
     
     },
     eliminar:function(req,res){
