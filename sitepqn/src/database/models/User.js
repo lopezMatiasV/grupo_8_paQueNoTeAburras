@@ -58,6 +58,14 @@ module.exports = (sequelize,dataTypes) => {
     }
 
     const User = sequelize.define(alias,cols,config);
-
+/*espacio para las asociaciones
+*
+*
+*
+*
+*
+*
+*
+*/
     return User;
 }
