@@ -60,7 +60,7 @@ module.exports = (sequelize,dataTypes) => {
     const User = sequelize.define(alias,cols,config);
 
 User.associate = function(models){
-User.hasMany(models.Cart,{
+User.hasOne(models.Cart,{
     as:"carts", /*nombre de fantasia de la relación de las tablas*/
     foreignKey:"id_usuario"
 }),
