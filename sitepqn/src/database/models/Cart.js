@@ -8,6 +8,17 @@ module.exports = (sequelize,dataTypes) => {
             autoIncrement:true,
             allowNull:false
         },
+        id_usuario:{
+            type:dataTypes.INTEGER.UNSIGNED,
+            allowNull:false
+
+        },
+        id_usuario:{
+            type:dataTypes.INTEGER.UNSIGNED,
+            allowNull:false
+
+        },
+
         cantidad:{
             type:dataTypes.INTEGER(11),
             allowNull:false
@@ -20,7 +31,7 @@ module.exports = (sequelize,dataTypes) => {
         }
         
     }
-//Falta terminar de configurar (id_usuario e id_producto)//
+
     let config = {
         tableName: "cart",
         timestamps:true,
@@ -28,7 +39,19 @@ module.exports = (sequelize,dataTypes) => {
 
     }
 
-    const User = sequelize.define(alias,cols,config);
+    const Cart = sequelize.define(alias,cols,config);
+    Cart.associate = function(models){
+       Cart.hasMany(models.User,{
+            as:"purchase", /*compra en ingles */
+            foreignKey:"id_usuario"
+        })
+        Cart.hasMany(models.Product,{
+            as:"buy", /*compra*/
+            foreignKey:"id_producto"
+        })
+
+        
+    }
 
     return Cart;
 }

@@ -31,17 +31,11 @@ module.exports = (sequelize, dataTypes) => {
         underscored: true
     }
     const Payment = sequelize.define(alias,cols,config)
-    /*espacio para las asociaciones
-  
-
-
-
-
-
-
-
-espacio para las asocciaciones
-
-*/
+ Payment.associate = function(models){
+     Payment.belongsTo(models.User,{
+        as:"payOut", /*pagado en ingles */
+         foreignKey:"id_ordenCompra" 
+     })
+ }
     return Payment;
 }

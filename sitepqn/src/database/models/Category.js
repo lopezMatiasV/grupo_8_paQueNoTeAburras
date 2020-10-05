@@ -27,8 +27,13 @@ module.exports = (sequelize, dataTypes) => {
                 as:"productos",
                 foreignKey: "id_categoria"
             })
+           
+                Subcategory.belongsTo(models.Subcategory,{
+                    as:"sector",
+                    foreignKey: "id_subcategoria"
+                })
         }
-        //consultar para asociar la subcategoría//
+        
 
     return Category;
 }

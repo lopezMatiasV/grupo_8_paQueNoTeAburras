@@ -58,14 +58,18 @@ module.exports = (sequelize,dataTypes) => {
     }
 
     const User = sequelize.define(alias,cols,config);
-/*espacio para las asociaciones
-*
-*
-*
-*
-*
-*
-*
-*/
+
+User.associate = function(models){
+User.hasMany(models.Cart,{
+    as:"carts", /*nombre de fantasia de la relación de las tablas*/
+    foreignKey:"id_usuario"
+}),
+User.hasMany(models.Payment,{
+    as:"payments",
+    foreignKey:"id_ordenCompra" 
+
+})
+
+}
     return User;
 }
