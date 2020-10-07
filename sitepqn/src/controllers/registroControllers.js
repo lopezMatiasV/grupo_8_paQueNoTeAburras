@@ -1,42 +1,83 @@
+/************** BASES DE DATOS *************/
+const dbProductos = require('../data/database');
 const dbUsuarios = require('../data/usuarios.json');
+const db = require('../database/models')
 
-const {validationResult} = require('express-validator');
+/***************** MODULOS ************/
+
+const {validationResult, body} = require('express-validator');
 const bcrypt = require('bcrypt');
 const fs = require('fs');
 const path = require('path');
-
+const e = require('express');
 module.exports = {
-    registro:(req, res)=>{
-        res.render('registro',{
+    registro:function(req, res){
+      console.log(req.session.store)
+      res.render('registro', {
+        title: (req.session.store),
+        css: "registro.css"
+      })
+        /*res.render('registro',{
           title:"Pa Que | Registro",
-          css:"registro.css"
+          css:"registro.css"*/
 
-        })
+        
     },
     processRegister:function(req,res){
        let errors = validationResult(req);
        let lastID = dbUsuarios.length;
        if(errors.isEmpty()){
-           let nuevoUsuario = {
-               id:lastID +1,
-               nombre: req.body.nombre,
-               apellido: req.body.apellido,
-               email: req.body.email,
-               avatar: req.files[0].filename,
-               pass:bcrypt.hashSync(req.body.pass,10),
-               rol:"user"
-           };
-           dbUsuarios.push(nuevoUsuario);
-           fs.writeFileSync(path.join(__dirname,'..','data','usuarios.json'),JSON.stringify(dbUsuarios),'utf-8');
-           return res.redirect('/registro');
-       }else{
-           res.render('registro',{
-            title:"Pa Que | Registro",
-            css: "registro.css",
-            errors:errors.mapped(),
-            old:req.body
+           db.Users.create({
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email:req.body.email,
+            pass:bcrypt.hashSync(req.body.pass,10),
+            avatar:(req.files[0])?req.files[0].filename:"default.png",
+            rol:(req.session.store)?req.session.store:"usuario"
            })
-       }
+           .then(result => {
+            console.log(result)
+            return res.redirect('/registro')
+           })
+           .catch(errores => {
+            errors = {};
+            errores.errors.forEach(error => {
+              if(error.path == "nombre"){
+                errors["nombre"] = {};
+                errors["nombre"]["msg"] = error.message
+              };
+              if(error.path == "apellido"){
+                errors["apellido"] = {};
+                errors["apellido"]["msg"] = error.message
+              };
+              if(error.path == "email"){
+                errors["email"] = {};
+                errors["email"]["msg"] = error.message
+              };
+              if (error.path == "pass") {
+                errors["pass"] = {};
+                errors["pass"]["msg"] = error.message
+              }
+            })
+          res.render('registro',{
+                    title: "Pa Que | Registro",
+                    css:"registro.css",
+                    errors: errors,
+                    old:req.body
+         })
+       
+       })
+         
+    }
+    else{
+            (req.fileSave)?fs.unlinkSync(path.join(__dirname,'../../public/images/users/'+req.fileSave)):"";
+             res.render('registro',{
+                title: "Pa Que | Registro",
+                css:"registro.css",
+                errors: errors.mapped(),
+                old:req.body
+            })
+        }
     },
     login:function(req,res){
         res.render('registro',{
@@ -46,66 +87,93 @@ module.exports = {
         })
     },
     processLogin:function(req,res){
-        let errors = validationResult(req);
-        if(errors.isEmpty()){
-            dbUsuarios.forEach(usuario => {
-                if(usuario.email == req.body.email){
-                    req.session.usuario = {
-                        id:usuario.id,
-                        nombre:usuario.nombre,
-                        apellido: usuario.apellido,
-                        dni: usuario.dni,
-                        direccion:usuario.direccion,
-                        ciudad: usuario.ciudad,
-                        provincia: usuario.provincia,
-                        telefono: usuario.telefono,
-                        email:usuario.email,
-                        avatar:usuario.avatar
-                    }
-                }
-            });
-            if(req.body.recordar){
-                res.cookie('userPQNTA',req.session.usuario,{maxAge:1000*60*10})
-            }
-            res.redirect('/')
-        }else{
-            res.render('registro',{
-                title:"Pa Que | login",
-                css: "registro.css",
-                errors:errors.mapped(),
-                old:req.body,
-                usuario:req.session.usuario
-               })
-        }
+       let url = '/';
+       if(req.session.url){
+        url = req.session.url
+       }
+       let errors = validationResult(req);
+       if(errors.isEmpty()){
+        db.Users.findOne({
+          where:{
+            email:req.body.email
+          },
+          //incluide:[{association:"tienda"}]
+        })
+        .then(user => {
+          req.session.user = {
+            id: user.id,
+            nick: user.nombre + " " + user.apellido,
+            email: user.email,
+            avatar: (user.rol == "admin")?user.admin.logo:user.avatar,
+            rol: user.rol
+          }
+          if(req.body.recordar){
+            res.cookie('UsuarioPaQueNo', req.session.user, {maxAge:1000*60*5})
+          }
+        res.locals.user = req.session.user
+        return res.redirect(url)
+        })
+        .catch(error => { 
+          res.send(error)
+        })
+       }else{
+        res.render("Pa Que | Registro",{
+          title: "Ingresá tu cuenta",
+          css: "registro.css",
+          errors:errors.mapped(),
+          old: req.body
+         })
+       }
     },
     profile:function(req,res){
-        res.render('userProfile',{
-            title: "Perfil de usuario",
-            css:"style.css",
-            usuario:req.session.usuario
-
+      if (req.session.user) {
+        db.Users.findByPk(req.session.user.id)
+        .then(user => {
+          console.log(user)
+          res.render('userProfile', {
+            title: "Perfil de Usuario",
+            css: "style.css",
+            usuario:user,
+            productos: dbProductos.filter(producto => {
+              return producto.categoria != "visited" & producto.categoria != "in-sale"
+            })
+          })
         })
+      }else{
+        res.redirect('/')
+      }       
     },
     edit:function(req,res){
-        let idUsuario = req.session.usuario.id;
+       if(req.files[0]){
+        if(fs.existsSync(path.join(__dirname,'../../public/images/users' + req.session.user.avatar))){
+          fs.unlinkSync(path.join(__dirname, '../../public/images/user' + req.session.user.avatar))
+          res.locals.user.avatar = req.files[0].filename
+        }
 
-        dbUsuarios.forEach(usuario => {
-            if (usuario.id == idUsuario) {
-                usuario.nombre = req.body.nombre;
-                usuario.apellido = req.body.apellido;
-                usuario.dni = req.body.dni;
-                usuario.email = req.body.email;
-                usuario.direccion = req.body.direccion;
-                usuario.ciudad = req.body.ciudad;
-                usuario.provincia = req.body.provincia;
-                usuario.telefono = Number(req.body.telefono);
-                usuario.avatar = (req.files[0]) ? req.files[0].filename : usuario.avatar          
-            }
-        })
-       fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(dbUsuarios))
+       }
+       db.Users.editar(
+       {
+        fecha: req.body.fecha,
+        avatar: (req.files[0])?req.files[0].filename:req.session.user.avatar,
+        direccion: req.body.direccion,
+        ciudad:req.body.ciudad,
+        provincia:req.body.provincia
+       },
+       {
+        where:{
+          id:req.params.id
+           }    
+         
+         }
        
-        res.redirect('/')
-    
+       )
+       .then(result => {
+        console.log(req.session.user)
+        return res.redirect('/registro/profile')
+       })
+       .catch(err => {
+        console.log(err)
+       })
     },
     eliminar:function(req,res){
         let idUsuario = req.params.id
