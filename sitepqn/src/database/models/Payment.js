@@ -32,7 +32,7 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Payment = sequelize.define(alias,cols,config)
  Payment.associate = function(models){
-     Payment.belongsTo(models.User,{
+     Payment.belongsTo(models.Users,{
         as:"payOut", /*pagado en ingles */
          foreignKey:"id_ordenCompra" 
      })

@@ -26,7 +26,7 @@ module.exports = (sequelize,dataTypes) => {
             allowNull:false
         },
         dni:{
-            type: dataTypes.CHART(8),
+            type: dataTypes.CHAR(8),
             unique:true
         },
         avatar:{
@@ -60,11 +60,11 @@ module.exports = (sequelize,dataTypes) => {
     const User = sequelize.define(alias,cols,config);
 
 User.associate = function(models){
-User.hasOne(models.Cart,{
+User.hasOne(models.Carts,{
     as:"carts", /*nombre de fantasia de la relación de las tablas*/
     foreignKey:"id_usuario"
 }),
-User.hasMany(models.Payment,{
+User.hasMany(models.Payments,{
     as:"payments",
     foreignKey:"id_ordenCompra" 
 

@@ -28,10 +28,10 @@ module.exports = (sequelize, dataTypes) => {
                 foreignKey: "id_categoria"
             })
            
-                Subcategory.belongsTo(models.Subcategory,{
+            Category.belongsTo(models.Subcategories,{
                     as:"sector",
                     foreignKey: "id_subcategoria"
-                })
+            })
         }
         
 
