@@ -1,18 +1,52 @@
-const dbProducts = require('../data/dataBase')
-const dbCategories = require('../data/categories.json')
 const fs = require ('fs')
 const path = require('path')
 
+const dbProducts = require('../data/dataBase')
+//const dbCategories = require('../data/dataBase');
+//const dbCategories = require('../data/categories.json')
+
+const {validationResult} = require('express-validator');
+const db = require('../database/models');
+
 module.exports = {
     listar: function(req, res) {
-        res.render('listar', {
+        db.Products.findAll()
+            .then(function(products){
+                res.render('listar', {
+                    title: "Pa Que | Todos los productos",
+                    producto: db.products,
+                    css:"style.css",
+                    usuario:req.session.usuario
+        
+                })
+                
+            }).catch(error=>{
+                res.send(error)
+            })
+            },
+            
+           /* .then(usuario => {
+               // console.log(usuario)
+                db.Products.findAll()
+                
+                .then(result => {
+                    res.send(result)
+                })
+                .catch(error => {
+                    res.send(error)
+                })
+            })
+            .catch(error => {
+                res.send(error)
+            })
+        /*res.render('listar', {
             title: "Pa Que | Todos los productos",
-            producto: dbProducts,
+            producto: db.products,
             css:"style.css",
             usuario:req.session.usuario
 
         })
-    },
+    },*/
     detalle: function(req, res){
         let idProduct = req.params.id; //ruta parametrizada en lenguaje express
          let producto = dbProducts.filter(producto=>{

@@ -13,7 +13,7 @@ module.exports = (sequelize,dataTypes) => {
             allowNull:false
 
         },
-        id_usuario:{
+        id_producto:{
             type:dataTypes.INTEGER.UNSIGNED,
             allowNull:false
 

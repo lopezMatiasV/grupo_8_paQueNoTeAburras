@@ -1,6 +1,6 @@
 /************** BASES DE DATOS *************/
-const dbProductos = require('../data/database');
-const dbUsuarios = require('../data/usuarios.json');
+//const dbProductos = require('../data/database');
+//const dbUsuarios = require('../data/usuarios.json');
 const db = require('../database/models')
 
 /***************** MODULOS ************/
@@ -10,30 +10,26 @@ const bcrypt = require('bcrypt');
 const fs = require('fs');
 const path = require('path');
 const e = require('express');
+
 module.exports = {
     registro:function(req, res){
-      console.log(req.session.store)
       res.render('registro', {
-        title: (req.session.store),
+        title: "Pa Que | Registro",
         css: "registro.css"
-      })
-        /*res.render('registro',{
-          title:"Pa Que | Registro",
-          css:"registro.css"*/
-
-        
+      })        
     },
     processRegister:function(req,res){
        let errors = validationResult(req);
-       let lastID = dbUsuarios.length;
+       
        if(errors.isEmpty()){
+
            db.Users.create({
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email:req.body.email,
-            pass:bcrypt.hashSync(req.body.pass,10),
+            nombre: req.body.nombre.trim(),
+            apellido: req.body.apellido.trim(),
+            email:req.body.email.trim(),
+            pass:bcrypt.hashSync(req.body.pass.trim(),10),
             avatar:(req.files[0])?req.files[0].filename:"default.png",
-            rol:(req.session.store)?req.session.store:"usuario"
+            rol:(req.session.usuario)?req.session.usuario:"user"
            })
            .then(result => {
             console.log(result)
@@ -97,14 +93,14 @@ module.exports = {
           where:{
             email:req.body.email
           },
-          //incluide:[{association:"tienda"}]
+          
         })
         .then(user => {
           req.session.user = {
             id: user.id,
             nick: user.nombre + " " + user.apellido,
             email: user.email,
-            avatar: (user.rol == "admin")?user.admin.logo:user.avatar,
+            avatar: (user.rol == "user")?user.avatar:user.avatar,
             rol: user.rol
           }
           if(req.body.recordar){
@@ -117,8 +113,8 @@ module.exports = {
           res.send(error)
         })
        }else{
-        res.render("Pa Que | Registro",{
-          title: "Ingresá tu cuenta",
+        res.render("registro",{
+          title: "Pa Que | Registro",
           css: "registro.css",
           errors:errors.mapped(),
           old: req.body

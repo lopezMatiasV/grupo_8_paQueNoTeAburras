@@ -14,6 +14,10 @@ module.exports = (sequelize, dataTypes) => {
         imagen:{
             type:dataTypes.STRING(45),
             allowNull:false
+        },
+        id_categoria:{
+            type:dataTypes.STRING(45),
+            allowNull:false
         }
     }
 

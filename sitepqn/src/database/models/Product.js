@@ -42,7 +42,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull:false,
             unique:true,
         },
-        section:{
+        seccion:{
             type:dataTypes.STRING(45)
         },
         descuento: {
