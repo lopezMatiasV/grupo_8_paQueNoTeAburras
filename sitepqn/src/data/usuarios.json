@@ -172,7 +172,12 @@
         "email": "caro@gmail.com",
         "avatar": "avatar-1600012267954.jpg",
         "pass": "$2b$10$CpwdrQSedpBXK7fRQy5wbOb8Ap7cWb.pEudTolFW95nm/cXbR2NE.",
-        "rol": "user"
+        "rol": "user",
+        "telefono": 123456789,
+        "direccion": "Bermejo 370",
+        "dni": "36842679",
+        "ciudad": "Cachi",
+        "provincia": "Salta"
     },
     {
         "id": 22,
