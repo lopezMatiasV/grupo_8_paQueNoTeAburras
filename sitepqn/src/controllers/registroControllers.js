@@ -126,7 +126,7 @@ module.exports = {
         .then(usuario => {
           console.log(usuario)
           res.render('userProfile', {
-            title: "Perfil de Usuario",
+            title: "Pa Que || Perfil de Usuario",
             css: "style.css",
             usuario:usuario
           })
@@ -136,15 +136,17 @@ module.exports = {
       }       
     },
     edit:function(req,res){
-        if(req.files[0]){
+        /*if(req.files[0]){
             if(fs.existsSync(path.join(__dirname,'../../public/images/users/'+req.session.usuario.avatar))){
                 fs.unlinkSync(path.join(__dirname,'../../public/images/users/'+req.session.usuario.avatar))
                 res.locals.usuario.avatar = req.files[0].filename
             }
 
-        }
+        }*/
         db.Users.update(
             {
+              nombre:req.body.nombre,
+              apellido: req.body.apellido,
                 dni: req.body.dni,
                 avatar:(req.files[0])?req.files[0].filename:req.session.usuario.avatar,
                 direccion: req.body.direccion.trim(),

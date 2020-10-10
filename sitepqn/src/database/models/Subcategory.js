@@ -11,10 +11,10 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.STRING(45),
             allowNull:false
         },
-        id_categoria:{
+        /*id_categoria:{
             type:dataTypes.INTEGER(11),
             
-        }
+        }*/
         
     }
 
@@ -24,10 +24,10 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Subcategory = sequelize.define(alias,cols,config)
         Subcategory.associate = function(models){
-           Subcategory.belongsTo(models.Categories,{
+           /*Subcategory.belongsTo(models.Categories,{
                 as:"seccion",
-                foreignKey: "id_subcategoria"
-            })
+                foreignKey: "id_categoria"
+            })*/
         }
         
 

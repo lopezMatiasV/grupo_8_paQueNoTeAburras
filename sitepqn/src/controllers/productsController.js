@@ -2,53 +2,42 @@ const fs = require ('fs')
 const path = require('path')
 
 const dbProducts = require('../data/dataBase')
-//const dbCategories = require('../data/dataBase');
+const dbCategories = require('../data/dataBase');
 //const dbCategories = require('../data/categories.json')
 
 const {validationResult} = require('express-validator');
 const db = require('../database/models');
+const { brotliDecompress } = require('zlib');
 
 module.exports = {
     listar: function(req, res) {
         db.Products.findAll()
-            .then(function(products){
+            .then(producto=>{
                 res.render('listar', {
                     title: "Pa Que | Todos los productos",
-                    producto: db.Products,
                     css:"style.css",
+                    producto:producto,
                     usuario:req.session.usuario
-        
                 })
-                
             }).catch(error=>{
                 res.send(error)
             })
-            },
-            
-           /* .then(usuario => {
-               // console.log(usuario)
-                db.Products.findAll()
-                
-                .then(result => {
-                    res.send(result)
-                })
-                .catch(error => {
-                    res.send(error)
-                })
-            })
-            .catch(error => {
-                res.send(error)
-            })
-        /*res.render('listar', {
-            title: "Pa Que | Todos los productos",
-            producto: db.products,
-            css:"style.css",
-            usuario:req.session.usuario
-
-        })
-    },*/
+    },            
     detalle: function(req, res){
-        let idProduct = req.params.id; //ruta parametrizada en lenguaje express
+        db.Products.findOne()
+        .then(producto=>{
+            res.render('productos',{
+                title:"Pa Que | Detalle del producto",
+                producto:producto,
+                css: "styleDetalleProducto.css",
+                usuario:req.session.usuario
+    
+            })
+            
+        }).catch(error=>{
+            res.send(error)
+        })
+       /* let idProduct = req.params.id; //ruta parametrizada en lenguaje express
          let producto = dbProducts.filter(producto=>{
             return producto.id == idProduct 
             })
@@ -59,10 +48,12 @@ module.exports = {
             css: "styleDetalleProducto.css",
             usuario:req.session.usuario
 
-        })
+        })*/
     },
     agregar:function(req,res){
-       db.Products.findAll()
+       db.Products.findAll({
+
+       })
        .then(productos=>{
            res.render('carga',{
                title: "PaQue | Agregar",
@@ -92,7 +83,7 @@ module.exports = {
                 })
                 .then(result => {
                     console.log(result)
-                    res.redirect('/')
+                    res.redirect('/products')
                 })
                 .catch(err => {
                     res.send(err)
@@ -120,6 +111,7 @@ module.exports = {
                     title: "Agregar Producto",
                     css:'product.css',
                     categorias: categorias,
+                    usuario:req.session.usuario,
                     errors: errores.mapped(),
                     old:req.body,
                     oldCategoria:oldCategoria
@@ -131,6 +123,26 @@ module.exports = {
         }
     },
     show:function(req,res){
+        db.Products.findOne(/*{
+            where:{
+                producto:db.Products.producto
+            }
+        }*/)
+        
+        .then(product => {
+            res.render('productShow',{
+                title: "Pa Que || Editar Producto",
+                producto:db.Products.producto,
+                css:"style.css",
+              //usuario:req.session.usuario
+    
+            })
+          })
+          .catch(err => {
+            res.send(err)
+        })
+
+        /*
         let idProducto = req.params.id;
         let flap = req.params.flap;
 
@@ -163,7 +175,7 @@ module.exports = {
             css:"style.css",
             usuario:req.session.usuario
 
-        })
+        })*/
     },
     edit:function(req,res){
         let idProducto = req.params.id;

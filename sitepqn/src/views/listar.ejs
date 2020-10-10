@@ -15,14 +15,14 @@
                                 Todos los productos
                             </h2>
                         </div>
-                        <!--recorro los productos basados en la ultima visita con un forEach-->
+                        
                         <% producto.forEach(producto => { %>
                             <div class="producto col-sm-12 col-md-6 col-lg-3">
-                              <a href="./products/detalle/<%= producto.id %> "><img src="images/products/<%- producto.img %> " alt=""></a>    
+                              <a href="./products/detalle/<%= producto.id %> "><img src="../../images/products/<%- producto.fotos %> " alt=""></a>    
                               <h3><%- producto.nombre %></h3>
-                              <span>$ <%- (producto.precio - producto.precio * producto.discount / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span><br>
-                              <% if (producto.discount != 0) { %>
-                                <span><%- producto.discount %>% OFF</span>
+                              <span>$ <%- (producto.precio - producto.precio * producto.descuento / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span><br>
+                              <% if (producto.descuento != 0) { %>
+                                <span><%- producto.descuento %>% OFF</span>
                                 <% } %>
                       
                               <p><%- producto.descripcion %></p>

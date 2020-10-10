@@ -25,10 +25,6 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.INTEGER(11),
             allowNull:false
         },
-        /*id_categoria:{
-            type:dataTypes.INTEGER(11),
-            allowNull:true
-        },*/
         categoria:{
             type:dataTypes.STRING(45),
             allowNull:false
@@ -47,7 +43,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         descuento: {
             type:dataTypes.INTEGER(11),
-        },      
+        },
     }
 
     let config = {
@@ -57,14 +53,14 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Product = sequelize.define(alias,cols,config)
     Product.associate =function(models){
-    Product.belongsTo(models.Carts,{
+   /* Product.belongsTo(models.Carts,{
         as:"cart",
         foreignKey:"id_producto"
     })
     Product.belongsTo(models.Categories,{
         as:"categori",
         foreignKey: "id_categoria"
-    })
+    })*/
 
     }
     return Product;

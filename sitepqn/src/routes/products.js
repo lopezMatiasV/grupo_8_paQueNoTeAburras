@@ -22,7 +22,7 @@ router.get('/', controller.listar)
 router.get('/detalle/:id', controller.detalle)
 router.get('/agregar', controller.agregar)//sessionUserCheck,
 router.post('/agregar',upload.any(), controller.publicar);
-router.get('/show/:id/:flap?',sessionUserCheck,controller.show);
+router.get('/show/:id/:flap?',controller.show);//sessionUserCheck,
 router.put('/edit/:id/:flap?',upload.any(),controller.edit);
 router.delete('/delete/:id',controller.eliminar);
 
