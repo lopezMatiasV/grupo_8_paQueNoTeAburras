@@ -14,7 +14,7 @@ module.exports = {
             .then(function(products){
                 res.render('listar', {
                     title: "Pa Que | Todos los productos",
-                    producto: db.products,
+                    producto: db.Products,
                     css:"style.css",
                     usuario:req.session.usuario
         
@@ -62,46 +62,73 @@ module.exports = {
         })
     },
     agregar:function(req,res){
-        let categoria;
-        let subCategoria;
-        if (req.query.categoria){
-            categoria = req.query.categoria;
-            subCategoria = req.query.subCategoria;
-        }
-        res.render('carga',{
-            title:"Agregar Producto",
-            categorias:dbProducts,
-            categoria:categoria,
-            subCategoria:subCategoria,
-            css:"style.css",
-            usuario:req.session.usuario
-
-        })
+       db.Products.findAll()
+       .then(productos=>{
+           res.render('carga',{
+               title: "PaQue | Agregar",
+               css: "style.css",
+               productos: productos
+           })
+           
+       })
+       .catch(error=>{
+        res.send(error)
+    })
     },
     publicar:function(req,res,next){
-        let lastID = 1;
-        dbProducts.forEach(producto=>{
-            if(producto.id > lastID){
-                lastID = producto.id
-            }
-        })
-        let newProduct = {
-            id:lastID + 1,
-            sku:req.body.sku,
-            nombre:req.body.nombre,
-            precio:Number(req.body.precio),
-            categoria:req.body.categoria,
-            subCategoria:req.body.subCategoria,
-            descripcion:req.body.descripcion,
-            seccion:req.body.seccion,
-            discount:Number(req.body.discount),
-            img:(req.files[0])?req.files[0].filename:"default-image.png"
-        }
-        dbProducts.push(newProduct);
-        
-        fs.writeFileSync(path.join(__dirname,"..","data","dbProducts.json"),JSON.stringify(dbProducts),'utf-8')
+        let errores = validationResult(req);
 
-        res.redirect('/products')
+        if(errores.isEmpty()){
+            db.Products.create({
+                sku:req.body.sku,
+                nombre:req.body.nombre.trim(),
+                precio:Number(req.body.precio),
+                seccion:req.body.seccion.trim(),
+                descuento:Number(req.body.discount),
+                descripcion:req.body.descripcion,
+                fotos:req.files[0].filename,
+                categoria:req.body.categoria,
+                subcategoria:req.body.subCategoria
+                })
+                .then(result => {
+                    console.log(result)
+                    res.redirect('/')
+                })
+                .catch(err => {
+                    res.send(err)
+                })
+            
+            .catch(err => {
+                res.send(err)
+            })
+        }else{
+            db.Categories.findAll({
+                order:[
+                    'nombre'
+                ]
+            })
+            .then(categorias => {
+                let oldCategoria;
+                if(req.body.categoria){
+                    categorias.forEach(categoria => {
+                        if(categoria.id == req.body.categoria){
+                            oldCategoria = categoria.nombre
+                        }
+                    });
+                }
+                res.render('productAdd', {
+                    title: "Agregar Producto",
+                    css:'product.css',
+                    categorias: categorias,
+                    errors: errores.mapped(),
+                    old:req.body,
+                    oldCategoria:oldCategoria
+                }) 
+            })
+            .catch(err => {
+                res.send(err)
+            })
+        }
     },
     show:function(req,res){
         let idProducto = req.params.id;

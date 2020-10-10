@@ -15,10 +15,10 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.STRING(45),
             allowNull:false
         },
-        id_categoria:{
+        /*id_categoria:{
             type:dataTypes.STRING(45),
-            allowNull:false
-        }
+            allowNull:true
+        }*/
     }
 
     let config = {

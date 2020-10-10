@@ -45,10 +45,10 @@ module.exports = (sequelize,dataTypes) => {
             as:"purchase", /*compra en ingles */
             foreignKey:"id_usuario"
         })
-        Cart.hasMany(models.Products,{
-            as:"buy", /*compra*/
+        /*Cart.hasMany(models.Products,{
+            as:"buy", /*compra
             foreignKey:"id_producto"
-        })
+        })*/
 
         
     }

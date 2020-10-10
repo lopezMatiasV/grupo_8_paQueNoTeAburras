@@ -1,1 +1,0 @@
-SELECT * FROM pqnotaburras_db.categories;

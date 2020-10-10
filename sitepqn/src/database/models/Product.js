@@ -25,10 +25,10 @@ module.exports = (sequelize, dataTypes) => {
             type:dataTypes.INTEGER(11),
             allowNull:false
         },
-        id_categoria:{
+        /*id_categoria:{
             type:dataTypes.INTEGER(11),
-            allowNull:false
-        },
+            allowNull:true
+        },*/
         categoria:{
             type:dataTypes.STRING(45),
             allowNull:false
