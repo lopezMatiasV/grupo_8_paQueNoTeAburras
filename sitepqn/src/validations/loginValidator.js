@@ -1,4 +1,3 @@
-//const dbUsers = require('../data/dbUsers');
 const db = require('../database/models')
 
 const {check,validationResult,body} = require('express-validator');
@@ -14,37 +13,9 @@ module.exports = [
         min:1
     })
     .withMessage('Escribe tu contraseña'),
-    
-   /* body('email')
-    .custom(function(value){
-    
-    return db.Users.findOne({
-         where:{
-             email:value
-         }
-     })
-     .then(user => {
-         if(!user){
-             return Promise.reject('Email no registrado')
-         }
-     })
-    }), */
 
     body('pass')
     .custom((value,{req})=>{
-       /*  let result = true
-        dbUsers.forEach(user => {
-            if(user.email == req.body.email){
-                if(!bcrypt.compareSync(value,user.pass)){
-                    result = false
-                }
-            }
-        });
-        if (result == false){
-            return false
-        }else{
-            return true
-        } */
         return db.Users.findOne({
             where:{
                 email:req.body.email
@@ -52,12 +23,12 @@ module.exports = [
         })
         .then(usuario => {
             if(!bcrypt.compareSync(value,usuario.dataValues.pass)){ //si no machea la contraseña
-                return Promise.reject('estas mal')
+                return Promise.reject('No coincide la contraseña')
             }
         })
         .catch(() => {
-            return Promise.reject('Credenciales inválidas')
+            return Promise.reject('Credenciales Inválidas')
         })
     })
-    //.withMessage('Contraseña incorrecta')
+     
 ]

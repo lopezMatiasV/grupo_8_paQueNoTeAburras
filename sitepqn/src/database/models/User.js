@@ -3,7 +3,7 @@ module.exports = (sequelize,dataTypes) => {
     let alias = "Users";
     let cols = {
         id:{
-            type:dataTypes.INTEGER(11),
+            type:dataTypes.INTEGER.UNSIGNED,
             primaryKey:true,
             autoIncrement:true,
             allowNull:false
@@ -39,19 +39,16 @@ module.exports = (sequelize,dataTypes) => {
         },
         ciudad:{
             type: dataTypes.STRING(255),
-            allowNull:false,
             allowNull:true
         },
         provincia:{
             type: dataTypes.STRING(100),
-            allowNull:false,
             allowNull:true
         },
         telefono:{
             type: dataTypes.INTEGER(20),
-            allowNull:false
+            allowNull:true
         },
-
         rol:{
             type: dataTypes.STRING(45),
             allowNull:false
