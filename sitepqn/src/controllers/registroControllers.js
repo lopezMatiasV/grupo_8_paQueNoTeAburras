@@ -1,6 +1,5 @@
 /************** BASES DE DATOS *************/
-//const dbProductos = require('../data/database');
-//const dbUsuarios = require('../data/usuarios.json');
+
 const db = require('../database/models')
 
 /***************** MODULOS ************/
@@ -126,13 +125,10 @@ module.exports = {
         db.Users.findByPk(req.session.usuario.id)
         .then(usuario => {
           console.log(usuario)
-          res.render('registro/profile', {
+          res.render('userProfile', {
             title: "Perfil de Usuario",
             css: "style.css",
-            usuario:user,
-            productos: dbProductos.filter(producto => {
-              return producto.categoria != "visited" & producto.categoria != "in-sale"
-            })
+            usuario:usuario
           })
         })
       }else{
@@ -140,45 +136,49 @@ module.exports = {
       }       
     },
     edit:function(req,res){
-       if(req.files[0]){
-        if(fs.existsSync(path.join(__dirname,'../../public/images/users' + req.session.user.avatar))){
-          fs.unlinkSync(path.join(__dirname, '../../public/images/user' + req.session.user.avatar))
-          res.locals.user.avatar = req.files[0].filename
-        }
+        if(req.files[0]){
+            if(fs.existsSync(path.join(__dirname,'../../public/images/users/'+req.session.usuario.avatar))){
+                fs.unlinkSync(path.join(__dirname,'../../public/images/users/'+req.session.usuario.avatar))
+                res.locals.usuario.avatar = req.files[0].filename
+            }
 
-       }
-       db.Users.editar(
-       {
-        fecha: req.body.fecha,
-        avatar: (req.files[0])?req.files[0].filename:req.session.user.avatar,
-        direccion: req.body.direccion,
-        ciudad:req.body.ciudad,
-        provincia:req.body.provincia
-       },
-       {
-        where:{
-          id:req.params.id
-           }    
-         
-         }
-       
-       )
-       .then(result => {
-        console.log(req.session.user)
-        return res.redirect('/registro/profile')
-       })
-       .catch(err => {
-        console.log(err)
-       })
+        }
+        db.Users.update(
+            {
+                dni: req.body.dni,
+                avatar:(req.files[0])?req.files[0].filename:req.session.usuario.avatar,
+                direccion: req.body.direccion.trim(),
+                ciudad:req.body.ciudad,
+                provincia:req.body.provincia,
+                telefono:req.body.telefono
+            },
+            {
+                where:{
+                    id:req.params.id
+                }
+            }
+        )
+        .then( result => {
+          console.log(req.session.usuario)
+
+          return res.redirect('/registro/profile')
+          })
+        .catch(err => {
+            console.log(err)
+        })
+
     },
     eliminar:function(req,res){
-        let idUsuario = req.params.id
-        idUsuario = parseInt(idUsuario)
-        let filtro = dbUsuarios.filter(usuario => {
-            return usuario.id != idUsuario; 
+        req.session.destroy();
+        if (req.cookies.userPQNTA){
+          res.cookie('userPQNTA','',{maxAge:-1});
+        }
+        db.Users.destroy({
+          where:{
+            id:req.params.id
+          }
         })
-        fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(filtro), 'utf-8');
-        res.redirect('/')
+        return res.redirect('/') 
     },
     logout:function(req,res){
         req.session.destroy();
