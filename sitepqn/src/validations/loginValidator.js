@@ -1,6 +1,8 @@
-const {check,validatorResult,body} = require('express-validator');
+//const dbUsers = require('../data/dbUsers');
+const db = require('../database/models')
+
+const {check,validationResult,body} = require('express-validator');
 const bcrypt = require('bcrypt');
-const dbUsuarios = require('../data/dbUsuarios');
 
 module.exports = [
     check('email')
@@ -8,38 +10,54 @@ module.exports = [
     .withMessage('Debes ingresar un email válido'),
 
     check('pass')
-    .isLength(1)
-    .withMessage('Debes ingresar una contraseña'),
-
-    body('email')
-    .custom(function(value){
-        let usuario = dbUsuarios.filter(user=>{ //filtro la base de datos y asigno el resultado a una varaible
-            return user.email == value //aplico la condición si coincide el mail que el usuario ingresó en el imput con que está registrado
-        })
-        if(usuario == false){ //si no hay resultados
-            return false //la validación retorna false, es decir NO PASO LA VALIDACIÓN
-        }else{
-            return true //la valiación retorna true, es decir VALIDÓ CORRECTAMENTE
-        }
+    .isLength({
+        min:1
     })
-    .withMessage('El usuario no está registrado'), //mensaje de error
+    .withMessage('Escribe tu contraseña'),
+    
+   /* body('email')
+    .custom(function(value){
+    
+    return db.Users.findOne({
+         where:{
+             email:value
+         }
+     })
+     .then(user => {
+         if(!user){
+             return Promise.reject('Email no registrado')
+         }
+     })
+    }), */
 
     body('pass')
     .custom((value,{req})=>{
-        let result = true;
-        dbUsuarios.forEach(user => {
+       /*  let result = true
+        dbUsers.forEach(user => {
             if(user.email == req.body.email){
                 if(!bcrypt.compareSync(value,user.pass)){
                     result = false
                 }
             }
         });
-        if(result == false){
+        if (result == false){
             return false
         }else{
             return true
-        }
+        } */
+        return db.Users.findOne({
+            where:{
+                email:req.body.email
+            }
+        })
+        .then(usuario => {
+            if(!bcrypt.compareSync(value,usuario.dataValues.pass)){ //si no machea la contraseña
+                return Promise.reject('estas mal')
+            }
+        })
+        .catch(() => {
+            return Promise.reject('Credenciales inválidas')
+        })
     })
-    .withMessage("Contraseña incorrecta")
-
+    //.withMessage('Contraseña incorrecta')
 ]

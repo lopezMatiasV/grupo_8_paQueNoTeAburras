@@ -29,7 +29,7 @@ module.exports = {
             email:req.body.email.trim(),
             pass:bcrypt.hashSync(req.body.pass.trim(),10),
             avatar:(req.files[0])?req.files[0].filename:"default.png",
-            rol:(req.session.usuario)?req.session.usuario:"user"
+            rol:(req.session.usuario)?req.session.usuario:"usuario"
            })
            .then(result => {
             console.log(result)
@@ -78,8 +78,7 @@ module.exports = {
     login:function(req,res){
         res.render('registro',{
             title:"Pa Que | login",
-            css: "registro.css",
-            usuario:req.session.usuario
+            css: "registro.css"
         })
     },
     processLogin:function(req,res){
@@ -89,24 +88,25 @@ module.exports = {
        }
        let errors = validationResult(req);
        if(errors.isEmpty()){
+
         db.Users.findOne({
           where:{
             email:req.body.email
           },
           
         })
-        .then(user => {
-          req.session.user = {
-            id: user.id,
-            nick: user.nombre + " " + user.apellido,
-            email: user.email,
-            avatar: (user.rol == "user")?user.avatar:user.avatar,
-            rol: user.rol
+        .then(usuario => {
+          req.session.usuario = {
+            id: usuario.id,
+            nombre: usuario.nombre,
+            email: usuario.email,
+            avatar: (usuario.rol == "usuario")?usuario.avatar:usuario.avatar,
+            rol: usuario.rol
           }
           if(req.body.recordar){
-            res.cookie('UsuarioPaQueNo', req.session.user, {maxAge:1000*60*5})
+            res.cookie('userPQNTA', req.session.usuario, {maxAge:1000*60*5})
           }
-        res.locals.user = req.session.user
+        res.locals.usuario = req.session.usuario
         return res.redirect(url)
         })
         .catch(error => { 
@@ -122,11 +122,11 @@ module.exports = {
        }
     },
     profile:function(req,res){
-      if (req.session.user) {
-        db.Users.findByPk(req.session.user.id)
-        .then(user => {
-          console.log(user)
-          res.render('userProfile', {
+      if (req.session.usuario) {
+        db.Users.findByPk(req.session.usuario.id)
+        .then(usuario => {
+          console.log(usuario)
+          res.render('registro/profile', {
             title: "Perfil de Usuario",
             css: "style.css",
             usuario:user,

@@ -13,7 +13,7 @@ db.Users.create({
     email:req.body.email.trim(),
     password:bcrypt.hashSync(req.body.pass.trim(),10),
     avatar:(req.files)?req.files[0].filename:null,
-    rol:"user"
+    rol:"usuario"
 })
 .then(result => {
     console.log(result)

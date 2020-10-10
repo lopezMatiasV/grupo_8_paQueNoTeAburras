@@ -27,7 +27,8 @@ module.exports = (sequelize,dataTypes) => {
         },
         dni:{
             type: dataTypes.CHAR(8),
-            unique:true
+            unique:true,
+            allowNull:true
         },
         avatar:{
             type: dataTypes.STRING(100)
@@ -38,11 +39,13 @@ module.exports = (sequelize,dataTypes) => {
         },
         ciudad:{
             type: dataTypes.STRING(255),
-            allowNull:false
+            allowNull:false,
+            allowNull:true
         },
         provincia:{
             type: dataTypes.STRING(100),
-            allowNull:false
+            allowNull:false,
+            allowNull:true
         },
         rol:{
             type: dataTypes.STRING(45),
