@@ -136,13 +136,6 @@ module.exports = {
       }       
     },
     edit:function(req,res){
-        /*if(req.files[0]){
-            if(fs.existsSync(path.join(__dirname,'../../public/images/users/'+req.session.usuario.avatar))){
-                fs.unlinkSync(path.join(__dirname,'../../public/images/users/'+req.session.usuario.avatar))
-                res.locals.usuario.avatar = req.files[0].filename
-            }
-
-        }*/
         db.Users.update(
             {
               nombre:req.body.nombre,

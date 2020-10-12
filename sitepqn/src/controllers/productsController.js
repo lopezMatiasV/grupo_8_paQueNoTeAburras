@@ -24,7 +24,7 @@ module.exports = {
             })
     },            
     detalle: function(req, res){
-        db.Products.findOne()
+        db.Products.findByPk(req.params.id)
         .then(producto=>{
             res.render('productos',{
                 title:"Pa Que | Detalle del producto",
@@ -37,18 +37,6 @@ module.exports = {
         }).catch(error=>{
             res.send(error)
         })
-       /* let idProduct = req.params.id; //ruta parametrizada en lenguaje express
-         let producto = dbProducts.filter(producto=>{
-            return producto.id == idProduct 
-            })
-
-        res.render('productos',{
-            title:"Pa Que | Detalle del producto",
-            producto:producto[0],//le colocamos así para que envíe a la vista un sólo elemento//
-            css: "styleDetalleProducto.css",
-            usuario:req.session.usuario
-
-        })*/
     },
     agregar:function(req,res){
        db.Products.findAll({
@@ -58,6 +46,7 @@ module.exports = {
            res.render('carga',{
                title: "PaQue | Agregar",
                css: "style.css",
+               usuario:req.session.usuario,
                productos: productos
            })
            
@@ -123,26 +112,6 @@ module.exports = {
         }
     },
     show:function(req,res){
-        db.Products.findOne(/*{
-            where:{
-                producto:db.Products.producto
-            }
-        }*/)
-        
-        .then(product => {
-            res.render('productShow',{
-                title: "Pa Que || Editar Producto",
-                producto:db.Products.producto,
-                css:"style.css",
-              //usuario:req.session.usuario
-    
-            })
-          })
-          .catch(err => {
-            res.send(err)
-        })
-
-        /*
         let idProducto = req.params.id;
         let flap = req.params.flap;
 
@@ -158,53 +127,55 @@ module.exports = {
             activeEdit = "active";
             showEdit = "show";
         } 
-
-        let resultado = dbProducts.filter(producto=>{
-            return producto.id == idProducto
-        })
-
-        res.render('productShow',{
+        db.Products.findByPk(req.params.id)
+        .then(producto=>{
+           res.render('productShow',{
             title: "Editar Producto",
-            producto:resultado[0],
-            total:dbProducts.length,
-            categoria:dbProducts,
+            producto:producto,
+            total:db.Products.length,
             activeDetail: activeDetail,
             activeEdit: activeEdit,
             showDetail:showDetail,
             showEdit:showEdit,
             css:"style.css",
-            usuario:req.session.usuario
-
-        })*/
+            usuario:req.session.usuario 
+        })
+        })
+        .catch(err => {
+            res.send(err)
+        })
     },
     edit:function(req,res){
-        let idProducto = req.params.id;
-
-        dbProducts.forEach(producto => {
-            if (producto.id == idProducto) {
-                producto.id = Number(req.body.id);
-                producto.nombre = req.body.nombre;
-                producto.sku = req.body.sku;
-                producto.descripcion = req.body.descripcion;
-                producto.precio = Number(req.body.precio);
-                producto.categoria = req.body.categoria;
-                producto.subCategoria = req.body.subCategoria;
-                producto.seccion = req.body.seccion;
-                producto.img = (req.files[0]) ? req.files[0].filename : producto.img
-                producto.discount = Number(req.body.discount);            
-            }
+        let idNewProduct = req.params.id;
+        db.Products.update({
+            sku : req.body.sku,
+            nombre : req.body.nombre.trim(),            
+            descripcion : req.body.descripcion,
+            precio : Number(req.body.precio),
+            categoria : req.body.categoria,
+            subcategoria : req.body.subcategoria,
+            seccion : req.body.seccion,
+            fotos : (req.files[0]) ? req.files[0].filename : idNewProduct.fotos,
+            descuento : Number(req.body.descuento)
+        },
+        {
+            where:{
+            id:req.params.id
+        }}
+        )
+        .then(result=>{
+            return res.redirect('/products')
         })
-
-        fs.writeFileSync(path.join(__dirname, '../data/dbProducts.json'), JSON.stringify(dbProducts))
-        res.redirect('/products/show/' + idProducto)
+        .catch(error=>{
+            console.log(error)
+        })
     },
     eliminar:function(req,res){
-        let idProducto = req.params.id
-        idProducto = parseInt(idProducto)
-        let filtro = dbProducts.filter(producto => {
-            return producto.id != idProducto; 
+        db.Products.destroy({
+            where:{
+                id:req.params.id
+            }
         })
-        fs.writeFileSync(path.join(__dirname, '../data/dbProducts.json'), JSON.stringify(filtro), 'utf-8');
-        res.redirect('/products')
+        return res.redirect('/products')
     }
 }
