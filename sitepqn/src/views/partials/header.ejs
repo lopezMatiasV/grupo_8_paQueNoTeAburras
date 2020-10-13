@@ -26,15 +26,19 @@
           <a class="nav-link text-light" href="#">De Mesa</a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link text-light" href="#">Ayuda</a>
+          <% if (typeof usuario == "undefined") { %>
+            <a class="nav-link text-light" href="#">Ayuda</a>
+          <% } else{ %>
+            <a class="nav-link text-light" href="/products/agregar">Agregar</a>
+        <% } %>
+          
         </li>              
         <li class="nav-item">
             <% if (typeof usuario == "undefined") { %>
                 <a class="nav-link text-light btn btn-primary py-1" href="/registro">Iniciá sesión</a>
               <% } else{ %>
                 <a class="nav-link text-light btn btn-primary py-1" href="/registro/logout">Cerrar Sesión</a>
-            <% } %>       
-          
+            <% } %>
         </li>
       </ul>
     </div>

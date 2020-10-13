@@ -64,15 +64,15 @@ module.exports = {
                 nombre:req.body.nombre.trim(),
                 precio:Number(req.body.precio),
                 seccion:req.body.seccion.trim(),
-                descuento:Number(req.body.discount),
+                descuento:Number(req.body.descuento),
                 descripcion:req.body.descripcion,
                 fotos:req.files[0].filename,
                 categoria:req.body.categoria,
-                subcategoria:req.body.subCategoria
+                subcategoria:req.body.subcategoria
                 })
                 .then(result => {
                     console.log(result)
-                    res.redirect('/products')
+                    res.redirect('/products/agregar')
                 })
                 .catch(err => {
                     res.send(err)

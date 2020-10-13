@@ -65,11 +65,11 @@
      
      <% ofertas.forEach(producto => { %>
       <div class="producto col-sm-12 col-md-6 col-lg-3">
-        <a href="./products/detalle/<%= producto.id %> "><img src="images/products/<%- producto.img %> " alt=""></a>    
+        <a href="./products/detalle/<%= producto.id %> "><img src="images/products/<%- producto.fotos %> " alt=""></a>    
         <h3><%- producto.nombre %></h3>
-        <span>$ <%- (producto.precio - producto.precio * producto.discount / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span><br>
-        <% if (producto.discount != 0) { %>
-          <span><%- producto.discount %>% OFF</span>
+        <span>$ <%- (producto.precio - producto.precio * producto.descuento / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span><br>
+        <% if (producto.descuento != 0) { %>
+          <span><%- producto.descuento %>% OFF</span>
           <% } %>
 
         <p><%- producto.descripcion %></p>
@@ -98,9 +98,9 @@
     <% visitadas.forEach(producto => { %>  
       <!--producto-->
       <div class="producto col-12 col-md-6 col-lg-3">
-        <a href="./products/detalle/<%= producto.id %> "><img src="images/products/<%- producto.img %>" alt="rayo"></a>    
+        <a href="./products/detalle/<%= producto.id %> "><img src="images/products/<%- producto.fotos %>" alt="rayo"></a>    
         <h3><%- producto.nombre %></h3>
-        <span>$ <%- (producto.precio - producto.precio * producto.discount / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span>
+        <span>$ <%- (producto.precio - producto.precio * producto.descuento / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span>
         <p><%- producto.descripcion %></p>
         <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
       </div>
