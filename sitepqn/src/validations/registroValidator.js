@@ -1,5 +1,6 @@
 const {check,validatorResult,body} = require('express-validator');
 const dbUsuarios = require('../data/usuarios');
+const db = require('../database/models')
 
 module.exports = [
     check('nombre')
@@ -16,23 +17,23 @@ module.exports = [
     
     body('email')
     .custom(function(value){
-        console.log(value)
-
-        let usuario = dbUsuarios.filter(user=>{ //filtro la base de datos y asigno el resultado a una varaible
-            return user.email == value //aplico la condición si coincide el mail que el usuario ingresó en el imput con que está registrado
-        })
-        if(usuario == false){ 
-            return true 
-        }else{
-            return false 
-        }
+        return db.Users.findOne({
+            where:{
+                email:value
+            }
+            })
+            .then(user => {
+                if(user){
+                    return Promise.reject('Este mail ya está registrado')
+                }
+            })
      
-    })
-    .withMessage('Este email ya está registrado'),
+    }),
+    //.withMessage('Este email ya está registrado'),
 
-    /*check('email')
+    check('email')
     .isEmail()
-    .withMessage('Debes ingresar un email válido'),*/
+    .withMessage('Debes ingresar un email válido'),
 
     check('pass')
     .isLength({
@@ -48,5 +49,18 @@ module.exports = [
         }
         return true
     })
-    .withMessage('Las contraseñas no coinciden')
+    .withMessage('Las contraseñas no coinciden'),
+    
+    check('bases')
+    .isString("on")
+    .withMessage("Debe aceptar las bases y condiciones"),
+
+    body('avatar')
+    .custom((value,{req})=>{
+        if(req.fileValidationError){
+            return false
+        }else{
+            return true
+        }
+    }).withMessage("Solo se permite png, jpg, jpeg, gif")
 ]

@@ -126,7 +126,7 @@ module.exports = {
         .then(usuario => {
           console.log(usuario)
           res.render('userProfile', {
-            title: "Pa Que || Perfil de Usuario",
+            title: "Pa Que | Perfil de Usuario",
             css: "style.css",
             usuario:usuario
           })

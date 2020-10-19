@@ -5,7 +5,7 @@
     <%- include('partials/header') %>
 
    <div class="conteiner-fluid">
-       <h4 class="form-group col-12"><%= title %> de <%= usuario.nombre %> <%= usuario.apellido %> </h4>
+       <h4 class="form-group col-12">Perfil de <%= usuario.nombre %> <%= usuario.apellido %> </h4>
            
             <form action="/registro/edit/<%= usuario.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
