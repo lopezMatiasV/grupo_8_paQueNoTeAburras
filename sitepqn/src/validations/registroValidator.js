@@ -5,13 +5,13 @@ const db = require('../database/models')
 module.exports = [
     check('nombre')
     .isLength({
-        min:1
+        min:2
     })
     .withMessage('Debes ingresar un nombre válido'),
     
     check('apellido')
     .isLength({
-        min:1
+        min:2
     })
     .withMessage('Debes ingresar un apellido válido'),
     
@@ -37,7 +37,7 @@ module.exports = [
 
     check('pass')// pass: '/^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/'
     .isLength({
-        min:6,
+        min:8,
         max:12,
        
     })
