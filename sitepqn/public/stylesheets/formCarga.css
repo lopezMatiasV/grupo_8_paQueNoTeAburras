@@ -1,5 +1,9 @@
 @import "styleCompiler.css";
 
+h2 {
+  margin-left: 15px;
+}
+
 #carga .formulario {
     font-family: Arial;
     font-size: 17px;
