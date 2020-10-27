@@ -1,9 +1,7 @@
 const multer = require('multer'); //requiero el paquete de multer para manejar archivos
 
 upload(req, res, function(err) {
-    // req.file contains information of uploaded file
-    // req.body contains information of text fields, if there were any
-
+   
     if (req.fileValidationError) {
         return res.send(req.fileValidationError);
     }

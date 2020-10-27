@@ -35,12 +35,17 @@ module.exports = [
     .isEmail()
     .withMessage('Debes ingresar un email válido'),
 
-    check('pass')
+    check('pass')// pass: '/^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/'
     .isLength({
         min:6,
-        max:12
+        max:12,
+       
     })
     .withMessage('La contraseña debe tener entre 6 y 12 caracteres'),
+
+   /* check('pass')
+    .isAlphanumeric(['es-ES'])
+    .withMessage('La contraseña debe tener al menos una letra y un número'),*/
 
     body('pass2')
     .custom(function(value,{req}){

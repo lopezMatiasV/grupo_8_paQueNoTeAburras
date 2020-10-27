@@ -56,9 +56,9 @@ module.exports = {
     })
     },
     publicar:function(req,res,next){
-        let errores = validationResult(req);
+        let errors = validationResult(req);
 
-        if(errores.isEmpty()){
+        if(errors.isEmpty()){
             db.Products.create({
                 sku:req.body.sku,
                 nombre:req.body.nombre.trim(),
@@ -66,50 +66,70 @@ module.exports = {
                 seccion:req.body.seccion.trim(),
                 descuento:Number(req.body.descuento),
                 descripcion:req.body.descripcion,
-                fotos:req.files[0].filename,
+                fotos:(req.files[0])?req.files[0].filename:"default.png",
                 categoria:req.body.categoria,
                 subcategoria:req.body.subcategoria
                 })
                 .then(result => {
                     console.log(result)
                     res.redirect('/products/agregar')
-                })
-                .catch(err => {
-                    res.send(err)
-                })
-            
-            .catch(err => {
-                res.send(err)
-            })
+                })            
+                .catch(errors => {
+                    errors = {};
+                    errors.errors.forEach(error => {
+                      if(error.path == "sku"){
+                        errors["sku"] = {};
+                        errors["sku"]["msg"] = error.message
+                      };
+                      if(error.path == "nombre"){
+                        errors["nombre"] = {};
+                        errors["nombre"]["msg"] = error.message
+                      };
+                      if(error.path == "precio"){
+                        errors["precio"] = {};
+                        errors["precio"]["msg"] = error.message
+                      };
+                      if (error.path == "categoria") {
+                        errors["categoria"] = {};
+                        errors["categoria"]["msg"] = error.message
+                      };
+                      if (error.path == "subcategoria") {
+                        errors["subcategoria"] = {};
+                        errors["subcategoria"]["msg"] = error.message
+                      };
+                      if (error.path == "seccion") {
+                        errors["seccion"] = {};
+                        errors["seccion"]["msg"] = error.message
+                      };
+                      if (error.path == "discount") {
+                        errors["discount"] = {};
+                        errors["discount"]["msg"] = error.message
+                      };
+                      if (error.path == "descripcion") {
+                        errors["descripcion"] = {};
+                        errors["descripcion"]["msg"] = error.message
+                      };
+                      if (error.path == "foto") {
+                        errors["foto"] = {};
+                        errors["foto"]["msg"] = error.message
+                      };
+                    })
+                    res.render('carga',{
+                        title: "PaQue | Agregar",
+                        css: "style.css",
+                        usuario:req.session.usuario,
+                        productos: productos
+                    })
+               
+               })
         }else{
-            db.Categories.findAll({
-                order:[
-                    'nombre'
-                ]
-            })
-            .then(categorias => {
-                let oldCategoria;
-                if(req.body.categoria){
-                    categorias.forEach(categoria => {
-                        if(categoria.id == req.body.categoria){
-                            oldCategoria = categoria.nombre
-                        }
-                    });
-                }
-                res.render('productAdd', {
-                    title: "Agregar Producto",
-                    css:'product.css',
-                    categorias: categorias,
-                    usuario:req.session.usuario,
-                    errors: errores.mapped(),
-                    old:req.body,
-                    oldCategoria:oldCategoria
-                }) 
-            })
-            .catch(err => {
-                res.send(err)
-            })
-        }
+          res.render('carga',{
+            title: "PaQue | Agregar",
+            css: "style.css",
+            usuario:req.session.usuario,
+            errors:errors.mapped()
+        })
+      }
     },
     show:function(req,res){
         let idProducto = req.params.id;
@@ -130,7 +150,7 @@ module.exports = {
         db.Products.findByPk(req.params.id)
         .then(producto=>{
            res.render('productShow',{
-            title: "Editar Producto",
+            title: "Pa Que | Editar Producto",
             producto:producto,
             total:db.Products.length,
             activeDetail: activeDetail,
@@ -166,9 +186,54 @@ module.exports = {
         .then(result=>{
             return res.redirect('/products')
         })
-        .catch(error=>{
-            console.log(error)
-        })
+        .catch(errores => {
+            errors = {};
+            errores.errors.forEach(error => {
+              if(error.path == "sku"){
+                errors["sku"] = {};
+                errors["sku"]["msg"] = error.message
+              };
+              if(error.path == "nombre"){
+                errors["nombre"] = {};
+                errors["nombre"]["msg"] = error.message
+              };
+              if(error.path == "precio"){
+                errors["precio"] = {};
+                errors["precio"]["msg"] = error.message
+              };
+              if (error.path == "categoria") {
+                errors["categoria"] = {};
+                errors["categoria"]["msg"] = error.message
+              };
+              if (error.path == "subcategoria") {
+                errors["subcategoria"] = {};
+                errors["subcategoria"]["msg"] = error.message
+              };
+              if (error.path == "seccion") {
+                errors["seccion"] = {};
+                errors["seccion"]["msg"] = error.message
+              };
+              if (error.path == "discount") {
+                errors["discount"] = {};
+                errors["discount"]["msg"] = error.message
+              };
+              if (error.path == "descripcion") {
+                errors["descripcion"] = {};
+                errors["descripcion"]["msg"] = error.message
+              };
+              if (error.path == "foto") {
+                errors["foto"] = {};
+                errors["foto"]["msg"] = error.message
+              };
+            })
+            res.render('show',{
+                title: "PaQue | Editar Producto",
+                css: "style.css",
+                usuario:req.session.usuario,
+                productos: productos
+            })
+       
+       })
     },
     eliminar:function(req,res){
         db.Products.destroy({
@@ -176,6 +241,8 @@ module.exports = {
                 id:req.params.id
             }
         })
-        return res.redirect('/products')
+        .then(result=>{
+          return res.redirect('/products')
+      })
     }
 }
