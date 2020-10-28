@@ -56,10 +56,10 @@ module.exports = [
     })
     .withMessage('Las contraseñas no coinciden'),
     
-    check('bases')
+    /*check('bases')
     .isString("on")
     .withMessage("Debe aceptar las bases y condiciones"),
-
+*/
     body('avatar')
     .custom((value,{req})=>{
         if(req.fileValidationError){

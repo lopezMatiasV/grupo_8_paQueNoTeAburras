@@ -15,7 +15,7 @@ window.addEventListener('load',function(){
     let inputNombre = qs('#usuario');
     let inputApellido = qs('#apellido');
     let inputEmail = qs('#email');
-    let inputAvatar = qs('#avatar');
+    let inputAvatar = qs('#customFileLang');
     let inputPass = qs('#pass');
     let inputPass2 = qs('#pass2');
     let checkBases = qs('#customCheck');
@@ -138,7 +138,7 @@ inputAvatar.addEventListener('blur',function(){
     checkBases.addEventListener('click',function(){
             checkBases.classList.toggle('is-valid');
             checkBases.classList.remove('is-invalid');
-            errorsBases.innerHTML = "debes aceptar las bases y condiciones"
+            errorsBases.innerHTML = " "
     })
 
 formRegistro.addEventListener('submit',function(event){
