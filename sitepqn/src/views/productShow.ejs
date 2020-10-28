@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <%- include('partials/head') %>
-
-    <body>
+<script src="/javascripts/formCargaV.js"></script>
+    <body id="productShow" >
         <%- include('partials/header') %>
             <div class="container">
                 <section class="perfilUsuario">
@@ -18,7 +18,7 @@
 
                       
                             <div class="tab-content" id="myTabContent">
-<!---->
+
                                 <div class="tab-pane fade <%= showDetail %> <%= activeDetail %> " id="detalle" role="tabpanel" aria-labelledby="profile-tab">
 
                                     <div class="row p-3">
@@ -56,7 +56,7 @@
                                             <div class="row">
                                                 <div class="col-12 col-lg-4">
                                                     <span><b>Categoría:</b> 
-  <!--ver acento-->                                                      <%= producto.categoria %>
+                                                       <%= producto.categoria %>
                                                     </span>
                                                 </div>
                                                 <div class="col-12 col-md-6 col-lg-4">

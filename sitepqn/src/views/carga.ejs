@@ -19,23 +19,23 @@
 
             <label for="sku"> sku: </label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.sku)?errors.sku.msg: "" %> </small>
-            <input type="text" id="sku" name="sku" placeholder="123456">
+            <input type="text" id="sku" name="sku" placeholder="123456" required> 
             <span id="errorSku" class="text-danger"></span>
 
             <label for="nombre"> Nombre del Producto: </label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre del Producto">
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre del Producto" required>
             <span id="errorNombre" class="text-danger"></span>
 
             <label for="precio"> Precio: </label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.precio)?errors.precio.msg: "" %> </small>
-            <input type="text" id="precio" name="precio" placeholder="1000.00">
+            <input type="text" id="precio" name="precio" placeholder="1000.00" required>
             <span id="errorPrecio" class="text-danger"></span>
 
             <label for="categoria"> Categoría: </label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %> </small>
             
-            <select id="lista1" class="custom-select custom-select-lg mb-3"  name="categoria" placeholder="muñecas"required>
+            <select id="categoria" class="custom-select custom-select-lg mb-3"  name="categoria" placeholder="muñecas"required>
               <option value="">Elija una categoría del Menú</option>
               <option value="Vehículos">Vehículos</option>
               <option value="Juegos de Mesa">Juegos de Mesa</option>
@@ -47,12 +47,12 @@
 
             <label for="subCategoria"> Sub-Categoría: </label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.subcategoria)?errors.subcategoria.msg: "" %> </small>
-            <input type="text" id="subCategoria" name="subcategoria" placeholder="autos">
+            <input type="text" id="subCategoria" name="subcategoria" placeholder="autos" required>
             <span id="errorSubcategoria" class="text-danger"></span>
 
             <label for="seccion"> Seccion: </label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.seccion)?errors.seccion.msg: "" %> </small>
-            <select id="listaSeccion" class="custom-select custom-select-lg mb-3" name="seccion"  placeholder="Ofertas-Visitadas-Campaña"required>
+            <select id="seccion" class="custom-select custom-select-lg mb-3" name="seccion"  placeholder="Ofertas-Visitadas-Campaña"required>
               <option value="">Elija una sección del Menú</option>
               <option value=" ">  </option>
               <option value="Ofertas">Ofertas</option>
@@ -63,32 +63,28 @@
             
             <label for="discount"> Descuento: </label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.descuento)?errors.descuento.msg: "" %> </small>
-            <input type="text" id="discount" name="descuento" placeholder="5% al 30%">
+            <input type="text" id="discount" name="descuento" placeholder="5% al 30%" required >
             <span id="errorDiscount" class="text-danger"></span>
             
             <label for="exampleFormControlTextarea1">Descripción</label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.descripcion)?errors.descripcion.msg: "" %> </small>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="descripcion"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="descripcion" required minlength="20" maxlength="450" ></textarea>
             <span id="errorDescripcion" class="text-danger"></span>
         
           </div>          
         </div>
+        <br>
         <!--Carga de imagen del producto-->
         <div class="photo">
-          <label for="foto">Foto: </label>
-          <small class="text-danger"><%= (typeof errors != 'undefined' && errors.foto)?errors.foto.msg: "" %> </small>
+          <label for="foto">Foto de Producto: </label>
+          
           <div class="prevPhoto">
               <span class="imagen"><img src="" alt=""></span>
               <label for="foto"></label>
           </div>
           <div class="uping">
-              
-
-              <!-- File input field -->
-<input type="file" name="foto" id="foto" onchange="return fileValidation()"/>
-<span id="errorFoto" class="text-danger"></span>
-<!-- Image preview -->
-<div id="imagePreview"></div>
+            <input type="file" name="foto" id="foto" required>
+            <span id="errorFoto" class="text-danger"></span>       
           </div>
         </div>
         
