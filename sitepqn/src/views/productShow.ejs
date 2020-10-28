@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <%- include('partials/head') %>
-<script src="/javascripts/formCargaV.js"></script>
+<script src="/javascripts/formEditarProdV.js"></script>
     <body id="productShow" >
         <%- include('partials/header') %>
             <div class="container">
@@ -18,50 +18,51 @@
 
                       
                             <div class="tab-content" id="myTabContent">
-<!---->
  
                                 
                                 <div class="" id="editar" role="tabpanel" aria-labelledby="home-tab">
-                                    <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                    <form id="editarProd" action="/products/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                                         <div class="row p-3">
                                             <div class="form-group col-12">
                                                 <label for="">Nombre</label>
                                                 <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
-                                                <input class="form-control" type="text" value="<%= producto.nombre%>" name="nombre">
+                                                <input id="nombreShow" class="form-control" type="text" value="<%= producto.nombre%>" name="nombre" required>
+                                                <span id="errorNombreShow" class="text-danger"></span>
                                             </div>
                                             <div class="col-12 col-md-4 col-xl-4 mt-3">
                                                 <figure class="text-center">
                                                     <img src="/images/products/<%= producto.fotos %> " alt="" class="img-fluid">
                                                 </figure>
                                                 <small class="text-danger"><%= (typeof errors != 'undefined' && errors.foto)?errors.foto.msg: "" %> </small>
-                                                <input type="file" class="form-control" name="fotos">
+                                                <input type="file" class="form-control" name="fotos" required>
                                             </div>
                                             <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
                                                 <label for="">Descripción</label>
                                                 <small class="text-danger"><%= (typeof errors != 'undefined' && errors.descripcion)?errors.descripcion.msg: "" %> </small>
-                                                <textarea class="form-control" rows="7" name="descripcion" id=""><%= producto.descripcion %></textarea>
+                                                <textarea class="form-control" rows="7" name="descripcion" id="" required><%= producto.descripcion %></textarea>
                                                
                                                 <div class="row">
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Categoría</label>
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %> </small>
-                                                        <input type="text" class="form-control" value="<%=producto.categoria%>" name="categoria">
+                                                        <input type="text" class="form-control" value="<%=producto.categoria%>" name="categoria" required>
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Sub-Categoría</label>
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.subcategoria)?errors.subcategoria.msg: "" %> </small>
-                                                        <input type="text" class="form-control" value="<%=producto.subcategoria%>" name="subcategoria">
+                                                        <input type="text" class="form-control" value="<%=producto.subcategoria%>" name="subcategoria" required>
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Sección</label>
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.seccion)?errors.seccion.msg: "" %> </small>
-                                                        <input type="text" class="form-control" value="<%=producto.seccion%>" name="seccion">
+                                                        <input type="text" class="form-control" value="<%=producto.seccion%>" name="seccion" required>
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">SKU</label>
-                                                        <input type="text" class="form-control" value="<%=producto.sku%>" name="sku">
+                                                        <input type="text" class="form-control" value="<%=producto.sku%>" name="sku" required>
                                                     </div>
-
+                                                     <span id="errorSkuShow" class="text-danger"></span>
+                                                   
                                                     <div class="form-group col-6 col-lg-4">
                                                         <label for="">Precio</label>
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.precio)?errors.precio.msg: "" %> </small>
@@ -70,7 +71,7 @@
                                                                 <div class="input-group-text">$</div>
                                                             </div>
                                                             
-                                                            <input type="text" class="form-control" value="<%=producto.precio%>" name="precio">
+                                                            <input type="text" class="form-control" value="<%=producto.precio%>" name="precio" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-6 col-lg-4">

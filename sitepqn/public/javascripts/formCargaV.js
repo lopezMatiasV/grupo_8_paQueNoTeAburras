@@ -8,10 +8,10 @@ window.addEventListener('load',function(){
 
     let formulario = qs('form#cargaProd');
 
-    /*let elements = formulario.elements; // acá borra el formulario
+    let elements = formulario.elements; // acá borra el formulario
     for (let index = 0; index < elements.length; index ++){
         elements[index].value = ""
-    }*/
+    }
 
 // --> elementos
     let inputSku = qs('#sku');
@@ -31,11 +31,11 @@ let errores = { } //objeto literal de errores vacio para que se vaya llenando
 let regExSKU = /^[0-9]{6}$/; 
 let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/; 
 let regExPrice = /^[0-9]+(,[0-9]+)?$/;
-let regExTXT1 = /^(?=.*\W)(?=.*[a-z])(?=.*[A-Z]).{6,45}$/; 
-let regExTXT = /^(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
+let regExTXT1 = /^(?=.*\W)(?=.*[a-z])(?=.*[A-Z]).{20,450}$/; 
+let regExTXT = /^(?=.*[a-z])(?=.*[A-Z]).{20,450}$/;
 let regExExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
-let regExtTXT2="[a-zA-Z ]{2,254}"
-//Te permitirá ingresar letras de la hasta la z, un con un mínimo de 2 caracteres y máximo 254//
+let regExtTXT2="[a-zA-Z ]{20,450}"
+//Te permitirá ingresar letras de la hasta la z, un con un mínimo de 20 caracteres y máximo 450//
 
 
 //las validaciones del front las refleja sobre cada uno de los inputs
@@ -141,6 +141,8 @@ inputSCategory.addEventListener('blur', function(){
     }
 })
 
+
+
 selectSeccion.addEventListener('blur', function(){
     switch (true) {
         case this.value.length == 0:
@@ -149,7 +151,7 @@ selectSeccion.addEventListener('blur', function(){
             this.classList.add('is-invalid') //estoy agregando la clase is-invalid, si es que hay un error.
             break;
     case this.value.length <= 5: //debe tener al menos 6 letras
-        errores.seccion = "El campo sección debe estar seleccionado incluso en opcion vacío";
+        errores.seccion = "El campo sección debe estar validado";
         errorSeccion.innerHTML = errores.seccion
         this.classList.add('is-invalid')
         break;
@@ -181,8 +183,8 @@ inputDiscount.addEventListener('blur', function(){
     }
 })
 
-/*textareaDescrip.addEventListener('blur', function(){
-    switch (true) {
+textareaDescrip.addEventListener('blur', function(){
+   switch (true) {
         case this.value.length == 0:
             errores.exampleFormControlTextarea1 = "El campo de la descripción es obligatorio";
             errorDescripcion.innerHTML = errores.exampleFormControlTextarea1
@@ -199,7 +201,17 @@ inputDiscount.addEventListener('blur', function(){
             errorDescripcion.innerHTML = ""  // lo vacio
             break;
     }
-})*/
+
+    /*if( this.value == null || this.value.length == 0 || /^\s+$/.test(this.value) ) {
+        return false;
+      }*/
+})
+
+
+/*textareaDescrip = document.getElementById("exampleFormControlTextarea1").value;
+if( textareaDescrip == null || textareaDescrip.length == 0 || /^\s+$/.test(textareaDescrip) ) {
+  return false;
+}*/
 
 
 

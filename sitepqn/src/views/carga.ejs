@@ -52,9 +52,9 @@
 
             <label for="seccion"> Seccion: </label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.seccion)?errors.seccion.msg: "" %> </small>
-            <select id="seccion" class="custom-select custom-select-lg mb-3" name="seccion"  placeholder="Ofertas-Visitadas-Campaña"required>
+            <select id="seccion" class="custom-select custom-select-lg mb-3" name="seccion"  placeholder="Normal-Ofertas-Visitadas-Campaña"required>
               <option value="">Elija una sección del Menú</option>
-              <option value=" ">  </option>
+              <option value=" Normal">Normal</option>
               <option value="Ofertas">Ofertas</option>
               <option value="Visitadas">Visitadas</option>
               <option value="Campaña">Campaña</option>
@@ -68,7 +68,7 @@
             
             <label for="exampleFormControlTextarea1">Descripción</label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.descripcion)?errors.descripcion.msg: "" %> </small>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="descripcion" required minlength="20" maxlength="450" ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="descripcion" required minlength="20" maxlength="450" required></textarea>
             <span id="errorDescripcion" class="text-danger"></span>
         
           </div>          
