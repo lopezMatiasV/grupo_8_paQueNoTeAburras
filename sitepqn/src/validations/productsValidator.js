@@ -11,7 +11,7 @@ module.exports = [
 
     check('nombre')
     .isLength({
-        min:1
+        min:5
     })
     .withMessage('Tenés que colocar un nombre al producto'),
 
@@ -22,16 +22,14 @@ module.exports = [
     .withMessage('No colocaste un valor válido'),
 
     check('descuento')
-    .isInt({
-        min:1
-    })
+    .isInt()
     .withMessage('No colocaste un descuento válido'),
 
     check('descripcion')
     .isLength({
-        min:1
+        min:20
     })
-    .withMessage('Debes colocar una descripcion del producto'),
+    .withMessage('Debes colocar una descripcion del producto con al menos 20 caractéres'),
 
     body('foto')
     .custom((value,{req})=>{
@@ -41,7 +39,7 @@ module.exports = [
             return true
         }
     })
-    .withMessage("Tenés que subir una imagen"),
+    .withMessage("Tenés que subir una imagen de formato png, jpg, jpeg, gif"),
 
     check('categoria')
     .isLength({

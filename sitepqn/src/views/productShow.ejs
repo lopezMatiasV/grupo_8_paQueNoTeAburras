@@ -10,7 +10,7 @@
 
                         <div class="titulo col-12">
                             <h2>
-                                <%= title %>
+                                <%= producto.nombre %>
                             </h2>
                         </div>
 
@@ -18,6 +18,7 @@
 
                       
                             <div class="tab-content" id="myTabContent">
+<<<<<<< HEAD
 
                                 <div class="tab-pane fade <%= showDetail %> <%= activeDetail %> " id="detalle" role="tabpanel" aria-labelledby="profile-tab">
 
@@ -76,35 +77,45 @@
 
                                     </div>
                                 </div>
+=======
+<!---->
+ 
+>>>>>>> e03fa739907204bb5f021486ad1ef93a368c2fa0
                                 
-                                <div class="tab-pane fade <%= showEdit %> <%= activeEdit %> " id="editar" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="" id="editar" role="tabpanel" aria-labelledby="home-tab">
                                     <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                                         <div class="row p-3">
                                             <div class="form-group col-12">
                                                 <label for="">Nombre</label>
+                                                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
                                                 <input class="form-control" type="text" value="<%= producto.nombre%>" name="nombre">
                                             </div>
                                             <div class="col-12 col-md-4 col-xl-4 mt-3">
                                                 <figure class="text-center">
                                                     <img src="/images/products/<%= producto.fotos %> " alt="" class="img-fluid">
                                                 </figure>
+                                                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.foto)?errors.foto.msg: "" %> </small>
                                                 <input type="file" class="form-control" name="fotos">
                                             </div>
                                             <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
                                                 <label for="">Descripción</label>
+                                                <small class="text-danger"><%= (typeof errors != 'undefined' && errors.descripcion)?errors.descripcion.msg: "" %> </small>
                                                 <textarea class="form-control" rows="7" name="descripcion" id=""><%= producto.descripcion %></textarea>
                                                
                                                 <div class="row">
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Categoría</label>
+                                                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %> </small>
                                                         <input type="text" class="form-control" value="<%=producto.categoria%>" name="categoria">
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Sub-Categoría</label>
+                                                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.subcategoria)?errors.subcategoria.msg: "" %> </small>
                                                         <input type="text" class="form-control" value="<%=producto.subcategoria%>" name="subcategoria">
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Sección</label>
+                                                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.seccion)?errors.seccion.msg: "" %> </small>
                                                         <input type="text" class="form-control" value="<%=producto.seccion%>" name="seccion">
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
@@ -114,6 +125,7 @@
 
                                                     <div class="form-group col-6 col-lg-4">
                                                         <label for="">Precio</label>
+                                                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.precio)?errors.precio.msg: "" %> </small>
                                                         <div class="input-group mb-2 mr-sm-2">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">$</div>
@@ -124,6 +136,7 @@
                                                     </div>
                                                     <div class="col-6 col-lg-4">
                                                         <label for="">Descuento</label>
+                                                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.descuento)?errors.descuento.msg: "" %> </small>
                                                         <div class="input-group mb-2 mr-sm-2">
                                                             
                                                             <input type="text" class="form-control" value="<%=producto.descuento%>" name="descuento">

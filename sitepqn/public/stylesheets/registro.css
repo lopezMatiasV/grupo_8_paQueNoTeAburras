@@ -12,7 +12,7 @@
 section .continer{
   position: relative;
   width: 800px;
-  height: 500px;
+  height: 600px;
   background: white;
   box-shadow: 0 15px 50px rgb(85, 6, 142);
   overflow: hidden;
@@ -107,16 +107,17 @@ section .continer .user .formBx form input
   font-weight: 300;
 }
 
-section .continer .user .formBx form input[type="submit"]
+section .continer .user .formBx form button[type="submit"]
 {
   max-width: 100px;
   background: #55068e;
-  color: #fff;
+  color: white;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 1px;
   transition: 0.5s;
+  text-decoration-line: none;
 }
 section .continer .user .formBx form .signup
 {
