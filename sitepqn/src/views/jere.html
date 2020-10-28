@@ -15,25 +15,24 @@
       <div class="user signinBx">
         <div class="imgBx"><img src="/images/logos/logoVerde.png"></div>
         <div class="formBx">
-          <form action="/registro/login" method="POST" >
+          <form  action="/registro/login" method="POST"  id="logueate" >
             <h2>Logueate</h2>
             <div id= "faceygog"  class="social-media">
              <button class="face" ><a href="#"><i class="facebook"></i>Facebook</a></button>
              <button class="google"><a href="#"><i class="google"></i>Google</a></button>
             </div>
             
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  placeholder="<%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "email" %>" name="email" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>">
+            <input type="email" class="form-control" id="email2" aria-describedby="emailHelp" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" placeholder="email" name="email">
+            <small id="errorEmail" class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
 
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="<%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "contraseña" %>" name="pass">
-
+            <input id="passLog" type="password" class="form-control" id="exampleInputPassword1" placeholder="contraseña" name="pass">
+            <small id="errorPass" class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %> </small>  
+               
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordar">
                 <label class="form-check-label" for="exampleCheck1">Recordarme</label><br>
             </div>
-            <input type="submit" name="" value="Ingresar">
-        <!--   <button type="submit">
-            Ingresar
-            </button>--> 
+             <button type="submit" name=""> Ingresar </button>
             <p class="signup">¿No tienes una cuenta?<a href="#" onclick="toggleForm();" >Crear Cuenta</a></p>
           </form>
         </div>

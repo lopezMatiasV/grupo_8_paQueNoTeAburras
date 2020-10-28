@@ -5,15 +5,15 @@ const query = function(argument){
 window.addEventListener('load', function(){
    
     let formLogin = query('#logueate')
-    let elements = formLogin.elements
+   /*  let elements = formLogin.elements
     for (let index = 0; index < elements.length; index ++){
     elements[index].value = ""
-}
+} */
  
  let emailLog = query('#email2');
  let passLog = query('#passLog');
  let regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
- let errors = { };
+ let errors = {};
  let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/;
  
 
@@ -25,7 +25,7 @@ window.addEventListener('load', function(){
             this.classList.add('is-invalid')
             break;
     case !regExEmail.test(this.value):
-        errors.email = "Debes escribir un mail válido";
+        errors.email = "Debes escribir un mail válido FRONT";
         errorEmail.innerHTML = errors.email
         this.classList.add('is-invalid')
         break;
@@ -43,7 +43,7 @@ passLog.addEventListener('blur', function(){
             errorPass.innerHTML = errors.pass
             this.classList.add('is-invalid')
             break;
-    case !regExPass.test(this.value):
+   /*  case !regExPass.test(this.value):
         errors.pass = "El campo contraseña debe tener: entre 6 y 12 caracteres, al menos 1 mayúscula, una minúscula y un número";
         errorPass.innerHTML = errors.pass
         this.classList.add('is-invalid')
@@ -52,24 +52,25 @@ passLog.addEventListener('blur', function(){
             this.classList.remove('is-invalid');
             this.classList.add('is-valid');
             errorPass.innerHTML = ""  // lo vacio
-            break;
+            break; */
     }
 })
 formLogin.addEventListener('submit',function(event){
     let error = false
+    console.log(errors)
     event.preventDefault()
 
-    let elementsForm = this.argument
+    let elementsForm = this.elements
     
     for (let index = 0; index < elementsForm.length-1; index++) {
         if(elementsForm[index].value == ""){
             elementsForm[index].classList.add('is-invalid');
-            msgError.innerHTML = "Los campos señadados son obligatorios";
+            msgError.innerHTML = "Los campos señalados son obligatorios";
             error =true
         }
     }
     if(!error){
-        //alert("perfecto")
+        alert("perfecto")
         formLogin.submit()
     }
     
