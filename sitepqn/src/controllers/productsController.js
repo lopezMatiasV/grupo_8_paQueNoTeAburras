@@ -133,7 +133,7 @@ module.exports = {
     },
     show:function(req,res){
         let idProducto = req.params.id;
-        let flap = req.params.flap;
+       /* let flap = req.params.flap;
 
         let activeDetail;
         let activeEdit;
@@ -146,17 +146,17 @@ module.exports = {
         }else{
             activeEdit = "active";
             showEdit = "show";
-        } 
+        } */
         db.Products.findByPk(req.params.id)
         .then(producto=>{
            res.render('productShow',{
             title: "Pa Que | Editar Producto",
             producto:producto,
-            total:db.Products.length,
+            /*total:db.Products.length,
             activeDetail: activeDetail,
             activeEdit: activeEdit,
             showDetail:showDetail,
-            showEdit:showEdit,
+            showEdit:showEdit,*/
             css:"style.css",
             usuario:req.session.usuario 
         })
