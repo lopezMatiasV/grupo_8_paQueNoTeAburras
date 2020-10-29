@@ -70,9 +70,9 @@
             <small id="errorsPass2" class="text-danger"><%= (typeof errors != 'undefined' && errors.pass2)?errors.pass2.msg: "" %> </small>
 
             <div class="custom-file mt-4">
-              <input type="file" class="custom-file-input " id="customFileLang" lang="es" name="avatar" multiple>
+              <input type="file" class="custom-file-input " id="avatar" lang="es" name="avatar" multiple>
               <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-              <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
+              <small id="errorFormato" class="text-danger"><%= (typeof error != 'undefined' && error.formato)?error.formato.msg: "" %> </small>
             </div>
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="customCheck1" name="bases" value="off">

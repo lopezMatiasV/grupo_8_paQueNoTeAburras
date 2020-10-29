@@ -15,14 +15,14 @@ window.addEventListener('load',function(){
     let inputNombre = qs('#usuario');
     let inputApellido = qs('#apellido');
     let inputEmail = qs('#email');
-    let inputAvatar = qs('#customFileLang');
+    let inputAvatar = qs('#avatar');
     let inputPass = qs('#pass');
     let inputPass2 = qs('#pass2');
     let checkBases = qs('#customCheck');
     let regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
     let errores = { }
     let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/;
-
+    let regExExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
 
 
 inputNombre.addEventListener('blur', function(){
@@ -122,17 +122,27 @@ inputPass2.addEventListener('blur',function(){ //compara una contraseña con otr
     }
 })
 
-inputAvatar.addEventListener('blur',function(){
+inputAvatar.addEventListener('blur',function(e){
     switch (true) {
-        case this.value == "":
-            errores.avatar = "Este campo es obligatorio"
-            errorAvatar.innerHTML = errores.avatar;
-            this.classList.add('is-invalid')
-        break
-        default:
-        this.classList.remove('is-invalid');
-        this.classList.add('is-valid');
-        errorAvatar.innerHTML = "";
+       case !regExExtensions.exec(this.value) :
+       errores.formato = "Solo imagenes con extension jpg, jpeg, png, o gif"
+       errorFormato.innerHTML = errores.formato;
+       this.classList.add('is-invalid')
+       this.value = '';
+       vistaPrevia.src = "";
+       break;
+       default:
+       this.classList.remove('is-invalid');
+       this.classList.add('is-valid');
+       errorFormato.innerHTML = "";
+       let reader = new FileReader();
+       reader.ReadAsDataURL(e.target.files[0]);
+       reader.onload = function(){
+        vistaPrevia.src = reader.result;
+       };
+       this.classList.remove('is-invalid');
+       this.classList.add('is-valid');
+       errorFormato.innerHTML = "";
     }
 })
     checkBases.addEventListener('click',function(){
