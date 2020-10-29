@@ -7,7 +7,7 @@ const dbCategories = require('../data/dataBase');
 
 const {validationResult} = require('express-validator');
 const db = require('../database/models');
-const { brotliDecompress } = require('zlib');
+const {Op} = require('sequelize')
 
 module.exports = {
     listar: function(req, res) {
@@ -71,8 +71,9 @@ module.exports = {
                 subcategoria:req.body.subcategoria
                 })
                 .then(result => {
-                    console.log(result)
-                    res.redirect('/products/agregar')
+                  console.log(result)
+                  console.log('El producto se guardo satisfactoriamente')
+                  res.redirect('/products/agregar')
                 })            
                 .catch(errors => {
                     errors = {};
@@ -133,30 +134,11 @@ module.exports = {
     },
     show:function(req,res){
         let idProducto = req.params.id;
-       /* let flap = req.params.flap;
-
-        let activeDetail;
-        let activeEdit;
-        let showDetail;
-        let showEdit;
-
-        if(flap == "show"){
-            activeDetail = "active";
-            showDetail = "show"
-        }else{
-            activeEdit = "active";
-            showEdit = "show";
-        } */
         db.Products.findByPk(req.params.id)
         .then(producto=>{
            res.render('productShow',{
             title: "Pa Que | Editar Producto",
             producto:producto,
-            /*total:db.Products.length,
-            activeDetail: activeDetail,
-            activeEdit: activeEdit,
-            showDetail:showDetail,
-            showEdit:showEdit,*/
             css:"style.css",
             usuario:req.session.usuario 
         })
@@ -167,7 +149,10 @@ module.exports = {
     },
     edit:function(req,res){
         let idNewProduct = req.params.id;
-        db.Products.update({
+        let errors = validationResult(req);
+        db.Products.findByPk(req.params.id)
+        if(errors.isEmpty()){
+          db.Products.update({
             sku : req.body.sku,
             nombre : req.body.nombre.trim(),            
             descripcion : req.body.descripcion,
@@ -181,12 +166,13 @@ module.exports = {
         {
             where:{
             id:req.params.id
-        }}
-        )
+            }
+      })
         .then(result=>{
+          console.log('El producto fue actualizado')
             return res.redirect('/products')
         })
-        .catch(errores => {
+        .catch(errors => {
             errors = {};
             errores.errors.forEach(error => {
               if(error.path == "sku"){
@@ -234,6 +220,16 @@ module.exports = {
             })
        
        })
+      }else{
+        res.render('productShow',{
+            title: "PaQue | Editar Producto",
+            css: "style.css",
+            usuario:req.session.usuario,
+            errors:errors.mapped(),
+            producto: db.Products.findByPk(req.params.id)
+        })
+      }
+        
     },
     eliminar:function(req,res){
         db.Products.destroy({
@@ -244,5 +240,35 @@ module.exports = {
         .then(result=>{
           return res.redirect('/products')
       })
-    }
+    },
+    search: function(req, res) {
+      let buscar = req.query.search.toLowerCase();
+      db.Products.findAll({where:{
+        descripcion:{
+          [Op.substring]:buscar
+      }
+      }})
+      .then(producto => {
+      //res.send(producto)
+      if(producto == 0){
+        res.render('busqueda',{
+         title: "Pa Que | Búsqueda",
+         css:'style.css',
+         msg: "¡¡¡¡Lo sentimos no tenemos nada relacionado con tu búsqueda!!!!",
+         usuario:req.session.usuario
+        })
+      }else{
+        res.render('busqueda',{
+         title: "Pa Que | Búsqueda",
+         css:'style.css',
+         producto:producto,
+         usuario:req.session.usuario
+       })
+      }
+      })
+      .catch(err => {
+          res.send(err)
+      })
+       
+   },
 }

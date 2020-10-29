@@ -28,8 +28,8 @@ module.exports = [
                 }
             })
      
-    }),
-    //.withMessage('Este email ya está registrado'),
+    })
+    .withMessage('Este email ya está registrado'),
 
     check('email')
     .isEmail()
@@ -43,9 +43,9 @@ module.exports = [
     })
     .withMessage('La contraseña debe tener entre 6 y 12 caracteres'),
 
-   /* check('pass')
+    check('pass')
     .isAlphanumeric(['es-ES'])
-    .withMessage('La contraseña debe tener al menos una letra y un número'),*/
+    .withMessage('La contraseña debe tener al menos una letra y un número'),
 
     body('pass2')
     .custom(function(value,{req}){
@@ -56,10 +56,10 @@ module.exports = [
     })
     .withMessage('Las contraseñas no coinciden'),
     
-    /*check('bases')
+    check('bases')
     .isString("on")
     .withMessage("Debe aceptar las bases y condiciones"),
-*/
+
     body('avatar')
     .custom((value,{req})=>{
         if(req.fileValidationError){

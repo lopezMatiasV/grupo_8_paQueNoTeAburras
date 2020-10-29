@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <%- include('partials/head') %>
+ 
+<body>
+  <%- include('partials/header') %>
+
+  <div class="container">
+    <section class="listadoProductos">
+        <!--caja que contiene todos los productos de la ultima visita-->
+        <div class="row productos">
+          <% if (typeof producto == "undefined") { %>
+            <h2><%= msg %>  </h2>
+            <div style="background-image: url(../../404-wallpaper-2.jpg); min-width: 800px; min-height: 600px;">
+               
+      
+            </div>
+         
+            <% } else{ %>
+          
+            <div class="titulo col-12">
+              
+                <h2>
+                    Resultados de tu búsqueda:
+                </h2>
+                
+            </div>
+            
+            <% producto.forEach(producto => { %>
+                <div class="producto col-sm-12 col-md-6 col-lg-3">
+                  <a href="./detalle/<%= producto.id %> "><img src="../../images/products/<%- producto.fotos %> " alt=""></a>    
+                  <h3><%- producto.nombre %></h3>
+                  <span>$ <%- (producto.precio - producto.precio * producto.descuento / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span><br>
+                  <% if (producto.descuento != 0) { %>
+                    <span><%- producto.descuento %>% OFF</span>
+                    <% } %>
+          
+                  <p><%- producto.descripcion %></p>
+                  <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
+                </div>
+                <div class="editar">
+                    <% if (typeof usuario != "undefined" && usuario.rol=="admin") { %>
+                        <button class="btn btn-warning"><a href="./show/<%= producto.id %>">Editar</a></button>
+                    <% } %>                                
+                </div>
+              <% }) %> 
+            
+            <% } %>
+            <!--caja que contiene el titulo de la sección-->
+            
+        </div>
+        <!--finaliza el div.row-->
+    </section>
+</div>
+  
+  <!--FOOTER: PIE DE PAGINA-->
+  <%- include('partials/footer') %>
+
+</body>
+</html>
