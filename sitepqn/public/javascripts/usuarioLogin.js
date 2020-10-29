@@ -5,10 +5,10 @@ const query = function(argument){
 window.addEventListener('load', function(){
    
     let formLogin = query('#logueate')
-   /*  let elements = formLogin.elements
+     let elements = formLogin.elements
     for (let index = 0; index < elements.length; index ++){
     elements[index].value = ""
-} */
+} 
  
  let emailLog = query('#email2');
  let passLog = query('#passLog');
@@ -24,11 +24,11 @@ window.addEventListener('load', function(){
             errorEmail.innerHTML = errors.email
             this.classList.add('is-invalid')
             break;
-    case !regExEmail.test(this.value):
+    /*case !regExEmail.test(this.value):
         errors.email = "Debes escribir un mail válido FRONT";
         errorEmail.innerHTML = errors.email
         this.classList.add('is-invalid')
-        break;
+        break;*/
         default:
             this.classList.remove('is-invalid');
             this.classList.add('is-valid');
@@ -43,22 +43,22 @@ passLog.addEventListener('blur', function(){
             errorPass.innerHTML = errors.pass
             this.classList.add('is-invalid')
             break;
-   /*  case !regExPass.test(this.value):
+     /*case !regExPass.test(this.value):
         errors.pass = "El campo contraseña debe tener: entre 6 y 12 caracteres, al menos 1 mayúscula, una minúscula y un número";
         errorPass.innerHTML = errors.pass
         this.classList.add('is-invalid')
-        break;
+        break;*/
         default:
             this.classList.remove('is-invalid');
             this.classList.add('is-valid');
             errorPass.innerHTML = ""  // lo vacio
-            break; */
+            break; 
     }
 })
-formLogin.addEventListener('submit',function(event){
+formLogin.addEventListener('submit',function(){
     let error = false
     console.log(errors)
-    event.preventDefault()
+    //event.preventDefault()
 
     let elementsForm = this.elements
     
