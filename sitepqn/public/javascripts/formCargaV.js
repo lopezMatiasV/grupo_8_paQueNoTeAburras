@@ -129,7 +129,7 @@ inputSCategory.addEventListener('blur', function(){
             this.classList.add('is-invalid')
             break;
             case this.value.length <= 5: //debe tener al menos 6 letras 
-        errores.seccion = "Debes escribir una Subcategoria válida";
+        errores.subCategoria = "Debes escribir una Subcategoria válida";
         errorSubcategoria.innerHTML = errores.subCategoria
         this.classList.add('is-invalid')
         break;
@@ -172,7 +172,7 @@ inputDiscount.addEventListener('blur', function(){
             break;
     case !regExPrice.test(this.value):  
         errores.discount = "Debes escribir un valor aplicable al descuento";
-        errorPrecio.innerHTML = errores.discount
+        errorDiscount.innerHTML = errores.discount
         this.classList.add('is-invalid')
         break;
         default:
@@ -183,7 +183,7 @@ inputDiscount.addEventListener('blur', function(){
     }
 })
 
-textareaDescrip.addEventListener('blur', function(){
+/*textareaDescrip.addEventListener('blur', function(){
    switch (true) {
         case this.value.length == 0:
             errores.exampleFormControlTextarea1 = "El campo de la descripción es obligatorio";
@@ -204,8 +204,8 @@ textareaDescrip.addEventListener('blur', function(){
 
     /*if( this.value == null || this.value.length == 0 || /^\s+$/.test(this.value) ) {
         return false;
-      }*/
-})
+      }
+})*/
 
 
 /*textareaDescrip = document.getElementById("exampleFormControlTextarea1").value;
@@ -242,4 +242,28 @@ inputFoto.addEventListener('change',function(e){
             errorFoto.innerHTML = "";
         }
     })
+
+    
+formulario.addEventListener('submit',function(event){
+    let error = false
+    event.preventDefault()
+
+    let elementosForm = this.elements
+    
+    for (let index = 0; index < elementosForm.length-1; index++) {
+        if(elementosForm[index].value == ""){
+            elementosForm[index].classList.add('is-invalid');
+            msgError.innerHTML = "Los campos señalados son obligatorios";
+            error =true
+        }
+    }
+    if(!error){
+        console.log("Todo Perfecto!!");
+        alert("Producto cargado correctamente")
+        formulario.submit()
+    }
+    
+})
+
+
 })

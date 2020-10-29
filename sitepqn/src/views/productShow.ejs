@@ -34,7 +34,8 @@
                                                     <img src="/images/products/<%= producto.fotos %> " alt="" class="img-fluid">
                                                 </figure>
                                                 <small class="text-danger"><%= (typeof errors != 'undefined' && errors.foto)?errors.foto.msg: "" %> </small>
-                                                <input type="file" class="form-control" name="fotos" required>
+                                                <input id="fotoEdit" type="file" class="form-control" name="fotos">
+                                                <span id="errorFotoShow" class="text-danger"></span>
                                             </div>
                                             <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
                                                 <label for="">Descripción</label>
@@ -45,23 +46,27 @@
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Categoría</label>
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %> </small>
-                                                        <input type="text" class="form-control" value="<%=producto.categoria%>" name="categoria" required>
+                                                        <input id="categoriaShow" type="text" class="form-control" value="<%=producto.categoria%>" name="categoria" required>
+                                                        <span id="errorCategoriaShow" class="text-danger"></span>
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Sub-Categoría</label>
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.subcategoria)?errors.subcategoria.msg: "" %> </small>
-                                                        <input type="text" class="form-control" value="<%=producto.subcategoria%>" name="subcategoria" required>
+                                                        <input id="subCategoriaShow" type="text" class="form-control" value="<%=producto.subcategoria%>" name="subcategoria" required>
+                                                        <span id="errorSubcategoriaShow" class="text-danger"></span>
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Sección</label>
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.seccion)?errors.seccion.msg: "" %> </small>
-                                                        <input type="text" class="form-control" value="<%=producto.seccion%>" name="seccion" required>
+                                                        <input id="seccionShow" type="text" class="form-control" value="<%=producto.seccion%>" name="seccion" required>
+                                                        <span id="errorSeccionShow" class="text-danger"></span>
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">SKU</label>
-                                                        <input type="text" class="form-control" value="<%=producto.sku%>" name="sku" required>
+                                                        <input id="skuShow"type="text" class="form-control" value="<%=producto.sku%>" name="sku" required>
+                                                        <span id="errorSkuShow" class="text-danger"></span>
                                                     </div>
-                                                     <span id="errorSkuShow" class="text-danger"></span>
+                                                    
                                                    
                                                     <div class="form-group col-6 col-lg-4">
                                                         <label for="">Precio</label>
@@ -70,16 +75,21 @@
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">$</div>
                                                             </div>
-                                                            
-                                                            <input type="text" class="form-control" value="<%=producto.precio%>" name="precio" required>
+                                                            <input id="precioShow" type="text" class="form-control" value="<%=producto.precio%>" name="precio" required>
+                                                            <span id="errorPrecioShow" class="text-danger"></span>
+
                                                         </div>
                                                     </div>
+
+
+
                                                     <div class="col-6 col-lg-4">
                                                         <label for="">Descuento</label>
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.descuento)?errors.descuento.msg: "" %> </small>
                                                         <div class="input-group mb-2 mr-sm-2">
                                                             
-                                                            <input type="text" class="form-control" value="<%=producto.descuento%>" name="descuento">
+                                                            <input id="discountShow" type="text" class="form-control" value="<%=producto.descuento%>" name="descuento">
+                                                            <span id="errorDiscountShow" class="text-danger"></span>
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">%</div>
                                                             </div>
