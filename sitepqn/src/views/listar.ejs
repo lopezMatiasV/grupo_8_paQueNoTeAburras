@@ -19,13 +19,13 @@
                         <% producto.forEach(producto => { %>
                             <div class="producto col-sm-12 col-md-6 col-lg-3">
                               <a href="./products/detalle/<%= producto.id %> "><img src="../../images/products/<%- producto.fotos %> " alt=""></a>    
-                              <h3><%- producto.nombre %></h3>
+                              <h3 id="nombre"><%- producto.nombre %></h3>
                               <span>$ <%- (producto.precio - producto.precio * producto.descuento / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span><br>
                               <% if (producto.descuento != 0) { %>
                                 <span><%- producto.descuento %>% OFF</span>
                                 <% } %>
                       
-                              <p><%- producto.descripcion %></p>
+                              <p id="descripcion"><%- producto.descripcion %></p>
                               <a href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
                             </div>
                             <div class="editar">

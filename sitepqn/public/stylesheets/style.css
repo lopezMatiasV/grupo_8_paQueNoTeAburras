@@ -1,5 +1,16 @@
 @import "styleCompiler.css";
-
+#descripcion{
+    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+#nombre{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
 
 
 /*banner*/
@@ -68,7 +79,7 @@
 
 
 .index .conteiner .productos .producto{
-      color: white;     
+      color:blue;     
       text-align: center;      
   }
   
@@ -87,6 +98,9 @@
     text-transform: uppercase;
     display: inline-block;
     font-weight: bold;
+  }
+  .productos .producto{
+      background-color: white;
   }
   
   /*BANNER SEPARADOR*/

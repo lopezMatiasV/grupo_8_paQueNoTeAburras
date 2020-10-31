@@ -67,8 +67,7 @@
 
 html, body {
     height: 100%;
-    background-image: linear-gradient(to top left, var(--color-celeste), var(--color-azul))!important;
-
+    background-color: #ebebeb;
 }
 
 #cabecera {
