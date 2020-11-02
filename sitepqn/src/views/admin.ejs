@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %>
+    <div>
+        <% user.forEach(user => { %>
+            <div class="col-sm-12 col-md-8 col-lg-8">
+            <form action="/registro/administrador/<%= user.id %>?_method=PUT" method="POST">
+   
+                
+                                    
+                    <input class="form-control" type="text" value="<%=user.nombre%>" name="nombre" placeholder="<%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "nombre" %>">
+                    <input class="form-control" type="text" value="<%=user.apellido%>" name="apellido" placeholder="<%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "apellido" %>">
+                    <input class="form-control" type="email" value="<%=user.email%>" name="email" placeholder="<%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "email" %>">
+                    <select id="" class="custom-select custom-select-lg mb-3"  name="rol" placeholder="<%=user.rol%>"required>
+                        <option value="<%=user.rol%>"><%=user.rol%></option>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>             
+                    <button class="btn btn-warning mr-2" type="reset">Cancelar</button>
+                    <button class="btn btn-success" type="submit" name="id" value="">Editar</button>
+                </form>    
+                    <form action="/registro/delete/<%= user.id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger" type="submit" name="id" value="">Borrar usuario<i class="fas fa-trash"></i></button>
+                    </form>
+                </div>     
+            
+            
+        <% }) %>
+        
+        
+    </div>
+
+
+
+
+
+
+    <%- include('partials/footer') %>    
+</body>
+</html>

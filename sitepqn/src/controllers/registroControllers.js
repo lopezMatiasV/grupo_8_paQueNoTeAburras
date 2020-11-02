@@ -181,5 +181,40 @@ module.exports = {
             res.cookie('userPQNTA','',{maxAge:-1})
         }
         return res.redirect('/')
+    },
+    admin: function(req, res){
+      db.Users.findAll()
+      .then(user => {
+        console.log(user)
+        res.render('admin', {
+          title: "Pa Que | Administrador",
+          css: "style.css",
+          usuario:req.session.usuario,
+          user: user
+        })
+      })
+    },
+    adminEdit: function(req, res){
+      db.Users.update(
+        {
+          nombre:req.body.nombre,
+          apellido: req.body.apellido,
+          email: req.body.email,
+          rol: req.body.rol
+        },
+        {
+            where:{
+                id:req.params.id
+            }
+        }
+    )
+    .then( result => {
+      console.log(req.session.usuario)
+
+      return res.redirect('/registro/administrador')
+      })
+    .catch(err => {
+        console.log(err)
+    })      
     }
 }

@@ -3,6 +3,7 @@ var router = express.Router();
 const path = require ('path');
 
 const sessionUserCheck = require('../middlewares/middlewareSessionUserCheck');
+const adminCheck = require('../middlewares/middlewareUserAdmin')
 const upImage = require('../middlewares/middelwareUpImageAvatar');
 
 const registroValidator = require('../validations/registroValidator');
@@ -22,6 +23,9 @@ router.get('/profile',sessionUserCheck, usersControllers.profile);
 router.put('/edit/:id',upImage.any(),registroValidator,usersControllers.edit);
 router.delete('/delete/:id',usersControllers.eliminar);
 router.get('/logout',usersControllers.logout);
+router.get('/administrador',registroValidator,adminCheck, usersControllers.admin)
+router.put('/administrador/:id',upImage.any(),registroValidator,usersControllers.adminEdit);
+
 
 
 
