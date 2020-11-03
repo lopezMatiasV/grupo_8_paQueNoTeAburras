@@ -4,6 +4,7 @@
   <%- include('partials/head') %>
   <script src="/javascripts/usuarioRegistro.js"></script>
   <script src="/javascripts/usuarioLogin.js"></script>
+  <script src="/javascripts/hiddenPassword.js"></script>
 <body>
   
 
@@ -27,14 +28,13 @@
             <input id="passLog" type="password" class="form-control"  placeholder="contraseña" name="pass">
             <small id="errorPass" class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %> </small>
 
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordar">
-                <label class="form-check-label" for="exampleCheck1">Recordarme</label><br>
-            </div>
-           <!--  <input type="submit" name="" value="Ingresar">--> 
-          <button type="submit">
-            Ingresar
-            </button>
+              <div class="custom-control custom-checkbox my-1 mr-sm-2 custom-control-inline align-items-center">
+            <input type="checkbox" class="custom-control-input" id="customControlInline" name="recordar">
+            <label class="custom-control-label" for="customControlInline">Recordarme</label>
+          </div>
+        
+          <button type="submit">Ingresar</button>
+
             <p class="signup">¿No tienes una cuenta?<a href="#" onclick="toggleForm();" >Crear Cuenta</a></p>
           </form>
         </div>
@@ -59,33 +59,42 @@
             class="form-control <%= (typeof old != 'undefined' && old.email && !errors.email)?"is-valid":(typeof errors != 'undefined' && errors.email)?"is-invalid": ""  %>" 
             id="email"  placeholder="<%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "email" %>" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" name="email"/>
               <small id="errorsEmail" class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
-            <input type="password" 
-            class="form-control <%= (typeof errors != 'undefined' && errors.pass)?"is-invalid": ""  %>" 
+           
+              <input type="password" 
+            class="form-control <%= (typeof errors != 'undefined' && errors.pass)?"is-invalid": ""  %> " 
             id="pass" placeholder="<%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "contraseña" %>"  name="pass"/>
            <small id="errorsPass" class="text-danger"><%= (typeof errors != 'undefined' && errors.pass)?errors.pass.msg: "" %> </small>
             
+
             <input type="password"
             class="form-control <%= (typeof errors != 'undefined' && errors.pass2)?"is-invalid": ""  %>" 
             id="pass2" placeholder="<%= (typeof errors != 'undefined' && errors.pass2)?errors.pass2.msg: "reingresar contraseña" %>" name="pass2"/>
             <small id="errorsPass2" class="text-danger"><%= (typeof errors != 'undefined' && errors.pass2)?errors.pass2.msg: "" %> </small>
 
+            
             <div class="custom-file mt-4">
               <input type="file" class="custom-file-input " id="avatar" lang="es" name="avatar" multiple>
               <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
               <small id="errorFormato" class="text-danger"><%= (typeof error != 'undefined' && error.formato)?error.formato.msg: "" %> </small>
             </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1" name="bases" value="off">
-              <label class="custom-control-label" for="customCheck1">acepto las bases y condiciones</label><br>
-              <a href="" class="text-info">ver bases y condiciones</a><br>
+
+
+          
+            <div class="custom-control custom-checkbox my-1 mr-sm-2 custom-control-inline align-items-justify d-flex justify-content-around"">
+              <input type="checkbox" class="custom-control-input" id="customControlInline" name="bases" value="off">
+              <small><label  type="checkbox" class="custom-control-label" for="customControlInline" style="padding-right: 2rem;">Bases y condiciones</label></small> <br>
+              <small><small><a href=""  class="text-info" style="padding-right:2rem;">Ver bases y condiciones</a></small></small><br>
+              
               <small id="errorsBases" class="text-danger"><%= (typeof errors != 'undefined' && errors.bases)?errors.bases.msg: "" %> </small>
-            </div> 
-            <div>
-       <!--       <input type="submit" name="" value="Confirmar">-->
-            <button type="submit">
-              Confirmar
-            </button>
+            
+              <!--       <input type="submit" name="" value="Confirmar">-->
+              <div>    
+              <button type="submit" > 
+                     Confirmar
+                   </button>
+
             <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
+          </div> 
           </div>
             <p class="signup">¿Ya tienes una cuenta?<a href="#" onclick="toggleForm();">Ingresar</a></p>
           </form>

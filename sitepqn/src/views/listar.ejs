@@ -25,18 +25,21 @@
                             </figure>
                             </a>    
                               <h3 id="nombre"><%- producto.nombre %></h3>
-                              <div class="price-box price-final_price">
-                              <span class="price-container">$ <%- (producto.precio - producto.precio * producto.descuento / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span><br>
+                              <div class="price-box price-final_price" style="display: inline-flex;">
+                              <strong><span style="color:  rgb(85, 6, 142);" class="price-container">$ <%- (producto.precio - producto.precio * producto.descuento / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span></strong><br>
                               <% if (producto.descuento != 0) { %>
-                                <span class="discount"><%- producto.descuento %>% OFF</span>
+                               <small> <span class="d-inline p-2 bg-success text-white" style="color: var(--color-celeste); margin-left: 3rem;" class="discount"><%- producto.descuento %>% OFF</span></small>
                                 
                            
                             <% } %>
                         </div>
                               <p id="descripcion"><%- producto.descripcion %></p>
+
                               <div class="container-cart">
-                                  
-                              <a class="container-cart" href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i class="fas fa-cart-plus"></i></a>
+                              <div class="card-header text-right align-bottom" >
+                                <small class="text-muted "><a style="color:  rgb(85, 6, 142);"class="container-cart" href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i style="color:  rgb(85, 6, 142);" class="fas fa-cart-plus"></i></a></small>
+                              </div>  
+                              
                             </div>
                             </div>
                             <div class="editar">
