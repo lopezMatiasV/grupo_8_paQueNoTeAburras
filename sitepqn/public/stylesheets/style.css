@@ -7,6 +7,12 @@
 }
 #nombre{
     overflow: hidden;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+        color: #181e28;
+        line-height: 50px;
+        font-weight: 60;
+        font-size: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -99,10 +105,58 @@
     display: inline-block;
     font-weight: bold;
   }
+
+  /*TARJETA DE PRODUCTO*/
   .productos .producto{
-      background-color: white;
+      background-color:white;
   }
-  
+img{
+    max-width: 100%;
+}
+
+  .box-image {
+    position: relative;
+    border: 1px solid #bbbbbb;
+    background: #EEE;
+    border-radius: 5px 5px 5px 21px; 
+
+  }
+  .price-box {
+    margin: 0 0 5px;
+}
+/*
+<div class="card__footer">
+
+.card__footer{
+    padding: 30px 40px;
+    display: flex;
+    flex-flow: row no-wrap;
+    align-items: center;
+    position: relative;
+    
+    &::before{
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 40px;
+      width: calc(100% - 40px);
+      height: 3px;
+      background: #115dd8;
+      background: linear-gradient(to right, #115dd8 0%,#115dd8 20%,#ddd 20%,#ddd 100%);
+    }*/
+ /*acá ver* si se puede bajar el carrito al final de la tarjeta/
+  .conteiner-cart div{
+      position: relative;
+    }
+    .conteiner-cart .a{
+        position: absolute;
+        right: 15px;
+      bottom: 15px;
+    padding: 10px 20px 30px;
+    text-align: center;
+    margin: 5px 0 5px;
+    }
   /*BANNER SEPARADOR*/
   
   .index .separador .cards-banner-one {

@@ -19,5 +19,6 @@ router.get('/show/:id/:flap?', sessionUserCheck, controller.show);
 router.put('/edit/:id/:flap?',upImageProducts.any(), showValidator,controller.edit);
 router.delete('/delete/:id',controller.eliminar);
 router.get('/search',controller.search); 
+router.get('/prueba',controller.prueba)
 
 module.exports = router;
