@@ -35,7 +35,8 @@
         
           <button type="submit">Ingresar</button>
 
-            <p class="signup">¿No tienes una cuenta?<a href="#" onclick="toggleForm();" >Crear Cuenta</a></p>
+          <p class="signup">¿Ya tienes una cuenta?<input href="#" placeholder="Crear Cuenta" onclick="toggleForm();"></p>
+            
           </form>
         </div>
       </div>
@@ -82,12 +83,13 @@
           
             <div class="custom-control custom-checkbox my-1 mr-sm-2 custom-control-inline align-items-justify d-flex justify-content-around"">
               <input type="checkbox" class="custom-control-input" id="customControlInline" name="bases" value="off">
-              <small><label  type="checkbox" class="custom-control-label" for="customControlInline" style="padding-right: 2rem;">Bases y condiciones</label></small> <br>
+              <small></small><label class="custom-control-label" for="customControlInline" style="padding-right: 2rem;">Bases y condiciones</label></small> <br>
               <small><small><a href=""  class="text-info" style="padding-right:2rem;">Ver bases y condiciones</a></small></small><br>
               
               <small id="errorsBases" class="text-danger"><%= (typeof errors != 'undefined' && errors.bases)?errors.bases.msg: "" %> </small>
             
               <!--       <input type="submit" name="" value="Confirmar">-->
+              
               <div>    
               <button type="submit" > 
                      Confirmar
@@ -96,7 +98,9 @@
             <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
           </div> 
           </div>
-            <p class="signup">¿Ya tienes una cuenta?<a href="#" onclick="toggleForm();">Ingresar</a></p>
+          
+          <p class="signup">¿Ya tienes una cuenta?<input href="#" placeholder="¿Ya tienes una cuenta?" onclick="toggleForm();"></p>
+                   
           </form>
         </div>
         <div class="imgBx"><img src="/images/logos/logoRojo.png"></div>
