@@ -5,15 +5,15 @@ const query = function(argument){
 window.addEventListener('load', function(){
    
     let formLogin = query('#logueate')
-     let elements = formLogin.elements
-    for (let index = 0; index < elements.length; index ++){
-    elements[index].value = ""
+     let elementos = formLogin.elementos
+    for (let index = 0; index < elementos.length; index ++){
+    elementos[index].value = ""
 } 
  
  let emailLog = query('#email2');
  let passLog = query('#passLog');
  let regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
- let errors = {};
+ let errors = { };
  let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/;
  
 
@@ -56,20 +56,20 @@ passLog.addEventListener('blur', function(){
     }
 })
 formLogin.addEventListener('submit',function(){
-    let error = false
+    let errors = false
     console.log(errors)
-    //event.preventDefault()
+    event.preventDefault()
 
-    let elementsForm = this.elements
+    let elementosForm = this.elementos
     
-    for (let index = 0; index < elementsForm.length-1; index++) {
-        if(elementsForm[index].value == ""){
-            elementsForm[index].classList.add('is-invalid');
+    for (let index = 0; index < elementosForm.length-1; index++) {
+        if(elementosForm[index].value == ""){
+            elementosForm[index].classList.add('is-invalid');
             msgError.innerHTML = "Los campos señalados son obligatorios";
-            error =true
+            errors =true
         }
     }
-    if(!error){
+    if(!errors){
         alert("perfecto")
         formLogin.submit()
     }
