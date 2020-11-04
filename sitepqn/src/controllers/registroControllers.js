@@ -9,6 +9,9 @@ const bcrypt = require('bcrypt');
 const fs = require('fs');
 const path = require('path');
 const e = require('express');
+const {
+  Op
+} = require('sequelize')
 
 module.exports = {
     registro:function(req, res){
@@ -132,7 +135,7 @@ module.exports = {
           })
         })
       }else{
-        res.redirect('/registro')
+        res.redirect('/')
       }       
     },
     edit:function(req,res){
@@ -140,12 +143,12 @@ module.exports = {
             {
               nombre:req.body.nombre,
               apellido: req.body.apellido,
-              dni: req.body.dni,
-              avatar:(req.files[0])?req.files[0].filename:req.session.usuario.avatar,
-              direccion: req.body.direccion.trim(),
-              ciudad:req.body.ciudad,
-              provincia:req.body.provincia,
-              telefono:req.body.telefono
+                dni: req.body.dni,
+                avatar:(req.files[0])?req.files[0].filename:req.session.usuario.avatar,
+                direccion: req.body.direccion.trim(),
+                ciudad:req.body.ciudad,
+                provincia:req.body.provincia,
+                telefono:req.body.telefono
             },
             {
                 where:{
@@ -216,5 +219,37 @@ module.exports = {
     .catch(err => {
         console.log(err)
     })      
-    }
+    },
+    searchUsuario: function(req, res){
+      let buscar = req.query.searchUsuario.toLowerCase();
+      db.Users.findAll({
+        where: {
+          nombre: {
+            [Op.substring]: buscar
+          }
+        }
+      })
+      .then(user => {
+        //res.send(usuario)
+        if (user == 0) {
+          res.render('admin', {
+            title: "Pa Que | Búsqueda",
+            css: 'style.css',
+            msg: "¡¡¡¡Lo sentimos no tenemos nada relacionado con tu búsqueda!!!!",
+            usuario: req.session.usuario
+          })
+        } else {
+          res.render('admin', {
+            title: "Pa Que | Búsqueda",
+            css: 'style.css',
+            user: user,
+            usuario: req.session.usuario
+          })
+        }
+      })
+      .catch(err => {
+        res.send(err)
+      })
+
+  },
 }

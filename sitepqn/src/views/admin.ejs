@@ -3,18 +3,32 @@
     <%- include('partials/head') %>
 <body>
     <%- include('partials/header') %>
+    <h1>Administración de usuarios</h1>
+    <div class="buscador col-10">
+        <form action="/registro/buscar" method="GET" class="search-form">
+          <input type="text " name="searchUsuario" placeholder="Buscar usuario" class="">
+          <button type="submit" class="search-form_button"><i class="fas fa-search "></i></button>
+        </form>              
+    </div>
+    <br>
+    <% if (typeof user == "undefined") { %>
+        <h2>No hay ningun usuario con ese nombre</h2>
+        <div style="background-image: url(../../404-wallpaper-2.jpg); min-width: 800px; min-height: 600px;">
+               
+      
+        </div>
+     
+        <% } else{ %>
     <div>
         <% user.forEach(user => { %>
             <div class="col-sm-12 col-md-8 col-lg-8">
-            <form action="/registro/administrador/<%= user.id %>?_method=PUT" method="POST">
-   
-                
+            <form action="/registro/administrador/<%= user.id %>?_method=PUT" method="POST">               
                                     
                     <input class="form-control" type="text" value="<%=user.nombre%>" name="nombre" placeholder="<%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "nombre" %>">
                     <input class="form-control" type="text" value="<%=user.apellido%>" name="apellido" placeholder="<%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "apellido" %>">
                     <input class="form-control" type="email" value="<%=user.email%>" name="email" placeholder="<%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "email" %>">
                     <select id="" class="custom-select custom-select-lg mb-3"  name="rol" placeholder="<%=user.rol%>"required>
-                        <option value="<%=user.rol%>"><%=user.rol%></option>
+                        <option value=""><%=user.rol%></option>
                         <option value="user">User</option>
                         <option value="admin">Admin</option>
                     </select>             
@@ -24,18 +38,14 @@
                     <form action="/registro/delete/<%= user.id %>?_method=DELETE" method="POST">
                         <button class="btn btn-danger" type="submit" name="id" value="">Borrar usuario<i class="fas fa-trash"></i></button>
                     </form>
-                </div>     
+            </div>     
             
             
         <% }) %>
         
         
     </div>
-
-
-
-
-
+    <% } %>
 
     <%- include('partials/footer') %>    
 </body>

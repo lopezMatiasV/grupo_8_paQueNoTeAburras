@@ -4,15 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 //rutas
-var indexRouter = require('./routes/index');
-var registroRouter = require('./routes/registro');
+let indexRouter = require('./routes/index');
+let registroRouter = require('./routes/registro');
+let categoriesRouter = require('./routes/categories')
+let productsRouter =require ('./routes/products');
+
 const methodOverride = require('method-override');
 const session = require('express-session');
 
 //Rutas navegadas por el usuario
 /*var logMiddleware = require ('./middlewares/logMiddleware');*/
 
-let productsRouter =require ('./routes/products');
+
 var app = express();
 
 // view engine setup
@@ -30,10 +33,10 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(methodOverride('_method'));
 app.use(session({secret:"paqueno"}));
-
+//uso las rutas creadas
 app.use('/', indexRouter);
 app.use('/registro', registroRouter);
-
+app.use('/categories', categoriesRouter)
 app.use('/products', productsRouter);//uso los productos
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
