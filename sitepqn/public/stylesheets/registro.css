@@ -9,6 +9,25 @@
   align-items: center;
   padding: 20px;
 }
+
+/* individual elements: webkit */
+#field2::-webkit-input-placeholder {
+   color:#090;
+   font-style:italic;
+   text-shadow: teal;
+   text-decoration:overline;
+   letter-spacing:6px; }
+#field3::-webkit-input-placeholder { color:#335588;font-style:italic; background:lightgreen; text-transform:uppercase; }
+
+#field4::-webkit-input-placeholder { 
+  font-style:italic;
+   text-decoration:overline; 
+   letter-spacing:6px; 
+   color:#335588;
+   text-shadow: teal;
+   }
+
+
 section .continer{
   position: relative;
   width: 800px;

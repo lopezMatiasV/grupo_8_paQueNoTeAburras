@@ -25,6 +25,7 @@ router.delete('/delete/:id',usersControllers.eliminar);
 router.get('/logout',usersControllers.logout);
 router.get('/administrador',registroValidator,adminCheck, usersControllers.admin)
 router.put('/administrador/:id',upImage.any(),registroValidator,usersControllers.adminEdit);
+router.get('/buscar',usersControllers.searchUsuario)
 
 
 
