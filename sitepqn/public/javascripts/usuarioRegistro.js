@@ -152,19 +152,19 @@ inputAvatar.addEventListener('blur',function(e){
     })
 
 formRegistro.addEventListener('submit',function(event){
-    let error = false
+    let errores = false
     event.preventDefault()
 
-    let elementosForm = this.elements
+    let elementsForm = this.elements
     
-    for (let index = 0; index < elementosForm.length-1; index++) {
-        if(elementosForm[index].value == ""){
-            elementosForm[index].classList.add('is-invalid');
+    for (let index = 0; index < elementsForm.length-1; index++) {
+        if(elementsForm[index].value == ""){
+            elementsForm[index].classList.add('is-invalid');
             msgError.innerHTML = "Los campos señadados son obligatorios";
-            error =true
+            errores =true
         }
     }
-    if(!error){
+    if(!errores){
         //alert("perfecto")
         formRegistro.submit()
     }

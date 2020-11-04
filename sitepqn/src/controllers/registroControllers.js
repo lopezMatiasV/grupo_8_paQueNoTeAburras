@@ -132,7 +132,7 @@ module.exports = {
           })
         })
       }else{
-        res.redirect('/')
+        res.redirect('/registro')
       }       
     },
     edit:function(req,res){
@@ -140,12 +140,12 @@ module.exports = {
             {
               nombre:req.body.nombre,
               apellido: req.body.apellido,
-                dni: req.body.dni,
-                avatar:(req.files[0])?req.files[0].filename:req.session.usuario.avatar,
-                direccion: req.body.direccion.trim(),
-                ciudad:req.body.ciudad,
-                provincia:req.body.provincia,
-                telefono:req.body.telefono
+              dni: req.body.dni,
+              avatar:(req.files[0])?req.files[0].filename:req.session.usuario.avatar,
+              direccion: req.body.direccion.trim(),
+              ciudad:req.body.ciudad,
+              provincia:req.body.provincia,
+              telefono:req.body.telefono
             },
             {
                 where:{
