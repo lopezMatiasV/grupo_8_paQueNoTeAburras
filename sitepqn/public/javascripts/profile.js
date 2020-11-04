@@ -19,33 +19,31 @@ window.addEventListener('load', function(){
     let errors = { }
 
    
-    let exregulartelefono = /(?<=\s|:)\(?(?:(0?[1-3]\d{1,2})\)?(?:\s|-)?)?((?:\d[\d-]{5}|15[\s\d-]{7})\d+)/;
+    let exregulartelefono = /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/;
 
     let exregulardni = /^\d{8}(?:[-\s]\d{4})?$/;
     
     let regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
     
-    let regExExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+    //let regExExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
 
-pNombre.addEventListener('blur', function(){
-    switch (true) {
-        case this.value.length == 0:
-            errors.nombre = "El campo nombre es obligatorio";
-            errorsNombre.innerHTML = errors.nombre  
-            this.classList.add('is-invalid') 
-            break;
-      case this.value.length <= 2: 
-        errors.nombre = "El nombre debe tener como minimo 3 letras";
-        errorsNombre.innerHTML = errors.nombre
-        this.classList.add('is-invalid')
-        break;
-        default:
-            this.classList.remove('is-invalid'); 
-            this.classList.add('is-valid');
-            errorsNombre.innerHTML = ""  
-            break;
-    }
-})
+    pNombre.addEventListener('blur',function(){
+        switch (true) {
+            case this.value == 0:
+                errorsNombre.innerHTML = "El campo nombre es obligatorio"
+                this.classList.add('is-invalid')
+                break;
+            case this.value.trim().length <=2:
+                errorsNombre.innerHTML = "Tenés que poner al menos tres letras"
+                this.classList.add('is-invalid')
+                break
+            default:
+                this.classList.remove('is-invalid')
+                this.classList.add('is-valid')
+                errorsNombre.innerHTML = ""
+                break;
+        }
+    })
 
 pApellido.addEventListener('blur', function(){
 	switch(true) {
@@ -85,20 +83,32 @@ pEmail.addEventListener('blur', function(){
             break;
     }
 })
-  pAvatar.onchange = function (e){
-        // Creamos el objeto de la clase FileReader
-        let reader = new FileReader();
+   pAvatar.addEventListener('change', function (e) {
+        let regExExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+        switch (true) {
+            case !regExExtensions.exec(this.value):
+                errorsFormato.innerHTML = "Solo imagenes con extension jpg, jpeg, png, o gif";
+                this.classList.add('is-invalid')
+                this.value = '';
+                vistaPrevia.src = "";
+                break
+            default:
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+                errorsFormato.innerHTML = "";
 
-        // Leemos el archivo subido y se lo pasamos a nuestro fileReader
-        reader.readAsDataURL(e.target.files[0]);
-
-        // Le decimos que cuando este listo ejecute el código interno
-        reader.onload = function(){
-          let imagen = query('.form-control')
-          imagen.src = reader.result;
-        
-       }
-     }
+                let reader = new FileReader();
+                
+                reader.readAsDataURL(e.target.files[0]);
+              
+                reader.onload = function () {
+                   vistaPrevia.src = reader.result;
+                };
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+                errorsFormato.innerHTML = "";
+        }
+    })
 dni.addEventListener('blur', function(){
     switch (true) {
         case this.value.length == 0:
@@ -137,28 +147,42 @@ direccion.addEventListener('blur', function(){
             break;
 }
 })
+telefono.addEventListener('blur', function(){
+	switch (true) {
+        case this.value.length == 0:
+            this.classList.remove('is-invalid')
+            this.classList.add('is-valid')
+            errorsTelefono.innerHTML = ""
+            break;
+    case this.value.length <= 9 :
+        errors.telefono = "Debes escribir un telefono válido";
+        errorsTelefono.innerHTML = errors.telefono
+        this.classList.add('is-invalid')
+        break;
+        default:
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+        errorsTelefono.innerHTML = ""  // lo vacio
+        break;
+    }
+})
 
 formProfile.addEventListener('submit',function(){
-    let errors = false
-    console.log(errors)
+   
+    let error = false
+    console.log(error)
     event.preventDefault()
-    
-    let elements = this.elements
-   /*for (let index = 0; index < elements.length-1; index++) {
-        if(elements[index].value == 0){
-            elements[index].classList.add('is-invalid');
-            msgError.innerHTML = "Los campos señalados son obligatorios";
+       
+    for (let index = 0; index < elementos.length-1; index++) {
+        if(elementos[index].value == ""){
+            elementos[index].classList.add('is-invalid');
             errors =true
         }
-    }*/
-    
+    }
     if(!errors){
-       
+        //alert("perfecto")
         formProfile.submit()
-    }else{
-    	msgError.innerHTML = "Los campos señalados son obligatorios"
     }
     
-
 })
 })

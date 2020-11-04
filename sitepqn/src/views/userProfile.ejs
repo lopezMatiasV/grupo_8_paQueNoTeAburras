@@ -19,7 +19,7 @@
                                     class="rounded-circle avatar">
                                 </figure>
                                 <small id="errorsFormato" class="text-danger"><%= (typeof errors != 'undefined' && errors.formato)?errors.formato.msg: "" %> </small>
-                                <input id="pavatar" type="file" class="form-control" name="img">              
+                                <input id="pavatar" type="file" value="<%= usuario.avatar %>" class="form-control" name="img">              
                             </div>               
                     </div>
                     <div class="col-sm-12 col-md-8 col-lg-8">
@@ -46,7 +46,8 @@
 
                                 <input class="form-control" type="text" value="<%=usuario.provincia%>" name="provincia" placeholder="<%= (typeof errors != 'undefined' && errors.provincia)?errors.provincia.msg: "provincia" %>">
 
-                                <input class="form-control" type="number" value="<%=usuario.telefono%>" name="telefono" placeholder="<%= (typeof errors != 'undefined' && errors.telefono)?errors.telefono.msg: "teléfono" %>">
+                                <input class="form-control" id="telefono" type="number" value="<%= (typeof old != 'undefined' && old.telefono)?old.telefono:usuario.telefono %>" name="telefono" placeholder= "teléfono">
+                                 <small id = "errorsTelefono" class="text-danger"><%= (typeof errors != 'undefined' && errors.telefono)?errors.telefono.msg: "" %> </small>
                             
                                 <button class="btn btn-warning mr-2" type="reset">Cancelar</button>
                                 <button class="btn btn-success" type="submit" name="id" value="">Editar</button>
