@@ -1,19 +1,23 @@
 
+const { render } = require('ejs')
 const db = require('../database/models')
 
 module.exports = {
     categorias: (req, res) => {
         db.Categories.findAll({
                 include: [{
-                    association: 'subcategorias'
+                    association: 'productos'
+                },{
+                  association : 'subcategorias'
                 }]
             })
-            .then(categoria => {
-                res.render('categoria', {
+            .then(categorias => {
+              //res.send(categorias)
+                res.render('categorias', {
                   title: "Pa Que | Categoria",
-                  categoria: categoria,
-                  css: "styleDetalleProducto.css",
-                  usuario: req.session.usuario
+                  categorias: categorias,
+                  css: "style.css",
+                  usuario: req.session.usuario,
         
                 })
         
@@ -21,13 +25,20 @@ module.exports = {
                 res.send(error)
               })
     },
-    muñecas: (req, res) =>{
-        db.Categories.findAll()
-        .then(categorias => {
-            res.render('categoria', {
-              title: "Pa Que | Categoria",
-              categorias: categorias,
-              css: "styleDetalleProducto.css",
+    category: (req, res) =>{
+        db.Categories.findByPk(req.params.id,{
+          include: [{
+              association: 'productos'
+          },{
+            association : 'subcategorias'
+          }]
+      })
+        .then(categoria => {
+          //res.send(categoria)
+            res.render('category', {
+              title: "Pa Que | Category",
+              categoria: categoria,
+              css: "style.css",
               usuario: req.session.usuario
     
             })
