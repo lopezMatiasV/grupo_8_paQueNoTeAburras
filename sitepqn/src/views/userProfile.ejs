@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
     <%- include('partials/head') %>
-<body class="profile">
+     <script src="/javascripts/profile.js"></script>
+    <body class="profile">
     <%- include('partials/header') %>
-
+   
    <div class="conteiner-fluid">
        <h4 class="form-group col-12">Perfil de <%= usuario.nombre %> <%= usuario.apellido %> </h4>
            
-            <form action="/registro/edit/<%= usuario.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="/registro/edit/<%= usuario.id %>?_method=PUT" id="profile" method="POST" enctype="multipart/form-data">
 
                 <div class="row col-12">
                     
@@ -17,21 +18,34 @@
                                     <img src="/images/users/<%= usuario.avatar %>" alt="" width="200px" height="200px"
                                     class="rounded-circle avatar">
                                 </figure>
-                                <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
-                                <input type="file" class="form-control" name="img">              
+                                <small id="errorsFormato" class="text-danger"><%= (typeof errors != 'undefined' && errors.formato)?errors.formato.msg: "" %> </small>
+                                <input id="pavatar" type="file" class="form-control" name="img">              
                             </div>               
                     </div>
                     <div class="col-sm-12 col-md-8 col-lg-8">
                         
                             <div class="col-sm-12 col-md-8 col-lg-8">
                                 
-                                <input class="form-control" type="text" value="<%=usuario.nombre%>" name="nombre" placeholder="<%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "nombre" %>">
-                                <input class="form-control" type="text" value="<%=usuario.apellido%>" name="apellido" placeholder="<%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "apellido" %>">
-                                <input class="form-control" type="number" value="<%=usuario.dni%>" name="dni" placeholder="<%= (typeof errors != 'undefined' && errors.dni)?errors.dni.msg: "DNI" %>">
-                                <input class="form-control" type="email" value="<%=usuario.email%>" name="email" placeholder="<%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "email" %>">
-                                <input class="form-control" type="text" value="<%=usuario.direccion%>" name="direccion" placeholder="<%= (typeof errors != 'undefined' && errors.direccion)?errors.direccion.msg: "dirección" %>">
+                                <input class="form-control" type="text" value="<%= (typeof old != 'undefined' && old.nombre)?old.nombre:usuario.nombre %>"
+                                  id="pnombre" name="nombre" placeholder="">
+                                <small id = "errorsNombre" class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
+
+                                <input class="form-control" type="text" value="<%= (typeof old != 'undefined' && old.apellido)?old.apellido:usuario.apellido %>" id="papellido" name="apellido" placeholder="apellido" %>">
+                                <small id = "errorsApellido" class="text-danger"><%= (typeof errors != 'undefined' && errors.apellido)?errors.apellido.msg: "" %> </small>
+
+                                <input class="form-control" id="DNI" type="number" value="<%= (typeof old != 'undefined' && old.dni)?old.dni:usuario.dni %>" name="dni" placeholder="DNI">
+                                <small id = "errorsDNI" class="text-danger"><%= (typeof errors != 'undefined' && errors.dni)?errors.dni.msg: "" %> </small>
+
+                                <input class="form-control" type="email" value="<%= (typeof old != 'undefined' && old.email)?old.email:usuario.email %>" id="pemail" name="email" placeholder="">
+                                <small id = "errorsEmail" class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email.msg: "" %> </small>
+
+                                <input class="form-control" id="direccion" type="text" value="<%= (typeof old != 'undefined' && old.direccion)?old.direccion:usuario.direccion %>" name="direccion" placeholder="Dirección">
+                                 <small id = "errorsDireccion" class="text-danger"><%= (typeof errors != 'undefined' && errors.direccion)?errors.direccion.msg: "" %> </small>
+
                                 <input class="form-control" type="text" value="<%=usuario.ciudad%>" name="ciudad" placeholder="<%= (typeof errors != 'undefined' && errors.ciudad)?errors.ciudad.msg: "ciudad" %>">
+
                                 <input class="form-control" type="text" value="<%=usuario.provincia%>" name="provincia" placeholder="<%= (typeof errors != 'undefined' && errors.provincia)?errors.provincia.msg: "provincia" %>">
+
                                 <input class="form-control" type="number" value="<%=usuario.telefono%>" name="telefono" placeholder="<%= (typeof errors != 'undefined' && errors.telefono)?errors.telefono.msg: "teléfono" %>">
                             
                                 <button class="btn btn-warning mr-2" type="reset">Cancelar</button>
