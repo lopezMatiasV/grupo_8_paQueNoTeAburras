@@ -33,11 +33,11 @@
             <label class="custom-control-label" for="customControlInline">Recordarme</label>
           </div>
         
-          <button type="submit">Ingresar</button>
+          <button type="submit" class="btn btn-primary">Ingresar</button>
 <br>
 <br>
 <br>
-          <p class="signup">¿Ya tienes una cuenta?<input id="field4" href="#" placeholder="Crear Cuenta" onclick="toggleForm();"></p>
+          <p class="signup">¿No tienes una cuenta?  <button type="button" id="field4" class="btn btn-success" onclick="toggleForm();">Crea una!</button></p>
             
           </form>
         </div>
@@ -93,15 +93,14 @@
               <!--       <input type="submit" name="" value="Confirmar">-->
               
               <div>    
-              <button type="submit" > 
-                     Confirmar
-                   </button>
+              <button type="submit" class="btn btn-primary">Confirmar</button>
 
             <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
           </div> 
           </div>
           
-          <p class="signup">¿Ya tienes una cuenta?<input id="field2" href="#" placeholder="Ingresar" onclick="toggleForm();" /></p>
+          <p class="signup">¿Ya tienes una cuenta?  <button type="button" id="field2" class="btn btn-success" onclick="toggleForm();">Ingresar</button></p>
+          
                    
           </form>
         </div>
