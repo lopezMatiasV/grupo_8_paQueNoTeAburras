@@ -109,7 +109,7 @@ pEmail.addEventListener('blur', function(){
                 errorsFormato.innerHTML = "";
         }
     })
-dni.addEventListener('blur', function(){
+/*dni.addEventListener('blur', function(){
     switch (true) {
     case !exregulardni.test(this.value):
         errors.dni = "Revisa este campo";
@@ -122,22 +122,8 @@ dni.addEventListener('blur', function(){
             errorsDNI.innerHTML = ""  // lo vacio
             break;
     }
-})
+})*/
 
-telefono.addEventListener('blur', function(){
-	switch (true) {
-    case this.value.length <= 9 :
-        errors.telefono = "Debes escribir un telefono válido";
-        errorsTelefono.innerHTML = errors.telefono
-        this.classList.add('is-invalid')
-        break;
-        default:
-        this.classList.remove('is-invalid');
-        this.classList.add('is-valid');
-        errorsTelefono.innerHTML = ""  // lo vacio
-        break;
-    }
-})
 
 formProfile.addEventListener('submit',function(){
    
@@ -156,10 +142,10 @@ formProfile.addEventListener('submit',function(){
    	 pEmail.classList.add('is-invalid')
    	 errors = true
    	 break;
-   	 case telefono.value.length <= 9:
+   	 /*case telefono.value.length <= 9:
    	 telefono.classList.add('is-invalid')
    	 errors = true
-   	 break;
+   	 break;*/
    	 default:
    	 errors = false
    }
