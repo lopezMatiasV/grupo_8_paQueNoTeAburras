@@ -243,7 +243,8 @@ module.exports = {
         css: "style.css",
         usuario: req.session.usuario,
         errors: errors.mapped(),
-        producto: db.Products.findByPk(req.params.id)
+        producto: db.Products.findByPk(req.params.id),
+        old: req.body
       })
     }
 
@@ -262,10 +263,8 @@ module.exports = {
     let buscar = req.query.search.toLowerCase();
     db.Products.findAll({
         where: {
-          descripcion: {
-            [Op.substring]: buscar
-          }
-        }
+          descripcion: {[Op.substring]: buscar}
+        } 
       })
       .then(producto => {
         //res.send(producto)

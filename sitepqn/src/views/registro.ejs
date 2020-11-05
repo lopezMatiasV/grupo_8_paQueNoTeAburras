@@ -33,9 +33,11 @@
             <label class="custom-control-label" for="customControlInline">Recordarme</label>
           </div>
         
-          <button type="submit">Ingresar</button>
-
-          <p class="signup">¿Ya tienes una cuenta?<input href="#" placeholder="Crear Cuenta" onclick="toggleForm();"></p>
+          <button type="submit" class="btn btn-primary">Ingresar</button>
+<br>
+<br>
+<br>
+          <p class="signup">¿No tienes una cuenta?  <button type="button" id="field4" class="btn btn-success" onclick="toggleForm();">Crea una!</button></p>
             
           </form>
         </div>
@@ -82,8 +84,8 @@
 
           
             <div class="custom-control custom-checkbox my-1 mr-sm-2 custom-control-inline align-items-justify d-flex justify-content-around"">
-              <input type="checkbox" class="custom-control-input" id="customControlInline" name="bases" value="off">
-              <small></small><label class="custom-control-label" for="customControlInline" style="padding-right: 2rem;">Bases y condiciones</label></small> <br>
+              <input type="checkbox" class="custom-control-input" id="customCheck1" name="bases" value="off">
+              <small></small><label class="custom-control-label" for="customCheck1" style="padding-right: 2rem;">Bases y condiciones</label></small> <br>
               <small><small><a href=""  class="text-info" style="padding-right:2rem;">Ver bases y condiciones</a></small></small><br>
               
               <small id="errorsBases" class="text-danger"><%= (typeof errors != 'undefined' && errors.bases)?errors.bases.msg: "" %> </small>
@@ -91,15 +93,14 @@
               <!--       <input type="submit" name="" value="Confirmar">-->
               
               <div>    
-              <button type="submit" > 
-                     Confirmar
-                   </button>
+              <button type="submit" class="btn btn-primary">Confirmar</button>
 
             <small class="text-danger"><%= (typeof errorFormato != 'undefined')?errorFormato: "" %> </small>
           </div> 
           </div>
           
-          <p class="signup">¿Ya tienes una cuenta?<input href="#" placeholder="¿Ya tienes una cuenta?" onclick="toggleForm();"></p>
+          <p class="signup">¿Ya tienes una cuenta?  <button type="button" id="field2" class="btn btn-success" onclick="toggleForm();">Ingresar</button></p>
+          
                    
           </form>
         </div>

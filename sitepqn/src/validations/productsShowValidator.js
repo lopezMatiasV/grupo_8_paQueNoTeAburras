@@ -36,6 +36,6 @@ module.exports = [
     .isLength({
         min:1
     })
-    .withMessage('La categoria del producto es obligatoria')
+    .withMessage('La categoria es obligatoria')
 
 ]

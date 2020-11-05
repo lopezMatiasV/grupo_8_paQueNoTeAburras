@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <%- include('partials/head') %>
-<script src="/javascripts/formEditarProdV.js"></script>
+<!--<script src="/javascripts/formEditarProdV.js"></script>-->
     <body id="productShow" >
         <%- include('partials/header') %>
             <div class="container">
@@ -26,7 +26,7 @@
                                             <div class="form-group col-12">
                                                 <label for="">Nombre</label>
                                                 <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
-                                                <input id="nombreShow" class="form-control" type="text" value="<%= producto.nombre%>" name="nombre" required>
+                                                <input id="nombreShow" class="form-control" type="text" value="<%= (typeof old != 'undefined' && old.nombre)?old.nombre:producto.nombre %>" name="nombre">
                                                 <span id="errorNombreShow" class="text-danger"></span>
                                             </div>
                                             <div class="col-12 col-md-4 col-xl-4 mt-3">
@@ -40,30 +40,30 @@
                                             <div class="form-group col-12 col-md-8 col-xl-8 mt-3">
                                                 <label for="">Descripción</label>
                                                 <small class="text-danger"><%= (typeof errors != 'undefined' && errors.descripcion)?errors.descripcion.msg: "" %> </small>
-                                                <textarea class="form-control" rows="7" name="descripcion" id="" required><%= producto.descripcion %></textarea>
+                                                <textarea class="form-control" rows="7" name="descripcion" id="" required><%= (typeof old != 'undefined' && old.descripcion)?old.descripcion:producto.descripcion %></textarea>
                                                
                                                 <div class="row">
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Categoría</label>
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %> </small>
-                                                        <input id="categoriaShow" type="text" class="form-control" value="<%=producto.categoria%>" name="categoria" required>
+                                                        <input id="categoriaShow" type="text" class="form-control" value="<%= (typeof old != 'undefined' && old.categoria)?old.categoria:producto.categoria %>" name="categoria" required>
                                                         <span id="errorCategoriaShow" class="text-danger"></span>
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Sub-Categoría</label>
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.subcategoria)?errors.subcategoria.msg: "" %> </small>
-                                                        <input id="subCategoriaShow" type="text" class="form-control" value="<%=producto.subcategoria%>" name="subcategoria" required>
+                                                        <input id="subCategoriaShow" type="text" class="form-control" value="<%= (typeof old != 'undefined' && old.subcategoria)?old.subcategoria:producto.subcategoria %>" name="subcategoria" required>
                                                         <span id="errorSubcategoriaShow" class="text-danger"></span>
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">Sección</label>
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.seccion)?errors.seccion.msg: "" %> </small>
-                                                        <input id="seccionShow" type="text" class="form-control" value="<%=producto.seccion%>" name="seccion" required>
+                                                        <input id="seccionShow" type="text" class="form-control" value="<%= (typeof old != 'undefined' && old.seccion)?old.seccion:producto.seccion %>" name="seccion" required>
                                                         <span id="errorSeccionShow" class="text-danger"></span>
                                                     </div>
                                                     <div class="form-group col-12 col-lg-4">
                                                         <label for="">SKU</label>
-                                                        <input id="skuShow"type="text" class="form-control" value="<%=producto.sku%>" name="sku" required>
+                                                        <input id="skuShow"type="text" class="form-control" value="<%= (typeof old != 'undefined' && old.sku)?old.sku:producto.sku %>"name="sku" required>
                                                         <span id="errorSkuShow" class="text-danger"></span>
                                                     </div>
                                                     
@@ -75,7 +75,7 @@
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">$</div>
                                                             </div>
-                                                            <input id="precioShow" type="text" class="form-control" value="<%=producto.precio%>" name="precio" required>
+                                                            <input id="precioShow" type="text" class="form-control" value="<%= (typeof old != 'undefined' && old.precio)?old.precio:producto.precio %>" name="precio" required>
                                                             <span id="errorPrecioShow" class="text-danger"></span>
 
                                                         </div>
@@ -88,7 +88,7 @@
                                                         <small class="text-danger"><%= (typeof errors != 'undefined' && errors.descuento)?errors.descuento.msg: "" %> </small>
                                                         <div class="input-group mb-2 mr-sm-2">
                                                             
-                                                            <input id="discountShow" type="text" class="form-control" value="<%=producto.descuento%>" name="descuento">
+                                                            <input id="discountShow" type="text" class="form-control" value="<%= (typeof old != 'undefined' && old.descuento)?old.descuento:producto.descuento %>" name="descuento">
                                                             <span id="errorDiscountShow" class="text-danger"></span>
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">%</div>

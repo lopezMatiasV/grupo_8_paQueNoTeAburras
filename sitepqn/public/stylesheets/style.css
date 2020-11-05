@@ -124,6 +124,10 @@ img{
   .price-box {
     margin: 0 0 5px;
 }
+.vl {
+  border-left: 5px solid #73c026;
+  height: 380px;
+}
 /*
 <div class="card__footer">
 
