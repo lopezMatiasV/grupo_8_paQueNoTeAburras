@@ -263,10 +263,8 @@ module.exports = {
     let buscar = req.query.search.toLowerCase();
     db.Products.findAll({
         where: {
-          descripcion: {
-            [Op.substring]: buscar
-          }
-        }
+          descripcion: {[Op.substring]: buscar}
+        } 
       })
       .then(producto => {
         //res.send(producto)

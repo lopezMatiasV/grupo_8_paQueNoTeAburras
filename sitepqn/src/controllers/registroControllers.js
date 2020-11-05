@@ -220,6 +220,16 @@ module.exports = {
         console.log(err)
     })      
     },
+    adminEliminar: function (req, res) {
+      db.Users.destroy({
+          where: {
+            id: req.params.id
+          }
+        })
+        .then(result => {
+          return res.redirect('/registro/administrador')
+        })
+    },
     searchUsuario: function(req, res){
       let buscar = req.query.searchUsuario.toLowerCase();
       db.Users.findAll({
