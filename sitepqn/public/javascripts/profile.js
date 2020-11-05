@@ -142,10 +142,10 @@ formProfile.addEventListener('submit',function(){
    	 pEmail.classList.add('is-invalid')
    	 errors = true
    	 break;
-   	 case telefono.value.length <= 9:
+   	 /*case telefono.value.length <= 9:
    	 telefono.classList.add('is-invalid')
    	 errors = true
-   	 break;
+   	 break;*/
    	 default:
    	 errors = false
    }
