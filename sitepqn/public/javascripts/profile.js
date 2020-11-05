@@ -17,7 +17,7 @@ window.addEventListener('load', function(){
     let telefono = query('#telefono');
     let dni = query('#DNI')
     let errors = { }
-
+    let vistaPrevia = query('#vistaPrevia')
    
     let exregulartelefono = /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/;
 
@@ -109,15 +109,10 @@ pEmail.addEventListener('blur', function(){
                 errorsFormato.innerHTML = "";
         }
     })
-dni.addEventListener('blur', function(){
+/*dni.addEventListener('blur', function(){
     switch (true) {
-        case this.value.length == 0:
-            this.classList.add('is-valid')
-            this.classList.remove('is-invalid');
-            errorsDNI.innerHTML = "" 
-            break;
     case !exregulardni.test(this.value):
-        errors.dni = "Debes escribir un DNI válido";
+        errors.dni = "Revisa este campo";
         errorsDNI.innerHTML = errors.dni
         this.classList.add('is-invalid')
         break;
@@ -127,58 +122,33 @@ dni.addEventListener('blur', function(){
             errorsDNI.innerHTML = ""  // lo vacio
             break;
     }
-})
-direccion.addEventListener('blur', function(){
-    switch(true) {
-		 case this.value.length == 0:
-            this.classList.add('is-valid')
-            this.classList.remove('is-invalid');
-            errorsDireccion.innerHTML = "" 
-            break;
-      case this.value.length <= 2: 
-        errors.direccion = "la direccion debe tener como minimo 3 letras";
-        errorsDireccion.innerHTML = errors.direccion
-        this.classList.add('is-invalid')
-        break;
-        default:
-            this.classList.remove('is-invalid'); 
-            this.classList.add('is-valid');
-            errorsDireccion.innerHTML = ""  
-            break;
-}
-})
-telefono.addEventListener('blur', function(){
-	switch (true) {
-        case this.value.length == 0:
-            this.classList.remove('is-invalid')
-            this.classList.add('is-valid')
-            errorsTelefono.innerHTML = ""
-            break;
-    case this.value.length <= 9 :
-        errors.telefono = "Debes escribir un telefono válido";
-        errorsTelefono.innerHTML = errors.telefono
-        this.classList.add('is-invalid')
-        break;
-        default:
-        this.classList.remove('is-invalid');
-        this.classList.add('is-valid');
-        errorsTelefono.innerHTML = ""  // lo vacio
-        break;
-    }
-})
+})*/
+
 
 formProfile.addEventListener('submit',function(){
    
-    let error = false
-    console.log(error)
-    event.preventDefault()
-       
-    for (let index = 0; index < elementos.length-1; index++) {
-        if(elementos[index].value == ""){
-            elementos[index].classList.add('is-invalid');
-            errors =true
-        }
-    }
+    let errors = false
+    console.log(errors)
+    //event.preventDefault()
+   switch(true){
+   	 case pNombre.value.length == 0:
+   	 pNombre.classList.add('is-invalid')
+   	 errors = true
+   	 break;
+   	 case pApellido.value.length == 0:
+   	 pApellido.classList.add('is-invalid');
+   	 break;
+   	 case pEmail.value.length == 0:
+   	 pEmail.classList.add('is-invalid')
+   	 errors = true
+   	 break;
+   	 case telefono.value.length <= 9:
+   	 telefono.classList.add('is-invalid')
+   	 errors = true
+   	 break;
+   	 default:
+   	 errors = false
+   }
     if(!errors){
         //alert("perfecto")
         formProfile.submit()
