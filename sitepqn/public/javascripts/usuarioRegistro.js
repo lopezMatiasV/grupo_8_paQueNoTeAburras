@@ -129,7 +129,7 @@ inputAvatar.addEventListener('blur',function(e){
     })
 
 formRegistro.addEventListener('submit',function(event){
-    event.preventDefault()
+    //event.preventDefault()
      if(checkBases.checked == false){
         checkBases.classList.add('is-invalid');
         errorsBases.innerHTML = "Debes aceptar las bases y condiciones"
