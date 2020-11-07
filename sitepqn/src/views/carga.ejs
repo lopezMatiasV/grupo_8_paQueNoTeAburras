@@ -2,7 +2,7 @@
 <html lang="es">
   <%- include('partials/head') %>
 <link rel="stylesheet" href="/stylesheets/formCarga.css">
-<script src="/javascripts/formCargaV.js"></script>
+
 <body id="carga">
   <%- include('partials/header') %>
 
@@ -24,7 +24,9 @@
 
             <label for="nombre"> Nombre del Producto: </label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre del Producto" required>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre del Producto"  style="font-family: inherit;
+            font-size: 16px;
+            line-height: inherit;" required>
             <span id="errorNombre" class="text-danger"></span>
 
             <label for="precio"> Precio: </label>

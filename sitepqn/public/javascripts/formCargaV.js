@@ -183,39 +183,28 @@ inputDiscount.addEventListener('blur', function(){
     }
 })
 
-/*textareaDescrip.addEventListener('blur', function(){
-   switch (true) {
-        case this.value.length == 0:
-            errores.exampleFormControlTextarea1 = "El campo de la descripción es obligatorio";
+    /*textareaDescrip.addEventListener('blur', function(){
+        switch (true) {
+            case this.value.length == 0:
+                errores.exampleFormControlTextarea1 = "La Descripción del Producto es obligatoria";
+                errorDescripcion.innerHTML = errores.exampleFormControlTextarea1 
+                this.classList.add('is-invalid') 
+                break;
+        case this.value.length <= 19:
+            errores.exampleFormControlTextarea1 = "El campo descripción debe tener al menos 20 letras";
             errorDescripcion.innerHTML = errores.exampleFormControlTextarea1
             this.classList.add('is-invalid')
             break;
-    case !regExTXT.test(this.value):  
-        errores.exampleFormControlTextarea1 = "Debes escribir una Descripción de al menos 20 caracteres";
-        errorDescripcion.innerHTML = errores.exampleFormControlTextarea1
-        this.classList.add('is-invalid')
-        break;
-        default:
-            this.classList.remove('is-invalid');
-            this.classList.add('is-valid');
-            errorDescripcion.innerHTML = ""  // lo vacio
-            break;
-    }
+            default:
+                this.classList.remove('is-invalid'); 
+                this.classList.add('is-valid');
+                errorDescripcion.innerHTML = ""  
+                break;
+        }
+    })*/
+    
 
-    /*if( this.value == null || this.value.length == 0 || /^\s+$/.test(this.value) ) {
-        return false;
-      }
-})*/
-
-
-/*textareaDescrip = document.getElementById("exampleFormControlTextarea1").value;
-if( textareaDescrip == null || textareaDescrip.length == 0 || /^\s+$/.test(textareaDescrip) ) {
-  return false;
-}*/
-
-
-
-
+   
 inputFoto.addEventListener('change',function(e){
     switch (true) {
         case !regExExtensions.exec(this.value) :

@@ -11,30 +11,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item mr-2">
-          <a class="nav-link text-light" href="/categories/5">Muñecas</a>
+          <a id="navBarCat" class="nav-link text-light" href="/categories/5">Muñecas |</a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link text-light" href="/categories/1">Vehículos</a>
+          <a id="navBarCat" class="nav-link text-light" href="/categories/1">Vehículos | </a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link text-light" href="/categories/4">De Ingenio</a>
+          <a id="navBarCat" class="nav-link text-light" href="/categories/4">De Ingenio |</a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link text-light" href="/categories/3">De Acción</a>
+          <a id="navBarCat" class="nav-link text-light" href="/categories/3">De Acción |</a>
         </li>
         <li class="nav-item mr-2">
-          <a class="nav-link text-light" href="/categories/2">De Mesa</a>
+          <a id="navBarCat" class="nav-link text-light" href="/categories/2">De Mesa |</a>
         </li>
         <li class="nav-item mr-2">
           <% if (typeof usuario != "undefined" && usuario.rol=="admin") { %>
-            <a class="nav-link text-light" href="/products/agregar">Agregar</a>
+            <a id="navBarCat" class="nav-link text-light" href="/products/agregar">Agregar</a>
           <% } else{ %>
-            <a class="nav-link text-light" href="#">Ayuda</a>
+            <a id="navBarCat" class="nav-link text-light" href="#">Ayuda</a>
 
         <% } %>
           
         </li>              
-        <li class="nav-item">
+        <li id="navBarCat" class="nav-item">
             <% if (typeof usuario == "undefined") { %>
                 <a class="nav-link text-light btn btn-primary py-1" href="/registro">Iniciá sesión</a>
               <% } else{ %>
@@ -72,8 +72,11 @@
     </div>
     
     <!--buscador-->
-    <div class="buscador col-10">
-    <form action="/products/search" method="GET" class="search-form">
+
+
+    
+    <div style="margin-left: 65px; margin-bottom: 15px;" class="buscador col-10">
+    <form  action="/products/search" method="GET" class="search-form">
       <input type="text " name="search" placeholder="Buscar productos" class="search-form_input">
       <button type="submit" class="search-form_button"><i class="fas fa-search "></i></button>
     </form>
