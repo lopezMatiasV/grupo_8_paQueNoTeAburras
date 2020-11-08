@@ -1,44 +1,42 @@
+const db = require('../database/models')
 let dbProducts = require('../data/dataBase');
+const {
+  Op
+} = require('sequelize')
 
 module.exports = {
-    index: (req, res, next)=> {
-      let ofertas = dbProducts.filter(producto=>{
-        return producto.seccion == 'ofertas'
+    index: (req, res)=> {
+      db.Products.findAll({
+        include: [{association: "categorias"},{association : 'subcategorias'}],
+      where: {
+        seccion: "Ofertas"
+      }
       })
-      let visitadas = dbProducts.filter(producto=>{
-        return producto.seccion == 'visitadas'        
+      .then(productosOfertas=>{
+        db.Products.findAll({
+        include: [{association: "categorias"},{association : 'subcategorias'}],
+      where: {
+        seccion: "Campaña"
+      }
       })
-      let campaña = dbProducts.filter(producto=>{
-        return producto.seccion == 'campaña'        
+      .then(productosCampaña =>{
+        res.render('index', {
+          title: 'Pa q no te aburras',
+          css:"style.css",
+          productosCampaña:productosCampaña,
+          productosOfertas:productosOfertas,
+          usuario:req.session.usuario
       })
-
-      
-    res.render('index', {
-      title: 'Pa q no te aburras',
-      ofertas: ofertas,
-      visitadas: visitadas,
-      campaña: campaña,
-      css:"style.css",
+    })
+    })
+  },
+  nosotros:(req,res)=>{
+    res.render('nosotros',{
+      title:"Pa Que | About",
+      css:"stylesNosotros.css",
       usuario:req.session.usuario
 
-      
-    });
-  },
-  search:(req, res)=>{
-    let buscar = req.query.search;
-        let productos = [];
-        dbProduct.forEach(producto => {
-            if (producto.name.toLowerCase().includes(buscar)) {
-                productos.push(producto)
-            }
-        })
-        res.render('products', {
-            title: "Resultado de la búsqueda",
-            productos: productos,
-            css:"style.css",
-            usuario:req.session.usuario
-
-        })
+    })
   },
     carrito:(req, res)=>{
         res.render('carrito',{

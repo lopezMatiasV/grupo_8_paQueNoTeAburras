@@ -42,7 +42,16 @@ module.exports = {
       })
   },
   detalle: function (req, res) {
-    db.Products.findByPk(req.params.id)
+    db.Products.findByPk(req.params.id,{
+      include: [
+        {
+        association: "categorias"
+      },
+      {
+        association : 'subcategorias'
+      }
+    ]
+    })
       .then(producto => {
         res.render('productos', {
           title: "Pa Que | Detalle del producto",
