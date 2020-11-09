@@ -1,0 +1,32 @@
+
+carga 
+<select id="categoria" class="custom-select custom-select-lg mb-3"  name="categoria" placeholder="muñecas"required>
+    <option value="">Elija una categoría del Menú</option>
+    <option value="Vehículos">Vehículos</option>
+    <option value="Juegos de Mesa">Juegos de Mesa</option>
+    <option value="Muñecos de acción">Muñecos de acción</option>
+    <option value="Juegos de Ingenio">Juegos de Ingenio</option>
+    <option value="Muñecas">Muñecas</option>
+  </select> 
+  <span id="errorCategoria" class="text-danger"></span>
+
+  <label for="subCategoria"> Sub-Categoría: </label>
+  <small class="text-danger"><%= (typeof errors != 'undefined' && errors.subcategoria)?errors.subcategoria.msg: "" %> </small>
+  <input type="text" id="subCategoria" name="subcategoria" placeholder="autos" required>
+  <span id="errorSubcategoria" class="text-danger"></span>
+
+
+
+  <div class="form-group col-12 col-xl-6">
+    <label for="categoria"> Categoría: </label>
+    <select name="categoria" id="selectCategoria" class="form-control <%= (typeof old != 'undefined' && old.categoria)?"is-valid":(typeof errors != 'undefined' && errors.categoria)?"is-invalid": ""  %>">
+      <option value="">Eligí la categoría</option>
+      <% if (typeof oldCategoria != 'undefined') { %>
+          <option value="<%= old.categoria %> " selected><%= oldCategoria %> </option>
+      <% } %>
+      <% categorias.forEach(categoria => { %>
+          <option value="<%= categoria.id %>"><%= categoria.nombre %> </option>
+      <% }) %>>
+    </select>
+    <small id="errorCategoria" class="text-danger"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %> </small>
+  </div>

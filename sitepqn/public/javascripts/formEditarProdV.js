@@ -209,7 +209,7 @@ inputFotoEdit.addEventListener('change',function(e){
         }
     })
 
-    /*formularioE.addEventListener('submit',function(event){
+    formularioE.addEventListener('submit',function(event){
         let error = false
         event.preventDefault()
     
@@ -228,7 +228,7 @@ inputFotoEdit.addEventListener('change',function(e){
             formularioE.submit()
         }
         
-    })*/
+    })
     
 
 

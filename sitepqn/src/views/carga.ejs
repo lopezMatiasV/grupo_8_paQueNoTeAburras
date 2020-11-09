@@ -2,7 +2,7 @@
 <html lang="es">
   <%- include('partials/head') %>
 <link rel="stylesheet" href="/stylesheets/formCarga.css">
-
+<script src="/javascripts/formCargaV.js"></script>
 <body id="carga">
   <%- include('partials/header') %>
 
@@ -34,6 +34,8 @@
             <input type="text" id="precio" name="precio" placeholder="1000.00" required>
             <span id="errorPrecio" class="text-danger"></span>
 
+           
+           
             <label for="categoria"> Categoría: </label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %> </small>
             
@@ -46,6 +48,17 @@
               <option value="Muñecas">Muñecas</option>
             </select> 
             <span id="errorCategoria" class="text-danger"></span>
+
+          
+
+
+
+
+
+
+
+
+
 
             <label for="subCategoria"> Sub-Categoría: </label>
             <small class="text-danger"><%= (typeof errors != 'undefined' && errors.subcategoria)?errors.subcategoria.msg: "" %> </small>
