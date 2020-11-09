@@ -129,7 +129,7 @@ formProfile.addEventListener('submit',function(){
    
     let errors = false
     console.log(errors)
-    //event.preventDefault()
+    event.preventDefault()
    switch(true){
    	 case pNombre.value.length == 0:
    	 pNombre.classList.add('is-invalid')

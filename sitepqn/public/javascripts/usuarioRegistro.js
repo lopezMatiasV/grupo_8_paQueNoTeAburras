@@ -129,23 +129,46 @@ inputAvatar.addEventListener('blur',function(e){
     })
 
 formRegistro.addEventListener('submit',function(event){
-    //event.preventDefault()
-     if(checkBases.checked == false){
+    event.preventDefault()
+    let error = false
+   /* if(checkBases.checked == false){
         checkBases.classList.add('is-invalid');
         errorsBases.innerHTML = "Debes aceptar las bases y condiciones"
+        }*/
+     switch(true){
+     case inputNombre.value.length == 0:
+     inputNombre.classList.add('is-invalid')
+     error = true
+     break;
+     case inputApellido.value.length == 0:
+     inputApellido.classList.add('is-invalid');
+     //error = true
+     break;
+     case inputEmail.value.length == 0:
+     inputEmail.classList.add('is-invalid');
+     //error = true
+     break;
+     case inputPass.value.length ==0:
+     inputPass.classList.add('is-invalid');
+     //error = true
+     break;
+     case inputPass2.value.length == 0:
+     inputPass2.classList.add('is-invalid');
+     //error = true
+     break;
+     case inputAvatar.value.length == 0:
+     inputAvatar.classList.add('is-invalid');
+     //error = true 
+     break;
+     case checkBases.checked == false:
+     checkBases.classList.add('is-invalid');
+     errorsBases.innerHTML = "Debes aceptar las bases y condiciones"
+     break
+     default:
+     error = false
+   }
+    if(!error){
+            formRegistro.submit()
         }
-    let elementsForm = this.elements
-    let errores = false
-    for (let index = 0; index < elementsForm.length-1; index++) {
-        if(elementsForm[index].value == ""){
-            elementsForm[index].classList.add('is-invalid');
-            errores =true
-        }
-    }
-    if(!errores){
-        //alert("perfecto")
-        formRegistro.submit()
-    }
-    console.log(errores)
 })
 })

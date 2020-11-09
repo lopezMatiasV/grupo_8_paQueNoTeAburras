@@ -5,23 +5,17 @@ const query = function(argument){
 window.addEventListener('load', function(){
    
     let formLogin = query('#logueate')
-     let elementos = formLogin.elementos
-    for (let index = 0; index < elementos.length; index ++){
-    elementos[index].value = ""
-} 
  
- let emailLog = query('#email2');
- let passLog = query('#passLog');
- let regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
- let errors = { };
- let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/;
+    let emailLog = query('#email2');
+    let passLog = query('#passLog');
+ //let regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
+ //let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/;
  
 
  emailLog.addEventListener('blur', function(){
     switch (true) {
         case this.value.length == 0:
-            errors.email = "Escribe un email para continuar";
-            errorEmail.innerHTML = errors.email
+            errorEmail.innerHTML = "El campo email es obligatorio";
             this.classList.add('is-invalid')
             break;
     /*case !regExEmail.test(this.value):
@@ -38,9 +32,8 @@ window.addEventListener('load', function(){
 })
 passLog.addEventListener('blur', function(){
   switch (true) {
-        case this.value.length == "":
-            errors.pass = "Escribe una contraseña para continuar";
-            errorPass.innerHTML = errors.pass
+         case this.value.length == "":
+            errorPass.innerHTML = "El campo contraseña es obligatorio";
             this.classList.add('is-invalid')
             break;
      /*case !regExPass.test(this.value):
@@ -55,25 +48,30 @@ passLog.addEventListener('blur', function(){
             break; 
     }
 })
-formLogin.addEventListener('submit',function(){
-    let errors = false
-    console.log(errors)
-    event.preventDefault()
+formLogin.addEventListener('submit',function(even){
 
-    let elementosForm = this.elementos
+
+    even.preventDefault()
+    let errores = false
     
-    for (let index = 0; index < elementosForm.length-1; index++) {
-        if(elementosForm[index].value == ""){
-            elementosForm[index].classList.add('is-invalid');
-            msgError.innerHTML = "Los campos señalados son obligatorios";
-            errors =true
-        }
+    switch(true){
+        case emailLog.value.length == 0:
+        emailLog.classList.add('is-invalid')
+        errores = true;
+        break;
+        case passLog.value.length == 0:
+        passLog.classList.add('is-invalid')
+        errores = true;
+        break;
+        default:
+        errores = false
     }
-    if(!errors){
-        alert("perfecto")
+    if(!errores){
+        //alert("perfecto")
         formLogin.submit()
     }
-    
+    console.log(errores)
+
 })
 
 })
