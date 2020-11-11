@@ -104,7 +104,14 @@ module.exports = {
 
   publicar: function (req, res, next) {
     let errors = validationResult(req);
-
+    let imagesFiles = req.files.filter(file => {
+      return file.fieldname == "foto"
+  })
+  let imagesArray = [];
+  imagesFiles.forEach(imagen => {
+      imagesArray.push(imagen.filename);
+  })
+  let images = imagesArray.join(',');
     if (errors.isEmpty()) {
       db.Products.create({
           sku: req.body.sku,
@@ -113,7 +120,7 @@ module.exports = {
           seccion: req.body.seccion.trim(),
           descuento: Number(req.body.descuento),
           descripcion: req.body.descripcion,
-          fotos: (req.files[0]) ? req.files[0].filename : "default.png",
+          fotos: images, /*(req.files[0]) ? req.files[0].filename : "default.png",*/
           categoria: req.body.categoria,
           subcategoria: req.body.subcategoria
         })
@@ -197,6 +204,14 @@ module.exports = {
   edit: function (req, res) {
     let idNewProduct = req.params.id;
     let errors = validationResult(req);
+    let imagesFiles = req.files.filter(file => {
+      return file.fieldname == "fotos"
+  })
+  let imagesArray = [];
+  imagesFiles.forEach(imagen => {
+      imagesArray.push(imagen.filename);
+  })
+  let images = imagesArray.join(',');
     db.Products.findByPk(req.params.id)
     if (errors.isEmpty()) {
       db.Products.update({
@@ -207,7 +222,7 @@ module.exports = {
           categoria: req.body.categoria,
           subcategoria: req.body.subcategoria,
           seccion: req.body.seccion,
-          fotos: (req.files[0]) ? req.files[0].filename : idNewProduct.fotos,
+          fotos: images,/*(req.files[0]) ? req.files[0].filename : idNewProduct.fotos,*/
           descuento: Number(req.body.descuento)
         }, {
           where: {

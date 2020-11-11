@@ -31,10 +31,11 @@
                                             </div>
                                             <div class="col-12 col-md-4 col-xl-4 mt-3">
                                                 <figure class="text-center">
-                                                    <img src="/images/products/<%= producto.fotos %> " alt="" class="img-fluid">
-                                                </figure>
+                                                    <img src="/images/products/<%= (producto.fotos.split(','))[0] %> " alt="" class="img-fluid">
+                                                </figure>                                                          
+                                                 
                                                 <small class="text-danger"><%= (typeof errors != 'undefined' && errors.foto)?errors.foto.msg: "" %> </small>
-                                                <input id="fotoEdit" type="file" class="form-control" name="fotos">
+                                                <input id="fotoEdit" type="file" class="form-control" accept="image/*" multiple="multiple" name="fotos">
                                                 <span id="errorFotoShow" class="text-danger"></span>
                                             </div>
                                             <div class="form-group col-12 col-md-8 col-xl-8 mt-3">

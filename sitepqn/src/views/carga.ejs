@@ -85,7 +85,7 @@
         </div>
         <br>
         <!--Carga de imagen del producto-->
-        <div class="photo">
+       <!-- <div class="photo">
           <label for="foto">Foto de Producto: </label>
           
           <div class="prevPhoto">
@@ -96,8 +96,12 @@
             <input type="file" name="foto" id="foto" required>
             <span id="errorFoto" class="text-danger"></span>       
           </div>
-        </div>
-        
+        </div>-->
+        <div class="photo">
+          <label for="foto">Foto de Producto: </label>
+            <input type="file" class="form-control upload" name="foto" id="foto" accept="image/*" multiple="multiple" required>
+            <span id="errorFoto" class="text-danger"></span>       
+        </div>         
         
         <input type="submit" value="Finalizar carga del producto" class="btn">
        

@@ -139,11 +139,12 @@ module.exports = {
       }       
     },
     edit:function(req,res){
+     // return res.send(req.files)
         db.Users.update(
             {
               nombre:req.body.nombre,
               apellido: req.body.apellido,
-                dni: req.body.dni,
+                dni: req.body.dni.length== 0? null:req.body.dni,
                 avatar:(req.files[0])?req.files[0].filename:req.session.usuario.avatar,
                 direccion: req.body.direccion.trim(),
                 ciudad:req.body.ciudad,
@@ -158,7 +159,6 @@ module.exports = {
         )
         .then( result => {
           console.log(req.session.usuario)
-
           return res.redirect('/registro/profile')
           })
         .catch(err => {
