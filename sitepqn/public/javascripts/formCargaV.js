@@ -17,8 +17,9 @@ window.addEventListener('load',function(){
     let inputSku = qs('#sku');
     let inputNombre = qs('#nombre');
     let inputPrice = qs('#precio');
-    let selectCategory= qs('#categoria'); //usé un select, no puede quedar vacía
+    let selectCategoria= qs('#selectCategoria'); //usé un select, no puede quedar vacía /  let selectCategory= qs(#categoria);
     let inputSCategory = qs('#subCategoria');
+    let selectSub= qs('#selectSub')
     let selectSeccion = qs('#seccion'); // usé un select, esta puede quedar vacía
     let inputDiscount = qs('#discount'); //puede quedar vacío
     let textareaDescrip= qs('#exampleFormControlTextarea1'); 
@@ -40,6 +41,27 @@ let regExtTXT2="[a-zA-Z ]{20,450}"
 
 //las validaciones del front las refleja sobre cada uno de los inputs
 // --> validaciones
+function ordenarAsc(p_array_json, p_key){
+    p_array_json.sort(function(a,b){
+        return a[p_key] >  b[p_key];
+    });
+}
+
+let subcategorias = function(idCategoria){
+    selectSub.innerHTML = ""
+    fetch(`${window.location.origin}/api/subcategorias/${idCategoria}`)
+    .then(response => response.json())
+    .then(subcategorias => {
+        console.log(subcategorias)
+       ordenarAsc(subcategorias,'nombre')
+        subcategorias.forEach(subcategoria => {
+            selectSub.innerHTML +=
+              `<option value="${subcategoria.id}">${subcategoria.nombre}</option>`
+        });
+    })
+}
+
+
 
 inputSku.addEventListener('blur', function(){
     switch (true) {
@@ -101,7 +123,7 @@ inputPrice.addEventListener('blur', function(){
     }
 })
 
-selectCategory.addEventListener('blur', function(){
+/*selectCategory.addEventListener('blur', function(){
     switch (true) {
         case this.value.length == 0:
             errores.categoria = "La Categoria es obligatoria";
@@ -119,9 +141,9 @@ selectCategory.addEventListener('blur', function(){
             errorCategoria.innerHTML = ""  // lo vacio
             break;
     }
-})
+})*/
 
-inputSCategory.addEventListener('blur', function(){
+/*inputSCategory.addEventListener('blur', function(){
     switch (true) {
         case this.value.length == 0:
             errores.subCategoria = "El campo es obligatorio";
@@ -140,6 +162,8 @@ inputSCategory.addEventListener('blur', function(){
             break;
     }
 })
+
+en la vista iba  <span id="errorSubcategoria" class="text-danger"></span>*/
 
 
 
@@ -232,7 +256,11 @@ inputFoto.addEventListener('change',function(e){
         }
     })
 
-    
+    selectCategoria.addEventListener('change',()=>{
+        subcategorias(selectCategoria.value)
+        })
+ 
+
 formulario.addEventListener('submit',function(event){
     let error = false
     event.preventDefault()

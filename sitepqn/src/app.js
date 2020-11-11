@@ -8,6 +8,7 @@ let indexRouter = require('./routes/index');
 let registroRouter = require('./routes/registro');
 let categoriesRouter = require('./routes/categories')
 let productsRouter =require ('./routes/products');
+let apiRouter = require('./routes/apis');
 
 const methodOverride = require('method-override');
 const session = require('express-session');
@@ -38,6 +39,7 @@ app.use('/', indexRouter);
 app.use('/registro', registroRouter);
 app.use('/categories', categoriesRouter)
 app.use('/products', productsRouter);//uso los productos
+app.use('/api',apiRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

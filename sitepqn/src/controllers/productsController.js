@@ -3,7 +3,7 @@ const path = require('path')
 
 const dbProducts = require('../data/dataBase')
 const dbCategories = require('../data/dataBase');
-//const dbCategories = require('../data/categories.json')
+
 
 const {
   validationResult
@@ -42,7 +42,16 @@ module.exports = {
       })
   },
   detalle: function (req, res) {
-    db.Products.findByPk(req.params.id)
+    db.Products.findByPk(req.params.id,{
+      include: [
+        {
+        association: "categorias"
+      },
+      {
+        association : 'subcategorias'
+      }
+    ]
+    })
       .then(producto => {
         res.render('productos', {
           title: "Pa Que | Detalle del producto",
@@ -56,7 +65,7 @@ module.exports = {
         res.send(error)
       })
   },
-  agregar: function (req, res) {
+  /*agregar: function (req, res) {
     db.Products.findAll({
 
       })
@@ -72,7 +81,27 @@ module.exports = {
       .catch(error => {
         res.send(error)
       })
-  },
+  },*/
+
+  agregar: function (req, res) {
+    db.Categories.findAll({
+            order: [
+                'nombre'
+            ]
+        })
+        .then(categorias => {
+            res.render('carga', {
+                title: "PaQue | Agregar",
+                css: "style.css",
+                js: 'formCargaV.js',
+                usuario: req.session.usuario,
+                categorias: categorias
+            })
+        })
+},
+
+
+
   publicar: function (req, res, next) {
     let errors = validationResult(req);
 
