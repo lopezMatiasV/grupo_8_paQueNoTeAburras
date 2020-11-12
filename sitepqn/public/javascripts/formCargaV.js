@@ -207,7 +207,7 @@ inputDiscount.addEventListener('blur', function(){
     }
 })
 
-    /*textareaDescrip.addEventListener('blur', function(){
+    textareaDescrip.addEventListener('blur', function(){
         switch (true) {
             case this.value.length == 0:
                 errores.exampleFormControlTextarea1 = "La Descripción del Producto es obligatoria";
@@ -225,7 +225,7 @@ inputDiscount.addEventListener('blur', function(){
                 errorDescripcion.innerHTML = ""  
                 break;
         }
-    })*/
+    })
     
 
    
