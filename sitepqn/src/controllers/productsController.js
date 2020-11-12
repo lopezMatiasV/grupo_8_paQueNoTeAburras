@@ -222,7 +222,7 @@ module.exports = {
           categoria: req.body.categoria,
           subcategoria: req.body.subcategoria,
           seccion: req.body.seccion,
-          fotos: images,/*(req.files[0]) ? req.files[0].filename : idNewProduct.fotos,*/
+          fotos: (req.files[0]) ? req.files[0].filename : idNewProduct.images,//(req.files[0]) ? req.files[0].filename : idNewProduct.fotos,
           descuento: Number(req.body.descuento)
         }, {
           where: {
@@ -235,7 +235,7 @@ module.exports = {
         })
         .catch(errors => {
           errors = {};
-          errores.errors.forEach(error => {
+          errors.errors.forEach(error => {
             if (error.path == "sku") {
               errors["sku"] = {};
               errors["sku"]["msg"] = error.message

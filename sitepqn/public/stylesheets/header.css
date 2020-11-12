@@ -221,3 +221,32 @@ html, body {
 a #btnDelete{
     display: inline;
 }
+/*ocultar pass
+.input-pass{  
+    background-color: white;
+    border: 1px solid var(--color-verde);
+    border-radius: 5px;
+    padding: 0px 8px; 
+}
+.input-pass input{
+    background: none;
+    border: 0;
+    width: 20%;
+    margin: 5px 25px;
+    padding-right: 0px;
+    border-right: 2px solid var(--color-verde);
+  }
+ .input-pass input:focus,
+ 
+  button:focus {
+      outline: none;
+  }
+  
+ .input-pass button {
+      background: none;
+      border: 0;
+      border: var(--color-verde);
+      color: var(--color-verde);
+      padding: 0;
+      padding-left: 0px;
+  }*/

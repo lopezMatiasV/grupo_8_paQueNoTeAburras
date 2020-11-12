@@ -15,7 +15,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-4">               
                             <div class="col-10">
                                 <figure class="text-center">
-                                    <img src="/images/users/<%= usuario.avatar %>" alt="" width="200px" height="200px"
+                                    <img id="vistaPrevia" src="/images/users/<%= usuario.avatar %>" alt="" width="200px" height="200px"
                                     class="rounded-circle avatar">
                                 </figure>
                                 <small id="errorsFormato" class="text-danger"><%= (typeof errors != 'undefined' && errors.formato)?errors.formato.msg: "" %> </small>

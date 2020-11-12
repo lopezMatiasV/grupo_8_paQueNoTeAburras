@@ -25,7 +25,12 @@
             
              <input type="email" class="form-control" id="email2" aria-describedby="emailHelp" value="<%= (typeof old != 'undefined' && old.email)?old.email:'' %>" placeholder="email" name="email">
             <small id="errorEmail" class="text-danger"><%= (typeof errores != 'undefined' && errores.email)?errores.email.msg: "" %> </small>
-            <input id="passLog" type="password" class="form-control"  placeholder="contraseña" name="pass">
+<!--pass-->           
+            <div class="input-pass">
+              <input id="passLog" type="password" class="form-control"  placeholder="contraseña" name="pass">              
+              <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+            </div>
+
             <small id="errorPass" class="text-danger"><%= (typeof errores != 'undefined' && errores.pass)?errores.pass.msg: "" %> </small>
 
               <div class="custom-control custom-checkbox my-1 mr-sm-2 custom-control-inline align-items-center">
@@ -113,6 +118,25 @@
   <!--FOOTER: PIE DE PAGINA-->
   <%- include('partials/footer') %>
 
+  <script type="text/javascript">
+    function mostrarPassword(){
+        var cambio = document.getElementById("passLog");
+        if(cambio.type == "password"){
+          cambio.type = "text";
+          $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+        }else{
+          cambio.type = "password";
+          $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+        }
+      } 
+      
+      $(document).ready(function () {
+      //CheckBox mostrar contraseña
+      $('#ShowPassword').click(function () {
+        $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+      });
+    });
+    </script>
   
   <script type="text/javascript">
     function toggleForm(){
