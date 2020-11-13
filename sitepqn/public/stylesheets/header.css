@@ -90,137 +90,95 @@ html, body {
 }
 
 /*BOTONES*/
-.myButtonAcept .myButtonDelete .myButtonDelete{
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 0 auto;
-}
-.myButtonEdit {
-	box-shadow: 0px 10px 14px -7px #f9eca0;
-	background:linear-gradient(to bottom, #f0c911 5%, #f2ab1e 100%);
-	background-color:#f0c911;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#c92200;
-	font-family:Arial;
-	font-size:12px;
-	font-weight:bold;
-	padding:13px 32px;
-	text-decoration:none;
-    text-shadow:0px 1px 0px #ded17c;
-    margin-bottom: 2px;
-    margin-top: 2px;
-    margin-left: 2px;
-    margin-right: 2px;
-   
-}
-.myButtonEdit:hover {
-	background:linear-gradient(to bottom, #f2ab1e 5%, #f0c911 100%);
-	background-color:#f2ab1e;
-}
-.myButtonEdit:active {
-	position:relative;
-	top:1px;
-}
+  }
+  
+  .buttons {
+    margin: 10%;
+    text-align: center;
+  }
+  
+  .btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 45px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+  
+    border-radius: 10px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  
+  .btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  
+  .btn-hover:focus {
+    outline: none;
+  }
+  
+  .btn-hover.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+  }
+  .btn-hover.color-2 {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  }
+  .btn-hover.color-3 {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+  }
+  .btn-hover.color-4 {
+    background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+    box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+  }
+  .btn-hover.color-5 {
+    background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+  }
+  .btn-hover.color-6 {
+    background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
+    box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+  }
+  .btn-hover.color-7 {
+    background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+  }
+  .btn-hover.color-8 {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+  }
+  .btn-hover.color-9 {
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  }
+  .btn-hover.color-10 {
+        background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+  }
+  .btn-hover.color-11 {
+       background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+  }
+  
 
 
 
-.myButtonAcept {
-	box-shadow: 0px 10px 14px -7px #3dc21b;
-	background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
-	background-color:#44c767;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:12px;
-	font-weight:bold;
-	padding:13px 32px;
-	text-decoration:none;
-    text-shadow:0px 1px 0px #2f6627;
-    margin-bottom: 2px;
-    margin-top: 2px;
-    margin-left: 2px;
-    margin-right: 2px;
-   
-    
-}
-.myButtonAcept:hover {
-	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-	background-color:#5cbf2a;
-}
-.myButtonAcept:active {
-	position:relative;
-	top:1px;
-}
-
-
-
-.myButtonDelete {
-	box-shadow: 0px 10px 14px -7px #f29c93;
-	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
-	background-color:#fe1a00;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:12px;
-	font-weight:bold;
-	padding:13px 32px;
-	text-decoration:none;
-    text-shadow:0px 1px 0px #b23e35;
-    margin-bottom: 2px;
-    margin-top: 2px;
-    margin-left: 2px;
-    margin-right: 2px;
-    
-}
-.myButtonDelete:hover {
-	background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
-	background-color:#ce0100;
-}
-.myButtonDelete:active {
-	position:relative;
-	top:1px;
-}
-
-
-
-.myButtonOk {
-	box-shadow: 0px 10px 14px -7px #276873;
-	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-	background-color:#599bb3;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:12px;
-	font-weight:bold;
-	padding:13px 32px;
-	text-decoration:none;
-    text-shadow:0px 1px 0px #3d768a;
-    margin-bottom: 2px;
-    margin-top: 2px;
-    margin-left: 2px;
-    margin-right: 2px;
-    
-}
-.myButtonOk:hover {
-	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-	background-color:#408c99;
-}
-.myButtonOk:active {
-	position:relative;
-	top:1px;
-}
-
-     
-a #btnDelete{
-    display: inline;
-}
 /*ocultar pass
 .input-pass{  
     background-color: white;

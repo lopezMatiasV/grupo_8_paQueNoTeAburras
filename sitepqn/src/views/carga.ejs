@@ -56,7 +56,7 @@
                 <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
                 <input type="text" id="nombre" name="nombre" placeholder="Nombre del Producto"  style="font-family: inherit;
                 font-size: 14px; line-height: inherit; padding-left: 130px;" >
-                <label for="nombre" style="margin-left: -15px;"> Nombre del Producto: </label>
+                <label for="nombre" style="margin-left: -15px;"> Nombre: </label>
                 <span id="errorNombre" class="text-danger" style="font-size: x-small; margin-left: 65px;"></span>
               </div>
               
@@ -85,7 +85,7 @@
                       </select>
                       
                       <small id="errorSubCategoria" class="text-danger"><%= (typeof errors != 'undefined' && errors.subcategoria)?errors.subcategoria.msg: "" %> </small>
-                      <span id="errorSubcategoria" class="text-danger"></span>
+                      <span id="errorSubcategoria" class="text-danger" style="font-size: x-small; margin-left: 65px;"></span>
                     </div>
                     
                     
@@ -113,19 +113,7 @@
                 </div>          
               </div>
               <br>
-              <!--Carga de imagen del producto-->
-              <!-- <div class="photo">
-                <label for="foto">Foto de Producto: </label>
-                
-                <div class="prevPhoto">
-                  <span class="imagen"><img src="" alt=""></span>
-                  <label for="foto"></label>
-                </div>
-                <div class="uping">
-                  <input type="file" name="foto" id="foto" required>
-                  <span id="errorFoto" class="text-danger"></span>       
-                </div>
-              </div>-->
+             
               <div class="photo">
                 <label for="foto">Foto de Producto: </label>
                 <input type="file" class="form-control upload" name="foto" id="foto" accept="image/*" multiple="multiple" >

@@ -3,7 +3,8 @@
 <%- include('partials/head') %> 
 
  
-<body>
+<body style="background-color: #01e37f;
+">
  
   <%- include('partials/header') %>
    
@@ -19,23 +20,28 @@
     <!--Comienza la tarjeta de productos PiniPoyDelivery-->
     <!--Acá hay que modificar el h1; pero cuidado que afecta el estilo y modifica la escritura del producto-->
     <div id="h1" class="column">
-      <h2 style="text-align:center"> <%- producto.categoria %>  </h2>
       
-      <div class="card">
       
-        <img src="../../images/products/<%= (producto.fotos.split(','))[0] %>" alt="" style="width:100%">
+      <div class="card" id="photo-main" style="box-shadow: .3px .2px .2px .2px #3B5998; margin-top: 15px; margin-bottom: 15px; border-radius: 60px 60px 60px 0;">
+      
+        <img class="photo-main" src="../../images/products/<%= (producto.fotos.split(','))[0] %>" alt="" style="width:100%">
     
        <!--modifico el encabezado de la carta para que traiga el producto
       -->
-        <h1> <%= producto.nombre %> </h1>
-        <p class="price"> $ <%- (producto.precio - producto.precio * producto.descuento / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></p>
+      <div style="border-radius: 60px 60px 0 0;">
+        
+        <h1 style="text-transform: uppercase; font-size: 30px; margin-bottom: 15px;margin-top: 15px;"> <%= producto.nombre %> </h1>
+        <div class="price-box price-final_price" style="display: inline-flex;">
+        <strong> <p class="price"> $ <%- (producto.precio - producto.precio * producto.descuento / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></p> </strong>
         <% if (producto.descuento != 0) { %>
-          <span><%- producto.descuento %>% OFF</span>
+          <small> <span  class="d-inline p-2 bg-success text-white" style="color: var(--color-celeste); margin-left: 3rem;" class="discount"><%- producto.descuento %>% OFF</span></small>
           <% } %>
+        </div>
+      </div>
+        <p style="margin-left: 10px; margin-right: 10px;" > <%= producto.descripcion %> </p>
 
-        <p> <%= producto.descripcion %> </p>
-        <a href="/carrito"> <p><button  class="Add to Cart">Agregar al Carrito</button></p></a>
-        <p><button class="comprarAhora">Comprar ahora</button></p>
+        <a href="/carrito"> <button style="max-width: 100%; margin-bottom: 15px;" class="Add to Cart btn-hover color-5">Agregar al Carrito</button> </a>
+        
       </div>
     </div>
   
@@ -46,7 +52,7 @@
   <div  id="h2" class="column">
     
     <div class="w3-container">
-      <h3><%= producto.nombre %></h3>
+      <h4 style="text-transform: uppercase;"><%= producto.nombre %></h4>
       <p>Tocá la imagen para ver el detalle</p>
     </div>
     
@@ -71,46 +77,7 @@
     </div>
   </div>
     <br>
-    <!--Raiting de Productos-->
-    <div id="lineUnderProduct" class="container">
-      <div class="row ">
-        <div id="itemsunderline" class="rating">
-          <h6>Rating </h6>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-        </div>
-        <!--Fin de Raiting de productos ... estrellitas-->
-        <!--Agregar a los me gusta-->
-        <div id="itemsunderline"class="likes">
-          <h6>Like</h6>
-          <i class="fas fa-heart"></i>
-        </div>
-        <!--Fin de agregar me gusta-->
-
-        <!--Boton de cantidad-->
-        
-        <div id="itemsunderline"class="addtobasketqty">
-          <h6 class="detailquantitytext" >Cantidad</h6>
-         
-          <a class="detailquantityminus" href="javascript:qty_minus('qtyPlusMinus30000', 1)"> - </a>
-          <input type="text" class="inputitem_productqty" id="qtyPlusMinus30000" name="qty" value="1" size="1" >
-          
-          <a class="detailquantityplus" href="javascript:qty_plus('qtyPlusMinus30000', 2707) "> + <a href="/carrito"><i class="fas fa-shopping-basket"></i> </a> </a>
-        </div>   
-        
-        <!--Fin de boton de cantidad-->
-
-        
-        <!--Relacionar con el carrito y los envíos-->
-        <div id="itemsunderline"class="enviosProduct">
-          <h6>Envíos</h6>
-          <i id="truck" class="fas fa-truck"></i>
-        </div>
-      </div>
-    </div>
+     
     <!--Imagenes que se expanden-->
     <div class="imgsalen">
       <div id="PinyPon" class="picture w3-display-container" style="display:none">
@@ -160,7 +127,7 @@
         </div>
         
         <div id="FsyWtsp" class="col">
-          <a href="#" class="btn" style="background-color: #3aac5d;color: white;">
+          <a href="#" class="btn" style="background-color:#4AC959;;color: white;">
             <i id="verde" style="color: white;" class="fa fa-whatsapp fa-fw " ></i> Comparte en Whatsapp
           </a>
         </div>
