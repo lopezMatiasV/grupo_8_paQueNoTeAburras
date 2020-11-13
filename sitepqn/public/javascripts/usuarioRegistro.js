@@ -168,7 +168,9 @@ formRegistro.addEventListener('submit',function(event){
      error = false
    }
     if(!error){
+        alert("Te registraste correctamente, ahora logueate!!!")
             formRegistro.submit()
+            
         }
 })
 })

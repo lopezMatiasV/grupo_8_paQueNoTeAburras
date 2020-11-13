@@ -32,15 +32,16 @@
                       <p id="descripcion"><%- producto.descripcion %></p>
 
                       <div class="container-cart">
-                      <div class="card-header text-right align-bottom" >
-                        <small class="text-muted "><a style="color:  rgb(85, 6, 142);"class="container-cart" href="#">Agregar al carrito <i class="fas fa-angle-double-right"></i><i style="color:  rgb(85, 6, 142);" class="fas fa-cart-plus"></i></a></small>
-                      </div>  
-                      
-                    </div>
+                        <div class="text-right align-top" >
+                            <button type="submit " class="btn-hover color-5" >
+                          <small class="text-muted "><a style="color: white;"class="container-cart" href="/carrito">Agregar al carrito <i class="fas fa-angle-double-right"></i><i style="color:  whitesmoke;" class="fas fa-cart-plus"></i></a></small></button>
+                        </div>  
+                        
+                          </div>
                     </div>
                     <div class="editar">
                         <% if (typeof usuario != "undefined" && usuario.rol=="admin") { %>
-                            <button class="btn btn-warning"><a href="/products/show/<%= producto.id %>">Editar</a></button>
+                            <button class="btn-hover color-4"><a href="/products/show/<%= producto.id %>">Editar</a></button>
                         <% } %>                                
                     </div>
                   <% }) %> 

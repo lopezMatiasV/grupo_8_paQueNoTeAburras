@@ -266,7 +266,7 @@ formulario.addEventListener('submit',function(event){
     }
     if(!error){
         console.log("Todo Perfecto!!");
-        alert("Producto cargado correctamente")
+        sweetAlert("Producto cargado correctamente")
         formulario.submit()
     }
     
