@@ -19,7 +19,7 @@ window.addEventListener('load',function(){
     let inputPrice = qs('#precio');
     let selectCategoria= qs('#selectCategoria'); //usé un select, no puede quedar vacía /  let selectCategory= qs(#categoria);
     let inputSCategory = qs('#subCategoria');
-    let selectSub= qs('#selectSub')
+    let selectSub = qs('#selectSub')
     let selectSeccion = qs('#seccion'); // usé un select, esta puede quedar vacía
     let inputDiscount = qs('#discount'); //puede quedar vacío
     let textareaDescrip= qs('#exampleFormControlTextarea1'); 
@@ -123,38 +123,28 @@ inputPrice.addEventListener('blur', function(){
     }
 })
 
-/*selectCategory.addEventListener('blur', function(){
+selectCategoria.addEventListener('blur', function(){
     switch (true) {
         case this.value.length == 0:
             errores.categoria = "La Categoria es obligatoria";
             errorCategoria.innerHTML = errores.categoria  //para las etiquetas span del index.ejs (error nombre le voy a agregar el string errores.nombre)
             this.classList.add('is-invalid') //estoy agregando la clase is-invalid, si es que hay un error.
             break;
-    case this.value.length <= 5: //debe tener al menos 6 letras
-        errores.categoria = "El campo Categoria debe tener al menos 6 letras";
-        errorCategoria.innerHTML = errores.categoria
-        this.classList.add('is-invalid')
-        break;
-        default:
+            default:
             this.classList.remove('is-invalid'); //sobre el mismo elemento si hubiera habido un error lo voy a remover y le voy a agregar
             this.classList.add('is-valid');
             errorCategoria.innerHTML = ""  // lo vacio
             break;
     }
-})*/
+})
 
-/*inputSCategory.addEventListener('blur', function(){
+selectSub.addEventListener('blur', function(){
     switch (true) {
         case this.value.length == 0:
             errores.subCategoria = "El campo es obligatorio";
             errorSubcategoria.innerHTML = errores.subCategoria
             this.classList.add('is-invalid')
             break;
-            case this.value.length <= 5: //debe tener al menos 6 letras 
-        errores.subCategoria = "Debes escribir una Subcategoria válida";
-        errorSubcategoria.innerHTML = errores.subCategoria
-        this.classList.add('is-invalid')
-        break;
         default:
             this.classList.remove('is-invalid');
             this.classList.add('is-valid');
@@ -163,7 +153,7 @@ inputPrice.addEventListener('blur', function(){
     }
 })
 
-en la vista iba  <span id="errorSubcategoria" class="text-danger"></span>*/
+
 
 
 
@@ -190,7 +180,7 @@ selectSeccion.addEventListener('blur', function(){
 inputDiscount.addEventListener('blur', function(){
     switch (true) {
         case this.value.length == 0:
-            errores.discount = "El campo del descuento es obligatorio,  de no aplicar descuento deberá validar la opción cero";
+            errores.discount = "El campo del descuento es obligatorio";
             errorDiscount.innerHTML = errores.discount
             this.classList.add('is-invalid')
             break;

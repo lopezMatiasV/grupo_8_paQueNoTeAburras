@@ -12,7 +12,7 @@
   
   <div class="conteiner-fluid formulario"><!--se corre el form en sm-->
     <div class="datosProducto">
-      <div class="formProd">
+      <div class="formProd" style="box-shadow: 3px 3px 3px 2px #282083;">
         <form id="cargaProd" action="" method="POST" enctype="multipart/form-data">
           
           <div class="formulario">
@@ -27,27 +27,27 @@
                  
                   <small class="text-danger"><%= (typeof errors != 'undefined' && errors.sku)?errors.sku.msg: "" %> </small>
                   
-                  <input type="text" id="sku" name="sku" placeholder="123456"  style="margin-bottom: 1rem;"> 
-                  <label  for="sku"> sku: </label>
-                  <span id="errorSku" class="text-danger" style="font-size: x-small;"></span>
+                  <input type="text" id="sku" name="sku" placeholder="123456"  style="margin-bottom: 1rem; padding-left: 130px;"> 
+                  <label  for="sku"> SKU: </label>
+                  <span id="errorSku" class="text-danger" style="font-size: x-small; margin-left: 65px;"></span>
                 </div>
                 
                 <div class="form-group col-12 col-lg-4 has-float-label"> 
                  
                   <small class="text-danger"><%= (typeof errors != 'undefined' && errors.precio)?errors.precio.msg: "" %> </small>
-                  <input type="text" id="precio" name="precio" placeholder="1000.00" >
+                  <input type="text" id="precio" name="precio" placeholder="1000.00" style="padding-left: 130px;" >
                   <label for="precio"> Precio: </label>
-                  <span id="errorPrecio" class="text-danger" style="font-size: x-small;"></span>
+                  <span id="errorPrecio" class="text-danger" style="font-size: x-small; margin-left: 65px;"></span>
                   
                 </div>
                 
                 <div class="form-group col-12 col-lg-4 has-float-label"> 
                   
                   <small class="text-danger"><%= (typeof errors != 'undefined' && errors.descuento)?errors.descuento.msg: "" %> </small>
-                  <input type="text" id="discount" name="descuento" placeholder="5% al 30%"  >
+                  <input type="text" id="discount" name="descuento" placeholder="5% al 30%"   style="padding-left: 130px;">
                   <label for="discount"> Descuento: </label>
                   
-                  <span id="errorDiscount" class="text-danger" style="font-size: x-small;"></span>
+                  <span id="errorDiscount" class="text-danger" style="font-size: x-small; margin-left: 65px;"></span>
                 </div>
               </div>
               
@@ -56,8 +56,8 @@
                 <small class="text-danger"><%= (typeof errors != 'undefined' && errors.nombre)?errors.nombre.msg: "" %> </small>
                 <input type="text" id="nombre" name="nombre" placeholder="Nombre del Producto"  style="font-family: inherit;
                 font-size: 14px; line-height: inherit; padding-left: 130px;" >
-                <label for="nombre"> Nombre del Producto: </label>
-                <span id="errorNombre" class="text-danger" style="font-size: x-small;"></span>
+                <label for="nombre" style="margin-left: -15px;"> Nombre del Producto: </label>
+                <span id="errorNombre" class="text-danger" style="font-size: x-small; margin-left: 65px;"></span>
               </div>
               
               
@@ -65,7 +65,7 @@
                 <div class="form-group col-12 col-lg-4"> 
                   <!--<label for="categoria">Categoría: </label> -->
                   <small class="text-danger"><%= (typeof errors != 'undefined' && errors.categoria)?errors.categoria.msg: "" %> </small>  <!---->
-                  <select name="categoria" id="selectCategoria" placeholder="muñecas"class="form-control custom-select-lg <%= (typeof old != 'undefined' && old.categoria)?"is-valid":(typeof errors != 'undefined' && errors.categoria)?"is-invalid": ""  %>">
+                  <select name="categoria" id="selectCategoria" class="form-control custom-select-lg <%= (typeof old != 'undefined' && old.categoria)?"is-valid":(typeof errors != 'undefined' && errors.categoria)?"is-invalid": ""  %>">
                     <option value="">Eligí la categoría</option>
                     <% if (typeof oldCategoria != 'undefined') { %>
                       <option value="<%= old.categoria %> " selected><%= oldCategoria %> </option>
@@ -75,16 +75,17 @@
                         <% }) %>>
                       </select>
                       
-                      <span id="errorCategoria" class="text-danger" style="font-size: x-small;"></span>
+                      <span id="errorCategoria" class="text-danger" style="font-size: x-small; margin-left: 65px;"></span>
                     </div>
                     
                     <div class="form-group col-12 col-lg-4"> 
                       <!--<label for="subCategoria"> Sub-Categoría: </label>-->
-                      <select id="selectSub" name="subcategoria" placeholder="autos"  class="form-control custom-select custom-select-lg mb-3 <%= (typeof old != 'undefined' && old.subcategoria)?"is-valid":(typeof errors != 'undefined' && errors.subcategoria)?"is-invalid": ""  %>">
+                      <select id="selectSub" name="subcategoria"  class="form-control custom-select custom-select-lg mb-3 <%= (typeof old != 'undefined' && old.subcategoria)?"is-valid":(typeof errors != 'undefined' && errors.subcategoria)?"is-invalid": ""  %>">
                         <option value="">Eligí la subcategoría</option>
                       </select>
                       
                       <small id="errorSubCategoria" class="text-danger"><%= (typeof errors != 'undefined' && errors.subcategoria)?errors.subcategoria.msg: "" %> </small>
+                      <span id="errorSubcategoria" class="text-danger"></span>
                     </div>
                     
                     
@@ -99,7 +100,7 @@
                         <option value="Campaña">Campaña</option>
                       </select> 
                       
-                      <span id="errorSeccion" class="text-danger" style="font-size: x-small;"></span>
+                      <span id="errorSeccion" class="text-danger" style="font-size: x-small; margin-left: 65px;"></span>
                     </div>
                   </div>
                   
@@ -107,7 +108,7 @@
                   <label for="exampleFormControlTextarea1">Descripción</label>
                   <small class="text-danger"><%= (typeof errors != 'undefined' && errors.descripcion)?errors.descripcion.msg: "" %> </small>
                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="descripcion"  minlength="20" maxlength="450"></textarea>
-                  <span id="errorDescripcion" class="text-danger" style="font-size: x-small;"></span>
+                  <span id="errorDescripcion" class="text-danger" style="font-size: x-small; margin-left: 65px;"></span>
                
                 </div>          
               </div>
@@ -128,7 +129,7 @@
               <div class="photo">
                 <label for="foto">Foto de Producto: </label>
                 <input type="file" class="form-control upload" name="foto" id="foto" accept="image/*" multiple="multiple" >
-                <span id="errorFoto" class="text-danger" style="font-size: x-small;"></span>       
+                <span id="errorFoto" class="text-danger" style="font-size: x-small; margin-left: 65px;"></span>       
               </div>         
               
               <input type="submit" value="Finalizar carga del producto" class="btn">
