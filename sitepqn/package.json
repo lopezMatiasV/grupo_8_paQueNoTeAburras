@@ -20,7 +20,7 @@
     "mysql2": "^2.2.5",
     "ngrok": "^3.2.7",
     "nodemon": "^2.0.6",
-    "sequelize": "^6.3.5",
+    "sequelize": "^6.31.0",
     "sweetalert": "^2.1.2"
   }
 }
